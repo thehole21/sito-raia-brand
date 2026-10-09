@@ -1,0 +1,167 @@
+/*
+ * RAIA / BRAND EDITION — design tokens derived from the ORIGINAL burgundy logo.
+ * Keep this file below globals.css. Edit ONLY this file to test the alternative.
+ * Wine / warm paper / graphite. No rainbow palette or visual noise.
+ */
+:root {
+  --brand-wine: #8a3840;      /* official red from uploaded mark */
+  --brand-wine-deep: #6b2530;
+  --brand-wine-soft: #bd8c91;
+  --brand-rose-line: #dfc8ca;
+  --brand-graphite: #202020;
+  --brand-paper: #f8f7f4;
+  --brand-paper-alt: #f1eeea;
+  --brand-line: #d9d0cb;
+  --paper: var(--brand-paper);
+  --warm: var(--brand-paper-alt);
+  --ink: var(--brand-graphite);
+  --black: #171717;
+  --muted: #73706f;
+  --line: var(--brand-line);
+  --gold: var(--brand-wine);
+}
+
+body { background: var(--brand-paper); color: var(--brand-graphite); }
+::selection { background: #e5c5c8; color: #361015; }
+:focus-visible { outline: 2px solid var(--brand-wine); outline-offset: 4px; }
+.little-dot, .quote-head-dot { background: var(--brand-wine); }
+
+/* Tiny tonal bar: burgundy -> rose -> graphite. No bulky colored bands. */
+.site-header { position: sticky; isolation: isolate; background: rgba(248,247,244,.94); border-bottom-color: var(--brand-line); height: 103px; }
+.site-header--scrolled { height: 90px; background: rgba(248,247,244,.97); }
+.site-header::after {
+  content: ''; pointer-events: none; position: absolute; left: 0; bottom: -1px;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--brand-wine) 0 17%, var(--brand-wine-soft) 17% 29%, var(--brand-line) 29% 82%, var(--brand-graphite) 82% 100%);
+  opacity: .76;
+}
+.site-header--open { background: rgba(248,247,244,.98); color: var(--brand-graphite); }
+.site-header__inner { gap: clamp(14px, 2vw, 31px); }
+.brand-logo { display: inline-flex; flex: 0 0 auto; align-items: center; line-height: 0; text-decoration: none; }
+.brand-logo__image { display: block; width: clamp(150px, 12.1vw, 174px); height: auto; max-height: 86px; object-fit: contain; transition: transform .28s ease; }
+.brand-logo:hover .brand-logo__image { transform: translateY(-2px); }
+.header-links { gap: clamp(16px, 1.9vw, 32px); }
+.header-links a { color: #494343; font-size: clamp(12px, .89vw, 14px); font-weight: 670; }
+.header-links a.is-active, .header-links a:hover { color: var(--brand-wine); }
+.header-links a::after { background: var(--brand-wine); height: 2px; }
+.header-links a:not(.is-active) { color: #64605c; }
+.header-quote { border-color: var(--brand-wine); background: var(--brand-wine); color: #fff; }
+.header-quote:hover, .site-header--open .header-quote:hover { background: var(--brand-wine-deep); color: #fff; border-color: var(--brand-wine-deep); }
+.header-quote__icon { border-left-color: rgba(255,255,255,.34); }
+.header-quote:hover .header-quote__icon { border-left-color: rgba(255,255,255,.34); }
+
+/* Keep burgundy restrained: one accent per component, fine wine/rose lines. */
+.page-opening__eyebrow, .section-overline, .eyebrow { color: var(--brand-wine); }
+.page-opening__grid > p { border-left: 2px solid var(--brand-rose-line); }
+.page-opening h1 em, .about-feature__story h2 em { color: var(--brand-wine); font-style: normal; }
+.page-opening { border-bottom-color: var(--brand-line); }
+.button-solid, .quote-submit, .contact-grid__dark { background: var(--brand-graphite); }
+.button-solid:hover, .quote-submit:hover { background: var(--brand-wine); color: #fff; }
+.button-underlined { border-bottom-color: var(--brand-wine); }
+.button-underlined:hover { color: var(--brand-wine); }
+.page-endline { border-top-color: var(--brand-rose-line); }
+
+/* Home remains an uninterrupted VIDEO: no additional imagery over it. */
+.film-hero__overline { color: #fff6f4; }
+.film-hero__headline { text-shadow: 0 2px 25px rgba(0,0,0,.22); }
+.film-hero__cta { border-bottom-color: rgba(255,255,255,.85); }
+.film-hero__cta:hover .film-hero__cta-icon,
+.film-hero__cta:focus-visible .film-hero__cta-icon { background: var(--brand-wine); color: white; border-color: var(--brand-wine); }
+
+/* Clients: a subtle 2-color separator, no marketing clutter. */
+.clients-section { background: #fcfaf8; border-bottom-color: var(--brand-rose-line); }
+.clients-section__heading { position: relative; }
+.clients-section__heading::after { content: ''; position: absolute; left: 0; bottom: -13px; width: 76px; height: 2px; background: linear-gradient(90deg,var(--brand-wine) 0 54%,var(--brand-wine-soft) 54%); }
+.clients-section__all { border-bottom-color: var(--brand-wine); }
+.clients-section__all:hover { color: var(--brand-wine); }
+.clients-marquee { background: #fbfaf8; border-block-color: #eadfdd; }
+.clients-marquee::before { background: linear-gradient(90deg,#fbfaf8,transparent); }
+.clients-marquee::after { background: linear-gradient(270deg,#fbfaf8,transparent); }
+.clients-marquee__tile:hover, .clients-marquee__tile:focus-visible { border-color: var(--brand-rose-line); }
+.clients-dialog__logo.is-selected { border-color: var(--brand-wine); }
+.clients-dialog__logo::after { background: rgba(138,56,64,.06); }
+
+/* VALUES: centred, visible icon discs and alternating line tones. */
+.values-strip { background: var(--brand-paper-alt); }
+.values-strip__intro h2 span { color: var(--brand-wine); }
+.values-strip__grid { border-top-color: var(--brand-rose-line); }
+.values-strip__item + .values-strip__item { border-left-color: #d3cbc5; }
+.values-strip__item:nth-child(3) { border-left-color: var(--brand-rose-line); }
+.values-strip__symbol { border-color: var(--brand-rose-line); }
+.values-strip__symbol svg { color: var(--brand-wine); }
+.values-strip__item:hover .values-strip__symbol { border-color: var(--brand-wine); color: var(--brand-wine); }
+.values-strip__item:hover .values-strip__symbol svg { color: var(--brand-wine); }
+
+/* SERVICES & PORTFOLIO: burgundy active state, consistent image captions. */
+.services-explorer--detailed .services-tab.is-active::before { background: var(--brand-wine); }
+.services-explorer--detailed .services-tab.is-active,
+.services-explorer--detailed .services-tab:hover { color: var(--brand-wine); }
+.services-explorer--detailed .services-tab.is-active svg { color: var(--brand-wine); }
+.service-showcase__overline, .service-showcase__note strong { color: var(--brand-wine); }
+.service-showcase__fact { border-bottom-color: var(--brand-rose-line); }
+.portfolio-filters button.is-active, .portfolio-filters button[aria-pressed='true'] { background: var(--brand-wine); color: #fff; border-color: var(--brand-wine); }
+.portfolio-card:hover .cover-image { transform: scale(1.025); }
+
+/* Quote form: one carefully placed accent; stay legible and easy to complete. */
+.quote-head-dot { background: var(--brand-wine); }
+.quote-service-option.is-selected { background: var(--brand-wine-deep); border-color: var(--brand-wine-deep); color: #fff; }
+.quote-service-option:hover:not(.is-selected) { border-color: var(--brand-wine-soft); }
+.quote-form input:focus, .quote-form textarea:focus, .quote-form select:focus { border-color: var(--brand-wine); }
+.quote-submit { border-color: var(--brand-wine); background: var(--brand-wine); }
+.quote-submit:hover { background: var(--brand-wine-deep); border-color: var(--brand-wine-deep); color: #fff; }
+.quote-submit:hover .quote-submit__arrow { border-left-color: rgba(255,255,255,.34); }
+.quote-progress > span { background: var(--brand-wine); }
+.quote-side__content h2 span { color: var(--brand-wine-soft); }
+
+/* Footer: compact, near-black, quietly premium. */
+.footer { position: relative; background: #151516; color: #f8f6f4; }
+.footer::before { content: ''; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg,var(--brand-wine) 0 32%,var(--brand-wine-soft) 32% 47%,#4d4141 47% 67%,#d1c5c0 67% 100%); }
+.footer__inner { padding-top: 20px; }
+.footer__brand-logo .brand-logo__image { width: 151px; max-height: 76px; }
+.footer__identity { gap: 17px; }
+.footer__identity-copy { border-left: 1px solid #6c4144; padding-left: 17px; }
+.footer__identity-copy strong { color: #fff; }
+.footer__grid { border-top-color: rgba(207,158,163,.28); border-bottom-color: rgba(207,158,163,.28); }
+.footer__label { color: #c8a3a6; }
+.footer__group:not(:last-child) { border-right-color: rgba(221,196,198,.19); }
+.footer__group a:hover, .footer__backtop:hover { color: #e4adb2; }
+.footer__bottom { border-top-color: rgba(207,158,163,.22); }
+.footer__socials .social-links__link { border-color: #65595a; }
+
+/* Mobile menu only; no desktop hamburger, no giant panel. */
+@media (max-width: 959px) {
+  .site-header { height: 78px; }
+  .site-header--scrolled { height: 72px; }
+  .brand-logo__image { width: 140px; max-height: 72px; }
+  .header-menu { border-color: var(--brand-rose-line); color: var(--brand-wine); }
+  .header-menu:hover, .header-menu[aria-expanded='true'] { background: var(--brand-wine); color: white; border-color: var(--brand-wine); }
+  .mobile-nav-backdrop { top: 78px; }
+  .mobile-nav-panel { top: 83px; border-top: 2px solid var(--brand-wine); }
+  .mobile-nav-panel__heading { border-bottom-color: var(--brand-rose-line); }
+  .mobile-nav-panel__heading strong { color: var(--brand-wine); }
+  .mobile-nav-panel__links a[aria-current='page'] { color: var(--brand-wine); }
+  .mobile-nav-panel__links a:hover { color: var(--brand-wine); }
+  .mobile-nav-panel__cta { background: var(--brand-wine); }
+  .mobile-nav-panel__bottom { border-top-color: var(--brand-rose-line); }
+  .services-explorer--detailed .services-tab.is-active { background: var(--brand-wine); color: #fff; }
+  .services-explorer--detailed .services-tab.is-active svg { color: #fff; }
+}
+@media (max-width: 560px) {
+  .site-header { height: 70px; }
+  .site-header--scrolled { height: 66px; }
+  .brand-logo__image { width: 125px; max-height: 64px; }
+  .header-actions { gap: 9px; }
+  .header-quote { min-height: 37px; }
+  .mobile-nav-backdrop { top: 70px; }
+  .mobile-nav-panel { top: 75px; }
+  .footer__identity { align-items: center; gap: 10px; }
+  .footer__brand-logo .brand-logo__image { width: 119px; max-height: 62px; }
+  .footer__identity-copy { padding-left: 12px; }
+  .footer__identity-copy span { display: none; }
+  .footer__group:not(:last-child) { border-right: 0; }
+  .values-strip__item:nth-child(3) { border-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo__image { transition: none; transform: none !important; }
+  .portfolio-card:hover .cover-image { transform: none; }
+}

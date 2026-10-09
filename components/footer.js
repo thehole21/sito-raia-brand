@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import SocialLinks from '@/components/social-links';
+import BrandLogo from '@/components/brand-logo';
 import { COMPANY, NAV } from '@/lib/content';
 
 export default function Footer() {
@@ -9,7 +10,7 @@ export default function Footer() {
       <div className="shell footer__inner">
         <div className="footer__top">
           <div className="footer__identity">
-            <Link href="/" className="footer__wordmark" aria-label="RAIA, homepage">RAIA<span aria-hidden="true">.</span></Link>
+            <BrandLogo onDark className="footer__brand-logo" />
             <div className="footer__identity-copy">
               <strong>{COMPANY.tagline}</strong>
               <span>{COMPANY.description}</span>

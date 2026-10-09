@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import SocialLinks from '@/components/social-links';
+import BrandLogo from '@/components/brand-logo';
 import { NAV } from '@/lib/content';
 
 export default function Header() {
@@ -36,10 +37,7 @@ export default function Header() {
     <>
       <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''} ${open ? 'site-header--open' : ''}`}>
         <div className="shell site-header__inner">
-          <Link href="/" className="brand" aria-label="RAIA, torna alla homepage" onClick={() => setOpen(false)}>
-            <span className="brand__symbol" aria-hidden="true">R<span>/</span></span>
-            <span className="brand__wordmark">RAIA<small>STAMPA &amp; COMUNICAZIONE</small></span>
-          </Link>
+          <BrandLogo onClick={() => setOpen(false)} />
 
           <nav className="header-links" aria-label="Navigazione principale">
             {NAV.map(({ label, href }) => (
