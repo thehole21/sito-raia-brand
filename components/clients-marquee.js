@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { CLIENTS } from '@/lib/clients';
+import './clients-marquee-fix.css';
 
 function ClientTile({ client, onClick, duplicate = false }) {
   return (
@@ -22,6 +23,7 @@ function ClientTile({ client, onClick, duplicate = false }) {
 
 export default function ClientsMarquee() {
   const dialogRef = useRef(null);
+  const allButtonRef = useRef(null);
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -74,6 +76,16 @@ export default function ClientsMarquee() {
     dialogRef.current?.close();
   }
 
+  function handleDialogClose() {
+    setSelected(null);
+    setIsOpen(false);
+    // La selezione non deve lasciare un logo del carosello focalizzato:
+    // la vecchia regola :focus-within avrebbe fermato l'animazione.
+    requestAnimationFrame(() => {
+      allButtonRef.current?.focus({ preventScroll: true });
+    });
+  }
+
   return (
     <section className="clients-section" aria-labelledby="clients-heading">
       <div className="shell clients-section__heading">
@@ -81,7 +93,7 @@ export default function ClientsMarquee() {
           <span className="section-overline">COLLABORAZIONI</span>
           <h2 id="clients-heading">La fiducia, <em>nei fatti.</em></h2>
         </div>
-        <button className="clients-section__all" type="button" onClick={() => openClients()}>
+        <button ref={allButtonRef} className="clients-section__all" type="button" onClick={() => openClients()}>
           Tutte le collaborazioni <ArrowUpRight size={17} strokeWidth={1.6} aria-hidden="true" />
         </button>
       </div>
@@ -101,7 +113,7 @@ export default function ClientsMarquee() {
         ref={dialogRef}
         className="clients-dialog"
         aria-labelledby="clients-dialog-title"
-        onClose={() => { setSelected(null); setIsOpen(false); }}
+        onClose={handleDialogClose}
         onClick={event => { if (event.target === event.currentTarget) closeClients(); }}
       >
         <div className="clients-dialog__panel">

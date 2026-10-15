@@ -1,0 +1,19 @@
+/* RAIA — valori: nuova tinta hover, senza cerchio nero.
+   Specificità maggiore delle regole storiche in globals.css e brand.css. */
+.values-strip .values-strip__item:hover .values-strip__symbol {
+  background: rgba(138, 56, 64, 0.075);
+  border-color: var(--brand-wine, #8a3840);
+  color: var(--brand-wine, #8a3840);
+  transform: translateY(-3px);
+}
+
+.values-strip .values-strip__item:hover .values-strip__symbol svg {
+  color: var(--brand-wine, #8a3840);
+  stroke: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .values-strip .values-strip__item:hover .values-strip__symbol {
+    transform: none;
+  }
+}

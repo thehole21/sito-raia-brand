@@ -1,0 +1,202 @@
+/* RAIA — Contatti Brand Edition, niente residui oro.
+   Importato dalla sola pagina Contatti, dopo globals e brand.css. */
+.contact-page {
+  color: var(--brand-graphite, #202020);
+  background: var(--brand-paper, #f8f7f4);
+}
+.contact-page .accent-dot,
+.contact-page .location-section__heading h2 span {
+  color: var(--brand-wine, #8a3840);
+}
+.contact-page .page-opening__eyebrow,
+.contact-page .section-overline {
+  color: var(--brand-wine, #8a3840);
+}
+.contact-page .page-opening,
+.contact-page .contact-grid__details > div {
+  border-color: var(--brand-line, #d9d0cb);
+}
+
+/* L'ex blocco nero diventa un pannello editoriale, in continuità col sito. */
+.contact-page .contact-grid--v7 .contact-grid__dark.contact-feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  isolation: isolate;
+  min-height: clamp(310px, 32vw, 435px);
+  padding: clamp(26px, 4vw, 54px);
+  overflow: hidden;
+  color: var(--brand-graphite, #202020);
+  background: #f0ebea;
+  border: 1px solid #e1d5d3;
+  border-left: 3px solid var(--brand-wine, #8a3840);
+  border-radius: 0;
+  box-shadow: none;
+}
+.contact-page .contact-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg,
+    var(--brand-wine, #8a3840) 0 26%,
+    var(--brand-wine-soft, #bd8c91) 26% 54%,
+    transparent 54%);
+  pointer-events: none;
+}
+.contact-page .contact-feature::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: min(46%, 225px);
+  aspect-ratio: 1;
+  background: url("/images/raia-monogram-transparent.png") center / contain no-repeat;
+  opacity: .075;
+  pointer-events: none;
+  z-index: 0;
+}
+.contact-page .contact-feature > * { position: relative; z-index: 1; }
+.contact-page .contact-feature__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.contact-page .contact-feature__kicker {
+  color: var(--brand-wine, #8a3840);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .15em;
+  white-space: nowrap;
+}
+.contact-page .contact-feature__line {
+  height: 1px;
+  max-width: 90px;
+  flex: 1;
+  background: var(--brand-wine-soft, #bd8c91);
+}
+.contact-page .contact-grid__dark.contact-feature h2 {
+  margin: clamp(28px, 4vw, 50px) 0;
+  color: var(--brand-graphite, #202020);
+  font-size: clamp(39px, 4.15vw, 64px);
+  line-height: 1.06;
+  font-weight: 580;
+  letter-spacing: -.066em;
+  text-wrap: balance;
+}
+.contact-page .contact-grid__dark.contact-feature h2 em {
+  color: var(--brand-wine, #8a3840);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 490;
+}
+.contact-page .contact-feature__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid #d8c9c9;
+  padding-top: 14px;
+}
+.contact-page .contact-feature__bottom > span:first-child {
+  color: #61585a;
+  font-size: 10px;
+  font-weight: 670;
+  line-height: 1.5;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.contact-page .contact-feature__mark {
+  color: var(--brand-wine, #8a3840);
+  font-size: 23px;
+  font-weight: 350;
+  line-height: 1;
+}
+
+/* Recapiti in formato quasi tabellare, con icone e link nitidi. */
+.contact-page .contact-grid__details > div {
+  grid-template-columns: 25px minmax(0, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+  padding-top: clamp(14px, 1.8vw, 24px);
+  padding-bottom: clamp(14px, 1.8vw, 24px);
+  border-bottom: 1px solid var(--brand-line, #d9d0cb);
+}
+.contact-page .contact-grid__details > div:first-child {
+  border-top: 1px solid var(--brand-line, #d9d0cb);
+}
+.contact-page .contact-grid__details > div > svg,
+.contact-page .contact-grid__social-mark {
+  color: var(--brand-wine, #8a3840);
+  stroke: var(--brand-wine, #8a3840);
+}
+.contact-page .contact-grid__details > div > div > span {
+  color: #746c69;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .13em;
+}
+.contact-page .contact-grid__details a:not(.contact-map) {
+  transition: color .18s ease;
+}
+.contact-page .contact-grid__details a:not(.contact-map):hover {
+  color: var(--brand-wine, #8a3840);
+}
+.contact-page .contact-socials .social-links__link {
+  border-color: #c9baba;
+  color: #514847;
+}
+.contact-page .contact-socials .social-links__link:hover {
+  color: var(--social-accent);
+  border-color: currentColor;
+}
+
+/* Mappa e ultimo residuo di color oro. */
+.contact-page .location-section__heading {
+  border-top: 1px solid var(--brand-rose-line, #dfc8ca);
+  padding-top: clamp(18px, 2.5vw, 29px);
+}
+.contact-page .location-section__heading a {
+  border-bottom-color: var(--brand-wine, #8a3840);
+}
+.contact-page .location-section__heading a:hover {
+  color: var(--brand-wine, #8a3840);
+}
+.contact-page .location-section__map {
+  border-color: #d9ccca;
+  background: #ede8e4;
+  border-radius: 0;
+}
+.contact-page .location-section__map iframe {
+  filter: grayscale(.7) contrast(.98);
+}
+.contact-page .location-section__map:hover iframe,
+.contact-page .location-section__map:focus-within iframe {
+  filter: grayscale(.08);
+}
+.contact-page .location-section__address { color: #716967; }
+
+@media (max-width: 1000px) {
+  .contact-page .contact-grid--v7 .contact-grid__dark.contact-feature {
+    min-height: 310px;
+  }
+}
+@media (max-width: 560px) {
+  .contact-page .contact-grid--v7 .contact-grid__dark.contact-feature {
+    min-height: 290px;
+    padding: 24px;
+  }
+  .contact-page .contact-grid__dark.contact-feature h2 {
+    font-size: clamp(37px, 9.6vw, 48px);
+    margin: 32px 0;
+  }
+  .contact-page .contact-feature::after { width: 41%; right: -6%; }
+  .contact-page .contact-feature__bottom > span:first-child { font-size: 9px; }
+  .contact-page .location-section__heading { align-items: flex-start; }
+  .contact-page .location-section__heading a { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-page .contact-grid__details a:not(.contact-map),
+  .contact-page .location-section__map iframe { transition: none; }
+}

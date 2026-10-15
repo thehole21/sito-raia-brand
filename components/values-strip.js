@@ -1,9 +1,22 @@
-import { Lightbulb, BadgeCheck, ShieldCheck } from 'lucide-react';
+import { Lightbulb, ShieldCheck, Handshake } from 'lucide-react';
+import './values-strip-brand-fix.css';
 
 const VALUES = [
-  { title: 'Creatività', text: 'Dall’apporto grafico alla progettazione, accompagniamo ogni idea nella comunicazione visiva.', Icon: Lightbulb },
-  { title: 'Professionalità', text: 'Revisioni, controlli e consegne: ogni lavorazione punta alla massima qualità.', Icon: BadgeCheck },
-  { title: 'Serietà', text: 'Responsabilità, dedizione e attenzione ai dettagli. La vostra fiducia è la priorità.', Icon: ShieldCheck }
+  {
+    title: 'Creatività',
+    text: 'Dall’apporto grafico alla progettazione, accompagniamo ogni idea nella comunicazione visiva.',
+    Icon: Lightbulb,
+  },
+  {
+    title: 'Professionalità',
+    text: 'Revisioni, controlli e consegne: ogni lavorazione punta alla massima qualità.',
+    Icon: ShieldCheck,
+  },
+  {
+    title: 'Serietà',
+    text: 'Responsabilità, dedizione e attenzione ai dettagli. La vostra fiducia è la priorità.',
+    Icon: Handshake,
+  },
 ];
 
 export default function ValuesStrip() {
@@ -16,8 +29,13 @@ export default function ValuesStrip() {
       <div className="shell values-strip__grid">
         {VALUES.map(({ title, text, Icon }) => (
           <article className="values-strip__item" key={title}>
-            <span className="values-strip__symbol"><Icon size={57} strokeWidth={1.15} aria-hidden="true" /></span>
-            <div><h3>{title}</h3><p>{text}</p></div>
+            <span className="values-strip__symbol">
+              <Icon size={57} strokeWidth={1.15} aria-hidden="true" />
+            </span>
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
           </article>
         ))}
       </div>

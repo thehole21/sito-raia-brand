@@ -1,0 +1,11 @@
+/* RAIA / Header allineato alle altre sezioni: riduce il lieve dislivello
+   verticale di Anteprime, senza toccare il configuratore e i titoli. */
+.preview-page > .page-opening {
+  padding-top: clamp(18px, 2.75vw, 38px);
+}
+@media (max-width: 760px) {
+  .preview-page > .page-opening { padding-top: 22px; }
+}
+@media (max-width: 560px) {
+  .preview-page > .page-opening { padding-top: 17px; }
+}

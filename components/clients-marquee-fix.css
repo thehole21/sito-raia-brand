@@ -1,0 +1,67 @@
+/* RAIA — Piccola correzione per carosello / popup collaborazioni.
+   Importata direttamente dal componente: non tocca il resto del sito. */
+
+/* Non fermare il carosello solo perche un pulsante conserva il focus
+   dopo la chiusura del dialogo. Rimangono pausa al passaggio del mouse
+   e pausa per chi usa la tastiera. */
+.clients-section .clients-marquee:focus-within .clients-marquee__rail {
+  animation-play-state: running;
+}
+.clients-section .clients-marquee:hover .clients-marquee__rail,
+.clients-section .clients-marquee:has(.clients-marquee__tile:focus-visible) .clients-marquee__rail {
+  animation-play-state: paused;
+}
+
+/* Fascia: zoom solo sull'immagine, mai sul riquadro bianco. */
+.clients-section .clients-marquee__tile,
+.clients-section .clients-marquee__tile:hover,
+.clients-section .clients-marquee__tile:focus-visible {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Popup: griglia libera da scatole, bordi, ombre e velature. */
+.clients-section .clients-dialog__logo,
+.clients-section .clients-dialog__logo:hover,
+.clients-section .clients-dialog__logo:focus-visible,
+.clients-section .clients-dialog__logo.is-selected {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+.clients-section .clients-dialog__logo::after {
+  display: none;
+}
+.clients-section .clients-dialog__logo img {
+  transition: transform 260ms ease;
+  transform-origin: center;
+}
+.clients-section .clients-dialog__logo:hover img,
+.clients-section .clients-dialog__logo:focus-visible img,
+.clients-section .clients-dialog__logo.is-selected img {
+  transform: scale(1.07);
+}
+
+/* La navigazione via tastiera resta riconoscibile senza creare riquadri. */
+.clients-section .clients-dialog__logo:focus-visible {
+  outline: none;
+}
+.clients-section .clients-dialog__logo:focus-visible .clients-dialog__name {
+  text-decoration: underline;
+  text-decoration-color: var(--brand-wine, #8a3840);
+  text-underline-offset: 4px;
+}
+.clients-section .clients-marquee__tile:focus-visible {
+  outline: none;
+}
+.clients-section .clients-marquee__tile:focus-visible img {
+  filter: drop-shadow(0 0 2px rgba(138, 56, 64, 0.55));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-section .clients-dialog__logo img {
+    transition: none;
+  }
+}

@@ -1,0 +1,15 @@
+/* Anteprime: EXACTLY the same header geometry as Servizi / Progetti.
+   The early configurator CSS gave .preview-page 40px top padding; remove it.
+   Use the shared .page-opening sizing, not another hand-tuned offset. */
+.preview-page { padding-top: 0 !important; margin-top: 0 !important; }
+.preview-page > .page-opening {
+  margin-top: 0;
+  padding-top: clamp(26px, 3.6vw, 49px);
+  padding-bottom: clamp(26px, 3vw, 40px);
+}
+@media (max-width: 760px) {
+  .preview-page > .page-opening { padding-top: 27px; padding-bottom: 25px; }
+}
+@media (max-width: 560px) {
+  .preview-page > .page-opening { padding-top: 21px; padding-bottom: 19px; }
+}

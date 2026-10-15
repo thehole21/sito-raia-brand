@@ -27,6 +27,39 @@ export default function HomePage() {
       </section>
       <ClientsMarquee />
       <ValuesStrip />
+      
+<section
+  className="mockup-invite"
+  aria-labelledby="mockup-invite-title"
+>
+  <div className="shell mockup-invite__inner">
+    <div className="mockup-invite__content">
+      <span className="mockup-invite__eyebrow">
+        STUDIO ANTEPRIME
+      </span>
+
+      <h2 id="mockup-invite-title">
+        Il tuo logo.
+        <br />
+        <span>Prima ancora della stampa.</span>
+      </h2>
+
+      <p>
+        Scopri come potrebbe apparire la tua identità
+        su alcuni dei nostri supporti personalizzabili.
+      </p>
+    </div>
+
+    <Link
+      href="/anteprima"
+      className="mockup-invite__link"
+    >
+      <span>Apri lo studio anteprime</span>
+      <ArrowUpRight size={20} strokeWidth={1.7} />
+    </Link>
+  </div>
+</section>
+
     </>
   );
 }

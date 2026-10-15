@@ -1,0 +1,32 @@
+/* Incollare ALLA FINE di app/brand.css: link legali nel footer */
+.footer__legal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid rgba(207,158,163,.20);
+  padding: 12px 0 13px;
+}
+.footer__legal > span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: #bc999c;
+}
+.footer__legal > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+}
+.footer__legal a {
+  color: #d0ccca;
+  font-size: 11px;
+  font-weight: 600;
+  transition: color .2s;
+}
+.footer__legal a:hover,
+.footer__legal a:focus-visible { color: #f2b8bf; }
+@media (max-width: 560px) {
+  .footer__legal { align-items: start; flex-direction: column; gap: 9px; }
+  .footer__legal > div { gap: 12px 24px; }
+}
