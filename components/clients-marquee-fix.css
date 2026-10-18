@@ -65,3 +65,13 @@
     transition: none;
   }
 }
+
+/* Normalize actual artwork, not the unequal whitespace embedded in source files.
+   Bounds measured from the official assets; original images stay untouched. */
+.clients-section .clients-marquee__tile{--logo-scale:1;width:204px;height:116px;padding:15px 20px;display:grid;place-items:center;overflow:visible}
+.clients-section .clients-marquee__artwork{position:relative;display:block;flex:none;width:calc(var(--logo-width) * var(--logo-scale));height:calc(var(--logo-height) * var(--logo-scale));overflow:hidden;transition:transform .25s ease;transform-origin:center}
+.clients-section .clients-marquee__artwork img{position:absolute;display:block;max-width:none;max-height:none;object-fit:fill;transform:none;transition:none;margin:0;padding:0}
+.clients-section .clients-marquee__tile:hover img,.clients-section .clients-marquee__tile:focus-visible img{transform:none}
+.clients-section .clients-marquee__tile:hover .clients-marquee__artwork,.clients-section .clients-marquee__tile:focus-visible .clients-marquee__artwork{transform:scale(1.05)}
+@media(max-width:700px){.clients-section .clients-marquee__tile{--logo-scale:.84;width:164px;height:94px;padding:12px 14px}}
+@media(prefers-reduced-motion:reduce){.clients-section .clients-marquee__artwork{transition:none}}

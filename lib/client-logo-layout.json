@@ -1,0 +1,146 @@
+{
+  "Museo Nazionale Etrusco": {
+    "width": 106.488,
+    "height": 60.101,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 152.79642058165547,
+    "left": -14.646464646464647,
+    "top": -26.39821029082774
+  },
+  "Trenta Ore per la Vita": {
+    "width": 42.294,
+    "height": 70,
+    "imageWidth": 324.0506329113924,
+    "imageHeight": 130.59273422562143,
+    "left": -112.0253164556962,
+    "top": -15.296367112810707
+  },
+  "Presidenza del Consiglio dei Ministri": {
+    "width": 87.65,
+    "height": 70,
+    "imageWidth": 102.38907849829351,
+    "imageHeight": 102.88461538461539,
+    "left": -1.1945392491467577,
+    "top": -1.3888888888888888
+  },
+  "Associazione Pionieri Aeronautica": {
+    "width": 55.263,
+    "height": 70,
+    "imageWidth": 252.8395061728395,
+    "imageHeight": 133.1384015594542,
+    "left": -76.29629629629629,
+    "top": -15.984405458089668
+  },
+  "Ministero della Cultura": {
+    "width": 140.627,
+    "height": 45.51,
+    "imageWidth": 100,
+    "imageHeight": 100,
+    "left": 0,
+    "top": 0
+  },
+  "CESMA": {
+    "width": 118.899,
+    "height": 53.827,
+    "imageWidth": 129.1298865069357,
+    "imageHeight": 190.25069637883007,
+    "left": -14.501891551071878,
+    "top": -45.12534818941504
+  },
+  "Sisal": {
+    "width": 139.358,
+    "height": 45.925,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 261.6858237547893,
+    "left": -14.646464646464647,
+    "top": -80.84291187739464
+  },
+  "Rimac": {
+    "width": 129.34,
+    "height": 49.482,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 225.41254125412541,
+    "left": -14.646464646464647,
+    "top": -62.70627062706271
+  },
+  "Nuova Sair": {
+    "width": 125.113,
+    "height": 51.154,
+    "imageWidth": 129.62025316455697,
+    "imageHeight": 211.45510835913313,
+    "left": -14.936708860759493,
+    "top": -53.869969040247675
+  },
+  "SIVeMP": {
+    "width": 152,
+    "height": 29.364,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 446.4052287581699,
+    "left": -14.646464646464647,
+    "top": -173.20261437908496
+  },
+  "FVM": {
+    "width": 128.366,
+    "height": 49.857,
+    "imageWidth": 129.1298865069357,
+    "imageHeight": 221.75324675324674,
+    "left": -14.627994955863809,
+    "top": -66.55844155844156
+  },
+  "Associazione Arma Aeronautica Luigi Broglio": {
+    "width": 152,
+    "height": 36.848,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 355.7291666666667,
+    "left": -14.646464646464647,
+    "top": -128.125
+  },
+  "OEnergy": {
+    "width": 128.393,
+    "height": 49.847,
+    "imageWidth": 133.8562091503268,
+    "imageHeight": 229.96632996632997,
+    "left": -16.99346405228758,
+    "top": -64.98316498316498
+  },
+  "Wex": {
+    "width": 146.865,
+    "height": 43.577,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 290.63829787234044,
+    "left": -14.646464646464647,
+    "top": -95.31914893617021
+  },
+  "Bibliotheka": {
+    "width": 107.453,
+    "height": 59.561,
+    "imageWidth": 129.2929292929293,
+    "imageHeight": 155.58086560364464,
+    "left": -14.646464646464647,
+    "top": -27.790432801822323
+  },
+  "Arcadia Edizioni": {
+    "width": 46.667,
+    "height": 70,
+    "imageWidth": 299.41520467836256,
+    "imageHeight": 133.1384015594542,
+    "left": -99.70760233918129,
+    "top": -16.569200779727094
+  },
+  "Midas": {
+    "width": 145.867,
+    "height": 43.876,
+    "imageWidth": 100,
+    "imageHeight": 100,
+    "left": 0,
+    "top": 0
+  },
+  "Coldiretti": {
+    "width": 59.459,
+    "height": 70,
+    "imageWidth": 232.72727272727272,
+    "imageHeight": 131.85328185328186,
+    "left": -66.36363636363636,
+    "top": -15.83011583011583
+  }
+}

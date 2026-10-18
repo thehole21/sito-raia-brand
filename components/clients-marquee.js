@@ -3,20 +3,24 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, X } from 'lucide-react';
 import { CLIENTS } from '@/lib/clients';
+import logoLayout from '@/lib/client-logo-layout.json';
 import './clients-marquee-fix.css';
 
 function ClientTile({ client, onClick, duplicate = false }) {
+  const layout = logoLayout[client.name];
   return (
     <button
       type="button"
-      className={`clients-marquee__tile${client.name === 'Presidenza del Consiglio dei Ministri' ? ' clients-marquee__tile--presidenza' : ''}`}
+      className="clients-marquee__tile"
       aria-label={`Visualizza le collaborazioni, a partire da ${client.name}`}
       tabIndex={0}
       onClick={onClick}
     >
       {/* Immagini ufficiali di RAIA; non sono loghi generati o stock. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={client.src} alt={duplicate ? '' : client.name} width="180" height="120" loading="lazy" decoding="async" />
+      <span className="clients-marquee__artwork" style={{ '--logo-width': layout.width + 'px', '--logo-height': layout.height + 'px' }}>
+        <img src={client.src} alt={duplicate ? '' : client.name} width="180" height="120" loading="lazy" decoding="async" style={{ width: layout.imageWidth + '%', height: layout.imageHeight + '%', left: layout.left + '%', top: layout.top + '%' }} />
+      </span>
     </button>
   );
 }
