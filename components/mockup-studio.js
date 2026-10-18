@@ -152,6 +152,7 @@ export default function MockupStudio() {
   const [productId, setProductId] = useState("zaino");
   const [designs, setDesigns] = useState({});
   const [active, setActive] = useState("logo");
+  const [step, setStep] = useState("product");
 
   const [logoUrl, setLogoUrl] = useState("");
   const [logoName, setLogoName] = useState("");
@@ -411,6 +412,7 @@ export default function MockupStudio() {
 
     setUploadError("");
     setLogoName(file.name);
+    setShowArea(false);
     setLogoUrl(URL.createObjectURL(file));
     setActive("logo");
     setView("front");
@@ -424,6 +426,7 @@ export default function MockupStudio() {
 
   // Ripristina il configuratore.
   function reset() {
+    setStep("product");
     setDesigns({});
     clearLogo();
 
@@ -504,9 +507,10 @@ export default function MockupStudio() {
         className="raia-studio__sidebar"
         aria-label="Personalizzazione prodotto"
       >
+        <nav className="raia-studio__steps" aria-label="Personalizza il prodotto">{[{id:'product',label:'1. Prodotto'},{id:'logo',label:'2. Logo'},{id:'text',label:'3. Testo'}].map(item=><button key={item.id} type="button" aria-current={step===item.id?'step':undefined} aria-controls={'studio-panel-'+item.id} className={step===item.id?'is-active':''} onClick={()=>setStep(item.id)}>{item.label}</button>)}</nav>
         {/* SCELTA PRODOTTO */}
 
-        <section className="raia-studio__panel">
+        <section id="studio-panel-product" hidden={step!=="product"} className="raia-studio__panel">
           <div className="raia-studio__step">
             01 / PRODOTTO
           </div>
@@ -529,6 +533,7 @@ export default function MockupStudio() {
                 onClick={() => {
                   setProductId(item.id);
                   setActive("logo");
+                  setStep("logo");
                 }}
               >
                 {item.name}
@@ -543,7 +548,7 @@ export default function MockupStudio() {
 
         {/* PERSONALIZZAZIONE LOGO */}
 
-        <section className="raia-studio__panel">
+        <section id="studio-panel-logo" hidden={step!=="logo"} className="raia-studio__panel">
           <div className="raia-studio__step">
             02 / GRAFICA
           </div>
@@ -646,7 +651,7 @@ export default function MockupStudio() {
 
         {/* PERSONALIZZAZIONE TESTO */}
 
-        <section className="raia-studio__panel">
+        <section id="studio-panel-text" hidden={step!=="text"} className="raia-studio__panel">
           <div className="raia-studio__step">
             03 / TESTO
           </div>
@@ -814,6 +819,7 @@ export default function MockupStudio() {
           <RotateCcw size={16} />
           Ricomincia
         </button>
+        <p className="raia-studio__mobile-note">Simulazione indicativa: RAIA verifica area stampabile, colori e fattibilità prima della produzione.</p>
       </aside>
 
       {/* ANTEPRIMA INTERATTIVA */}
@@ -1059,9 +1065,7 @@ export default function MockupStudio() {
                         : ""
                     }
                     type="button"
-                    onClick={() =>
-                      setActive("logo")
-                    }
+                    onClick={() => { setActive("logo"); setStep("logo"); }}
                   >
                     <ImagePlus size={15} />
                     Logo
@@ -1076,9 +1080,7 @@ export default function MockupStudio() {
                         : ""
                     }
                     type="button"
-                    onClick={() =>
-                      setActive("text")
-                    }
+                    onClick={() => { setActive("text"); setStep("text"); }}
                   >
                     <Type size={15} />
                     Testo
@@ -1095,7 +1097,7 @@ export default function MockupStudio() {
                   }
                 />
 
-                Mostra area indicativa
+                Mostra guide di posizionamento
               </label>
             </>
           )}
