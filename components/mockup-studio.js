@@ -14,6 +14,7 @@ import {
   X,
   Info,
   Move,
+  Maximize2,
 } from "lucide-react";
 
 // Aree personalizzabili sui mockup 1200 x 1000.
@@ -153,6 +154,9 @@ export default function MockupStudio() {
   const [designs, setDesigns] = useState({});
   const [active, setActive] = useState("logo");
   const [step, setStep] = useState("product");
+  const [expanded,setExpanded]=useState(false);
+  const previewRef=useRef(null);
+  const workspaceRef=useRef(null);
 
   const [logoUrl, setLogoUrl] = useState("");
   const [logoName, setLogoName] = useState("");
@@ -187,6 +191,21 @@ export default function MockupStudio() {
   const textExists = Boolean(
     brand.trim() || tagline.trim()
   );
+
+  useEffect(()=>{
+    const measure=()=>{const el=workspaceRef.current;if(el)el.style.setProperty('--studio-available',Math.max(300,window.innerHeight-el.getBoundingClientRect().top-20)+'px');};
+    measure();window.addEventListener('resize',measure);return()=>window.removeEventListener('resize',measure);
+  },[]);
+  useEffect(()=>{
+    if(!expanded)return;
+    const previous=document.activeElement;const overflow=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    const overlay=previewRef.current;
+    if(overlay?.showPopover){try{overlay.showPopover();}catch{}}
+    overlay?.focus();
+    const onKey=e=>{if(e.key==='Escape'){e.preventDefault();setExpanded(false);}if(e.key==='Tab'){const items=[...previewRef.current.querySelectorAll('button:not([disabled]),input:not([disabled]),[tabindex="0"]')].filter(el=>el.getClientRects().length);if(!items.length){e.preventDefault();return;}const first=items[0],last=items[items.length-1];if(e.shiftKey&&(document.activeElement===first||document.activeElement===previewRef.current)){e.preventDefault();last.focus();}else if(!e.shiftKey&&(document.activeElement===last||document.activeElement===previewRef.current)){e.preventDefault();first.focus();}}};
+    document.addEventListener('keydown',onKey);return()=>{if(overlay?.hidePopover){try{overlay.hidePopover();}catch{}}document.body.style.overflow=overflow;document.removeEventListener('keydown',onKey);previous?.focus?.({preventScroll:true});};
+  },[expanded]);
 
   // Adatta le dimensioni dei testi allo schermo.
   useEffect(() => {
@@ -500,7 +519,7 @@ export default function MockupStudio() {
   });
 
   return (
-    <div className="raia-studio">
+    <div ref={workspaceRef} className="raia-studio">
       {/* PANNELLO LATERALE */}
 
       <aside
@@ -824,7 +843,7 @@ export default function MockupStudio() {
 
       {/* ANTEPRIMA INTERATTIVA */}
 
-      <div className="raia-studio__preview">
+      <div ref={previewRef} popover={expanded?"manual":undefined} className={"raia-studio__preview"+(expanded?" is-expanded":"")} role={expanded?"dialog":undefined} aria-modal={expanded?true:undefined} aria-label={expanded?"Anteprima prodotto a schermo intero":undefined} tabIndex={expanded?-1:undefined}>
         <div className="raia-studio__previewhead">
           <div>
             <span className="raia-studio__step">
@@ -841,6 +860,7 @@ export default function MockupStudio() {
             role="group"
             aria-label="Modalità anteprima"
           >
+            <button type="button" onClick={()=>setExpanded(v=>!v)} aria-label={expanded?'Chiudi schermo intero':'Apri a schermo intero'} title={expanded?'Chiudi (Esc)':'Ingrandisci prodotto'}>{expanded?<X size={17}/>:<Maximize2 size={17}/>}<span>{expanded?'Chiudi':'Ingrandisci'}</span></button>
             <button
               type="button"
               className={
@@ -877,6 +897,7 @@ export default function MockupStudio() {
           <div
             ref={stageRef}
             className="raia-studio__canvas"
+            onClick={e=>{if(!expanded && !e.target.closest("button"))setExpanded(true);}}
           >
             <img
               className="raia-studio__product-image"
