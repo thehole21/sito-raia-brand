@@ -1,5 +1,6 @@
+import { pageMetadata } from '@/lib/seo';
 import QuoteForm from '@/components/quote-form';
-export const metadata = { title: 'Richiedi un preventivo', description: 'Prepara una richiesta per un progetto di stampa o comunicazione RAIA.' };
+export const metadata = pageMetadata('/preventivo');
 export default async function PreventivoPage({ searchParams }) {
   const params = await searchParams;
   const defaultService = typeof params?.servizio === 'string' ? params.servizio : '';

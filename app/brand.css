@@ -177,114 +177,6 @@ body { background: var(--brand-paper); color: var(--brand-graphite); }
   }
 }
 
-/* RAIA — Anteprima CTA */
-
-.mockup-invite {
-  padding: clamp(42px, 5vw, 70px) 0;
-  background: #f8f6f3;
-  border-top: 1px solid #e3dcd7;
-}
-
-.mockup-invite__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 36px;
-}
-
-.mockup-invite__content {
-  max-width: 750px;
-}
-
-.mockup-invite__eyebrow {
-  display: block;
-  color: #8a3840;
-  font-size: 10px;
-  font-weight: 750;
-  letter-spacing: .16em;
-  margin-bottom: 12px;
-}
-
-.mockup-invite h2 {
-  margin: 0;
-  font-size: clamp(30px, 3.3vw, 49px);
-  font-weight: 690;
-  letter-spacing: -.055em;
-  line-height: 1.13;
-}
-
-.mockup-invite h2 span {
-  color: #746e69;
-  font-weight: 450;
-}
-
-.mockup-invite p {
-  margin: 14px 0 0;
-  max-width: 490px;
-  color: #77716d;
-  line-height: 1.65;
-  font-size: 14px;
-}
-
-.mockup-invite__link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 26px;
-  flex-shrink: 0;
-  padding: 17px 20px;
-  background: #8a3840;
-  border: 1px solid #8a3840;
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 650;
-  transition:
-    background .25s ease,
-    transform .25s ease;
-}
-
-.mockup-invite__link:hover {
-  background: #6b2530;
-  transform: translateY(-2px);
-}
-
-.mockup-invite__link svg {
-  transition: transform .25s ease;
-}
-
-.mockup-invite__link:hover svg {
-  transform: translate(2px, -2px);
-}
-
-@media (max-width: 768px) {
-  .mockup-invite__inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 25px;
-  }
-
-  .mockup-invite p {
-    font-size: 13px;
-  }
-
-  .mockup-invite__link {
-    width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mockup-invite__link,
-  .mockup-invite__link svg {
-    transition: none;
-  }
-
-  .mockup-invite__link:hover,
-  .mockup-invite__link:hover svg {
-    transform: none;
-  }
-}
-
 /* RAIA — Legal links integrati nel footer */
 
 .footer__copyright {
@@ -359,3 +251,30 @@ body { background: var(--brand-paper); color: var(--brand-graphite); }
     min-height: 480px;
   }
 }
+
+/* Readable service introduction and resilient narrow-screen typography. */
+.home-services-summary{padding-block:36px;max-width:1100px}
+.home-services-summary h2{font-size:clamp(23px,3vw,34px);line-height:1.2;margin:0 0 12px}
+.home-services-summary p{max-width:780px;line-height:1.7;color:#655e5a}
+.home-services-summary a{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#812c46;font-weight:600}
+.services-explorer__panel[hidden]{display:none}
+@media(max-width:600px){.page-opening h1 em,.about-feature__story h2 em{white-space:normal}.page-opening__grid>*{min-width:0}.contact-grid__details a{overflow-wrap:anywhere}input,select,textarea{font-size:16px}}
+@media(max-width:900px){.about-mission__inner{grid-template-columns:minmax(0,1fr);gap:20px}.about-mission__inner>*{min-width:0}.about-mission h2{padding-right:0}}
+
+/* Contrast corrections from Lighthouse: preserve the existing palette. */
+.clients-section__hint,.about-facts>div>span{color:#625e58}
+.about-mission p{color:#565850}
+.case-showcase__path-top>span,.case-showcase__phases li>span,.case-showcase__path>p,.case-showcase__stepper>span,.case-showcase__reel-head>span,.case-showcase__tile-meta>span{color:#6c5b55}
+.map-activate{width:100%;height:100%;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#eee9e3;color:#542d38;border:1px solid #d5c8c9;font:inherit;cursor:pointer;padding:24px;text-align:center}
+.map-activate strong{font-size:22px}.map-activate span:last-child{padding:12px 18px;border-radius:5px;background:#812c46;color:white}
+
+section.case-showcase .case-showcase__path-top>span,section.case-showcase .case-showcase__phases li>span,section.case-showcase .case-showcase__path>p,section.case-showcase .case-showcase__stepper>span,section.case-showcase .case-showcase__reel-head>span,section.case-showcase .case-showcase__tile-meta>span{color:#6c5b55}
+
+/* Keep inactive project captions readable; inactive state uses the underline. */
+section.case-showcase .case-showcase__tile{opacity:1}
+.quote-form-shell .quote-form-shell__head>span,.quote-form .quote-fieldset legend>span,.quote-form label>small,.quote-form .quote-form__submit small{color:#625e58}
+.quote-side .quote-side__content>p,.quote-side .quote-side__footer>span{color:#d6d0c8}
+.legal-page .legal-page__intro>span,.legal-page .legal-page__aside nav a small{color:#715e5b}
+.contact-page .location-section__map{min-height:320px}
+.contact-page .map-activate{min-height:0}
+.contact-page .location-section__address{display:inline-flex;align-items:center;min-height:44px}

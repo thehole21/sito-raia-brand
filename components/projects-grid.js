@@ -140,7 +140,7 @@ export default function ProjectsGrid() {
                 alt={featured.alt}
                 fill
                 priority={featuredPosition === 0}
-                unoptimized
+                fetchPriority={featuredPosition===0?"high":undefined}
                 sizes="(max-width: 760px) 100vw, (max-width: 1100px) 65vw, 65vw"
               />
               <span className="case-showcase__cover-top">LAVORO / {String(featuredPosition + 1).padStart(2, '0')}</span>
@@ -215,7 +215,7 @@ export default function ProjectsGrid() {
                 aria-label={`Seleziona il progetto ${project.title}`}
               >
                 <span className="case-showcase__tile-photo">
-                  <Image src={project.image} fill unoptimized alt="" sizes="220px" />
+                  <Image src={project.image} fill alt="" sizes="220px" />
                 </span>
                 <span className="case-showcase__tile-meta">
                   <span>{String(index + 1).padStart(2, '0')} / {project.client}</span>
@@ -263,7 +263,6 @@ export default function ProjectsGrid() {
                       src={currentImage}
                       alt={`${selected.title}: ${step.short.toLowerCase()} — ${step.id === 'final' ? selected.alt : 'documentazione della fase'}`}
                       fill
-                      unoptimized
                       sizes="(max-width: 780px) 100vw, 70vw"
                     />
                   ) : (
@@ -312,7 +311,7 @@ export default function ProjectsGrid() {
                         >
                           <span className="raia-story__thumb">
                             {source ? (
-                              <Image src={source} alt="" fill unoptimized sizes="100px" />
+                              <Image src={source} alt="" fill sizes="100px" />
                             ) : (
                               <Images size={20} strokeWidth={1.3} aria-hidden="true" />
                             )}

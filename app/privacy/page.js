@@ -1,12 +1,10 @@
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import LegalShell from '@/components/legal-shell';
 import { COMPANY } from '@/lib/content';
 import '../legal.css';
 
-export const metadata = {
-  title: 'Privacy Policy',
-  description: 'Informazioni sul trattamento dei dati personali degli utenti del sito RAIA srl ai sensi del Regolamento UE 2016/679.',
-};
+export const metadata = pageMetadata('/privacy');
 
 const sections = [
   {
@@ -25,9 +23,8 @@ const sections = [
       <p>Queste informazioni sono utilizzate per erogare il sito, garantire sicurezza, prevenire abusi e risolvere problemi tecnici. Le basi giuridiche applicabili sono, secondo il trattamento, il legittimo interesse alla gestione e protezione del sito (art. 6, par. 1, lett. f, GDPR) e gli eventuali obblighi di legge (lett. c).</p>
       <h3>Richieste inviate spontaneamente</h3>
       <p>Quando un visitatore scrive all'indirizzo email pubblicato o contatta RAIA telefonicamente, possono essere trattati nome, recapiti, informazioni aziendali e contenuti della richiesta per rispondere e valutare eventuali progetti o preventivi. La base giuridica è l'esecuzione di misure precontrattuali richieste dall'interessato (art. 6, par. 1, lett. b, GDPR) e, quando pertinente, il legittimo interesse a gestire le comunicazioni.</p>
-      <h3>Modulo preventivo e Studio Anteprime</h3>
+      <h3>Modulo preventivo</h3>
       <p>Nella configurazione attuale il modulo preventivo è una <strong>dimostrazione grafica</strong>: genera un riepilogo nel browser ma non invia automaticamente a RAIA i dati compilati né gli allegati selezionati.</p>
-      <p>Lo Studio Anteprime consente di scegliere un supporto e di inserire un logo e dei testi: il componente attuale gestisce questi contenuti nel browser del visitatore, senza una funzione di caricamento dei file su un server RAIA. Non inviare dati personali non necessari nelle immagini o nei testi utilizzati.</p>
       <p>Prima dell'attivazione di un invio effettivo dei preventivi, dell'archiviazione dei progetti o di altri servizi online, questa informativa sarà integrata con finalità, destinatari e tempi di conservazione pertinenti.</p>
     </>
   },
@@ -50,7 +47,7 @@ const sections = [
     id: 'conservazione', title: 'Conservazione dei dati',
     content: <>
       <p>I dati tecnici vengono conservati secondo le necessità di sicurezza, diagnostica e funzionamento del sito e le impostazioni del servizio di hosting. I dati ricevuti tramite email o telefono vengono conservati per il tempo necessario a gestire la richiesta e, quando applicabili, gli obblighi di legge o la tutela dei diritti delle parti.</p>
-      <p>La durata esatta o i criteri dettagliati di conservazione devono essere verificati con RAIA e con i fornitori prima della pubblicazione definitiva. Il modulo dimostrativo e l'editor anteprime attuale non prevedono un archivio server dei dati inseriti nel browser.</p>
+      <p>La durata esatta o i criteri dettagliati di conservazione devono essere verificati con RAIA e con i fornitori prima della pubblicazione definitiva. Il modulo dimostrativo attuale non prevede un archivio server dei dati inseriti nel browser.</p>
     </>
   },
   {
@@ -70,7 +67,7 @@ const sections = [
   {
     id: 'aggiornamenti', title: 'Aggiornamenti dell’informativa',
     content: <>
-      <p>RAIA può aggiornare questa informativa quando cambiano funzionalità, fornitori o modalità di trattamento. L'ultima revisione è indicata in alto. Eventuali nuovi strumenti di analisi, moduli di invio, sistemi di gestione delle anteprime o servizi di marketing saranno descritti <strong>prima della loro attivazione</strong>, con le misure e i consensi eventualmente necessari.</p>
+      <p>RAIA può aggiornare questa informativa quando cambiano funzionalità, fornitori o modalità di trattamento. L'ultima revisione è indicata in alto. Eventuali nuovi strumenti di analisi, moduli di invio, servizi di marketing saranno descritti <strong>prima della loro attivazione</strong>, con le misure e i consensi eventualmente necessari.</p>
     </>
   },
 ];

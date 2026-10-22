@@ -1,12 +1,10 @@
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import LegalShell from '@/components/legal-shell';
 import { COMPANY } from '@/lib/content';
 import '../legal.css';
 
-export const metadata = {
-  title: 'Cookie Policy',
-  description: 'Informativa su cookie, risorse esterne e strumenti di tracciamento utilizzati sul sito RAIA srl.',
-};
+export const metadata = pageMetadata('/cookie-policy');
 
 const sections = [
   {

@@ -1,0 +1,701 @@
+{
+  "source": "https://www.raiaweb.it/page-sitemap.xml",
+  "checked": "2026-10-22",
+  "images": [
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/11/cropped-Raia_logo25-alt_testo-grandesvg-scaled-1-300x153.png",
+      "bytes": 12668,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/elementor/thumbs/riviste-libri-cataloghi_2-qf06h97ddqddnzl05uc0vn3z45v4r9y5pg5burra9k.jpg",
+      "bytes": 33724,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/elementor/thumbs/stampa-grande-formato-qez8pr6pncfy8z5ytxou1vakxmwu1rhuxa2dofzqgo.jpg",
+      "bytes": 20651,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/elementor/thumbs/allestimento-fiera-fenaluil-2-qgrpf2y7y7p3iox0sv2elhw7aimp0gnhc95rs6i4zc.jpg",
+      "bytes": 33720,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/elementor/thumbs/Wrapping-e-allestimenti-qezbd2zgrgxtpap36n3qfbahrf1xooxv13w4tondfc.jpg",
+      "bytes": 25269,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/elementor/thumbs/penne-rimac-qgrpfokibeioxq1mametoufsydo4xi1b385xtjm308.jpg",
+      "bytes": 29185,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/8f21d933-4943-4638-a3e7-1cc66e61ca50.jpg",
+      "bytes": 347158,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/cappellini-rimac-768x576.jpg",
+      "bytes": 73105,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/ntt-data-insegna-768x576.jpg",
+      "bytes": 117214,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/kit-uilpa-768x576.jpg",
+      "bytes": 58592,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/wrapping-maserati-768x576.jpg",
+      "bytes": 85411,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/Jungle-_B-768x576.jpg",
+      "bytes": 98291,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210514_123806-768x576.jpg",
+      "bytes": 101803,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Etru-1024x683.png",
+      "bytes": 32446,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Trenta-Ore-per-la-Vita--1024x683.png",
+      "bytes": 53262,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/09/Ovale_Presidenza_Consiglio.svg",
+      "bytes": 131924,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Associazione-Pionieri-Aeronautica-1024x683.png",
+      "bytes": 122879,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/09/Ministero_della_Cultura.svg",
+      "bytes": 33127,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Cesma-1024x683.png",
+      "bytes": 65936,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Sisal-1024x683.png",
+      "bytes": 31786,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Rimac--1024x683.png",
+      "bytes": 29879,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Nuova-Sair-1024x683.png",
+      "bytes": 51940,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Sivemp-1024x683.png",
+      "bytes": 33645,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__FVM-1024x683.png",
+      "bytes": 65334,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Luigi-Broglio--1024x683.png",
+      "bytes": 68177,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Energy-1024x683.png",
+      "bytes": 28108,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Wex-1024x683.png",
+      "bytes": 29917,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Bibliotheka-1024x683.png",
+      "bytes": 24256,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Arcadia-Edizioni-1024x683.png",
+      "bytes": 20440,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/09/Logo_Midas_France.png",
+      "bytes": 5887,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2024/01/logo__Coldiretti-1024x683.png",
+      "bytes": 81018,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/11/cropped-Raia_logo25-alt_testo-grandesvg-scaled-1-1024x522.png",
+      "bytes": 52395,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/2a82008a-3c55-47f4-bf65-234c93c18f3b-150x150.jpg",
+      "bytes": 6300,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/3f1aa0ea-edfa-4752-8b08-b32773bb5e70-150x150.jpg",
+      "bytes": 5509,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0458-150x150.jpeg",
+      "bytes": 24554,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/4da3c346-7845-4e41-90cd-c6cf761f64d0-150x150.jpg",
+      "bytes": 5388,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/8f21d933-4943-4638-a3e7-1cc66e61ca50-150x150.jpg",
+      "bytes": 8168,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/f2c82569-695f-4e98-928a-b4b458d61e03-150x150.jpg",
+      "bytes": 9304,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_1873-150x150.jpeg",
+      "bytes": 21000,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_1987-150x150.jpeg",
+      "bytes": 29766,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/6d1b1218-3ebb-417d-a345-e8c88f7bea75-150x150.jpg",
+      "bytes": 8158,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_0961-150x150.jpeg",
+      "bytes": 19631,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/midas-150x150.jpg",
+      "bytes": 11042,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Vetrofania-per-ELTGroup-150x150.jpg",
+      "bytes": 8276,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/vetrofanie-privacy-everis-2-150x150.jpg",
+      "bytes": 6639,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/vetrofanie-privacy-everis-150x150.jpg",
+      "bytes": 8238,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210324_161309-150x150.jpg",
+      "bytes": 38224,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Blumare-porta-vetro-correzione-150x150.jpg",
+      "bytes": 10275,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Porta-bagno-6-150x150.jpeg",
+      "bytes": 16044,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/targa-smau-150x150.jpg",
+      "bytes": 4318,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/ntt-data-insegna-150x150.jpg",
+      "bytes": 8311,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210805_112259-150x150.jpg",
+      "bytes": 10849,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/ntt-data-bancone-150x150.jpg",
+      "bytes": 5902,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/insegna-sm-150x150.jpg",
+      "bytes": 6668,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/SM_11-150x150.jpg",
+      "bytes": 45013,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/desk-gns-group-150x150.jpg",
+      "bytes": 6369,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/allestimento-fiera-fenaluil-2-150x150.jpg",
+      "bytes": 9875,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20211211_182220-150x150.jpg",
+      "bytes": 39407,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/kit-uilpa-150x150.jpg",
+      "bytes": 7234,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Sagoma-per-UIL-150x150.jpg",
+      "bytes": 8896,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Sagoma-con-vetro-e-piedistallo-per-UIL-150x150.jpg",
+      "bytes": 10768,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Muro-6-150x150.jpg",
+      "bytes": 42161,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Totem-per-FENEALUIL-150x150.jpg",
+      "bytes": 10353,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Cesma-muro-1-150x150.jpg",
+      "bytes": 9003,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0948-150x150.jpeg",
+      "bytes": 9930,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_3271-150x150.jpg",
+      "bytes": 16958,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/All.-asnacodi-8-1-150x150.jpg",
+      "bytes": 14645,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_2325-150x150.jpg",
+      "bytes": 18661,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/All.-Congresso-1-150x150.jpg",
+      "bytes": 6013,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/All.-Congresso-5-150x150.jpg",
+      "bytes": 5766,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Pannello-per-il-Pride-di-Roma-150x150.jpg",
+      "bytes": 11067,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Borsette-Chanel-1-150x150.jpg",
+      "bytes": 8512,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/EBM-vestiti-3-150x150.jpg",
+      "bytes": 9825,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/cappellini-rimac-150x150.jpg",
+      "bytes": 8400,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/wrapping-macchinari-rimac-150x150.jpg",
+      "bytes": 10359,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/penne-rimac-150x150.jpg",
+      "bytes": 11233,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0215-150x150.jpeg",
+      "bytes": 9018,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20220728_105405-150x150.jpg",
+      "bytes": 8329,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20220728_113352-150x150.jpg",
+      "bytes": 9082,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/insegna-altea-150x150.jpg",
+      "bytes": 6108,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/Manageritalia-3-150x150.jpg",
+      "bytes": 4942,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0820-150x150.jpeg",
+      "bytes": 7738,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/7fb9f3f7-1320-499e-8baa-04dba21953ca-150x150.jpg",
+      "bytes": 4594,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210210_105310-150x150.jpg",
+      "bytes": 28443,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210213_154716-150x150.jpg",
+      "bytes": 33569,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/06/verdeoro-fine-2-150x150.jpeg",
+      "bytes": 20528,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/94DDE9B6-AA22-4075-BFBA-E88182B982BA-scaled-e1777457436626-150x150.jpg",
+      "bytes": 7126,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/11/targhe-plexiglass-padeia-150x150.jpg",
+      "bytes": 8708,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/etru-teloni-prima-correzione-prospettica-1-150x150.jpg",
+      "bytes": 18128,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/ca34165c-6c1f-46de-89d5-f79caaf1572f-150x150.jpg",
+      "bytes": 5821,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_2802-150x150.jpeg",
+      "bytes": 23094,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_2888-150x150.jpeg",
+      "bytes": 22505,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_2930-150x150.jpeg",
+      "bytes": 18547,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/etru-wrapping-e-stendardi-correzione-prospettica-150x150.jpg",
+      "bytes": 12339,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/ETRU-1-150x150.jpg",
+      "bytes": 11729,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0477-150x150.jpg",
+      "bytes": 15573,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Insegna-per-Bibliotheka-e-la-suamatrice-150x150.jpg",
+      "bytes": 8569,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/FA421A9A-B888-4103-9FC7-8D4434180BA4-150x150.jpg",
+      "bytes": 7649,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_1501-150x150.jpg",
+      "bytes": 20016,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_8519-150x150.jpg",
+      "bytes": 14090,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_8500-150x150.jpg",
+      "bytes": 17830,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_6741-150x150.jpg",
+      "bytes": 9961,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/E305B30D-78D0-4226-8E94-94743ABC4A34-150x150.jpg",
+      "bytes": 10993,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0362-150x150.jpg",
+      "bytes": 10440,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/Bandiera-Pitstop-150x150.jpeg",
+      "bytes": 6024,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/11/wrapping-maserati-150x150.jpg",
+      "bytes": 6373,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Tavola-da-disegno-1-150x150.png",
+      "bytes": 43085,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_1628-150x150.jpeg",
+      "bytes": 19305,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/sel_1-150x150.jpg",
+      "bytes": 16322,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/FA421A9A-B888-4103-9FC7-8D4434180BA4-169x300.jpg",
+      "bytes": 12225,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/e2a02fda-9fb0-47d4-aa6d-61cf01e6cc8e-150x150.jpg",
+      "bytes": 3227,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_1501-300x225.jpg",
+      "bytes": 29163,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/CC8BCC68-3639-4D65-AFCF-B4A36ECD5B3E-169x300.jpg",
+      "bytes": 13820,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_20211130_134525-150x150.jpg",
+      "bytes": 15180,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/94DDE9B6-AA22-4075-BFBA-E88182B982BA-scaled-e1777457436626-199x300.jpg",
+      "bytes": 12187,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/Bandiera-Pitstop-225x300.jpeg",
+      "bytes": 17723,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/ETRU-1-225x300.jpg",
+      "bytes": 26751,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_4902-1-203x300.jpg",
+      "bytes": 25083,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0818-225x300.jpeg",
+      "bytes": 20390,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_2774-300x225.jpg",
+      "bytes": 19182,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Stampe-per-UIL-risultato-finale-300x271.jpg",
+      "bytes": 24870,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/SM_6-300x225.jpg",
+      "bytes": 34195,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/altea-targa-e1779454089661-268x300.jpg",
+      "bytes": 10489,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/SM_9-225x300.jpg",
+      "bytes": 50837,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20211111_090511-225x300.jpg",
+      "bytes": 25408,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210213_154716-300x225.jpg",
+      "bytes": 41529,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0458-225x300.jpeg",
+      "bytes": 35489,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210324_161309-300x225.jpg",
+      "bytes": 46619,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2023/12/desk-gns-group-300x225.jpg",
+      "bytes": 14471,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_1628-300x225.jpeg",
+      "bytes": 28509,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_2325-300x225.jpg",
+      "bytes": 29324,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Tavola-da-disegno-1-225x300.png",
+      "bytes": 111264,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/Cappello-per-Esteticar-300x206.jpg",
+      "bytes": 18886,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210714_113836-300x225.jpg",
+      "bytes": 59994,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_0215-300x225.jpeg",
+      "bytes": 17591,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20211211_182220-225x300.jpg",
+      "bytes": 48740,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_1888-300x225.jpg",
+      "bytes": 23124,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/05/IMG_6741-scaled.jpg",
+      "bytes": 606422,
+      "status": "preserved"
+    },
+    {
+      "url": "https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210210_105310-scaled.jpg",
+      "bytes": 330937,
+      "status": "preserved"
+    }
+  ]
+}

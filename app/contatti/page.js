@@ -1,13 +1,12 @@
+import LocationMap from '@/components/location-map';
+import { pageMetadata } from '@/lib/seo';
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import SocialLinks from "@/components/social-links";
 import { COMPANY } from "@/lib/content";
 import "./contatti-polish.css";
 import "./contatti-address-fix.css";
 
-export const metadata = {
-  title: "Contatti",
-  description: "Contatta RAIA srl a Guidonia Montecelio (RM). Recapiti, social e posizione sulla mappa.",
-};
+export const metadata = pageMetadata('/contatti');
 
 const EMBED_URL = "https://www.google.com/maps?q=Via%20Bruno%20Pontecorvo%2046%2C%2000012%20Guidonia%20Montecelio%20RM&z=14&output=embed";
 
@@ -74,13 +73,7 @@ export default function ContattiPage() {
           </a>
         </div>
         <div className="location-section__map">
-          <iframe
-            src={EMBED_URL}
-            title="Mappa Google Maps della sede RAIA, Via Bruno Pontecorvo 46, Guidonia Montecelio"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+          <LocationMap src={EMBED_URL}/>
         </div>
         <a className="location-section__address contact-address-under-map" href={COMPANY.map} target="_blank" rel="noopener noreferrer">Via Bruno Pontecorvo 46 · 00012 Guidonia Montecelio (RM) <ArrowUpRight size={13} strokeWidth={1.7} aria-hidden="true" /></a>
       </section>

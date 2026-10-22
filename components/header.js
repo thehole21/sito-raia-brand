@@ -48,7 +48,7 @@ export default function Header() {
           </nav>
 
           <div className="header-actions">
-            <Link className="header-quote" href="/preventivo" aria-label="Richiedi un preventivo">
+            <Link className="header-quote" href="/preventivo" aria-label="Richiedi preventivo">
               <span className="header-quote__text">Richiedi preventivo</span>
               <span className="header-quote__icon"><ArrowUpRight size={18} strokeWidth={1.8} aria-hidden="true" /></span>
             </Link>

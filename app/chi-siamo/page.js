@@ -1,5 +1,6 @@
+import { pageMetadata } from '@/lib/seo';
 import About from '@/components/about';
-export const metadata = { title: 'Chi siamo', description: 'Tre generazioni di esperienza nella comunicazione e nella stampa.' };
+export const metadata = pageMetadata('/chi-siamo');
 export default function AboutPage() {
   return (
     <>

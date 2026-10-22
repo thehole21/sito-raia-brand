@@ -1,11 +1,9 @@
+import { pageMetadata } from '@/lib/seo';
 import ProjectsGrid from '@/components/projects-grid';
 import './project-stories.css';
 import './projects-showcase.css';
 
-export const metadata = {
-  title: 'Progetti',
-  description: 'Lavori RAIA e percorsi di realizzazione: esplora i progetti e scopri le loro fasi di sviluppo, dal progetto al risultato.',
-};
+export const metadata = pageMetadata('/progetti');
 
 export default function ProgettiPage() {
   return (

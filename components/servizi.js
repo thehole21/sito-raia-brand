@@ -1,13 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { SERVICES } from '@/lib/content';
 
 export default function Servizi() {
   const [current, setCurrent] = useState(0);
-  const item = SERVICES[current];
+
+
+  function chooseService(index){setCurrent(index);history.replaceState(null,'','#'+SERVICES[index].id);}
+  useEffect(()=>{
+    function followAnchor(){
+      const hash=window.location.hash.slice(1);
+      const index=SERVICES.findIndex((service,i)=>[service.id,'service_'+(i+1),'elementor-tab-title-568'+(i+1),'elementor-tab-content-568'+(i+1)].includes(hash));
+      if(index<0)return;
+      setCurrent(index);
+      requestAnimationFrame(()=>document.getElementById('service-tab-'+SERVICES[index].id)?.scrollIntoView({block:'center',inline:'nearest'}));
+    }
+    followAnchor();window.addEventListener('hashchange',followAnchor);
+    return()=>window.removeEventListener('hashchange',followAnchor);
+  },[]);
 
   function onTabKeyDown(event, index) {
     const count = SERVICES.length;
@@ -18,7 +31,7 @@ export default function Servizi() {
     if (event.key === 'End') next = count - 1;
     if (next === null) return;
     event.preventDefault();
-    setCurrent(next);
+    chooseService(next);
     document.getElementById(`service-tab-${SERVICES[next].id}`)?.focus();
   }
 
@@ -31,11 +44,11 @@ export default function Servizi() {
             type="button"
             role="tab"
             id={`service-tab-${service.id}`}
-            aria-controls="service-panel"
+            aria-controls={`service-panel-${service.id}`}
             aria-selected={current === index}
             tabIndex={current === index ? 0 : -1}
             className={`services-tab${current === index ? ' is-active' : ''}`}
-            onClick={() => setCurrent(index)}
+            onClick={() => chooseService(index)}
             onKeyDown={event => onTabKeyDown(event, index)}
           >
             <strong>{service.title}</strong>
@@ -44,16 +57,16 @@ export default function Servizi() {
         ))}
       </nav>
 
-      <div
+      {SERVICES.map((item,index)=><div key={item.id} hidden={current!==index}
         className="services-explorer__panel"
         role="tabpanel"
-        id="service-panel"
+        id={`service-panel-${item.id}`}
         aria-labelledby={`service-tab-${item.id}`}
         tabIndex={0}
       >
         <article className="service-showcase service-showcase--detailed" key={item.id}>
           <div className="service-showcase__visual">
-            <Image unoptimized src={item.image} alt={item.alt} fill sizes="(max-width: 959px) 100vw, 56vw" className="cover-image" />
+            <Image priority={index===0} fetchPriority={index===0?"high":undefined} src={item.image} alt={item.alt} fill sizes="(max-width: 959px) 100vw, 56vw" className="cover-image" />
             <div className="service-showcase__image-caption" aria-hidden="true">
               <span>RAIA / {item.title}</span>
               <span>STAMPA E COMUNICAZIONE</span>
@@ -63,7 +76,7 @@ export default function Servizi() {
           <div className="service-showcase__information">
             <div className="service-showcase__lead">
               <p className="service-showcase__overline">IL SERVIZIO</p>
-              <h2>{item.detail}</h2>
+              <h2>{item.title}</h2>
               <p className="service-showcase__description">{item.description}</p>
             </div>
 
@@ -78,7 +91,7 @@ export default function Servizi() {
             {item.note && <p className="service-showcase__note"><strong>Da sapere.</strong> {item.note}</p>}
           </div>
         </article>
-      </div>
+      </div>)}
     </section>
   );
 }

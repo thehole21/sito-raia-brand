@@ -1,8 +1,9 @@
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import Servizi from '@/components/servizi';
 
-export const metadata = { title: 'Servizi', description: 'Tipografia, grande formato, allestimenti, wrapping e gadget personalizzati.' };
+export const metadata = pageMetadata('/servizi');
 
 export default function ServiziPage() {
   return (
