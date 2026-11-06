@@ -5,6 +5,7 @@ import './brand.css';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import ScrollReveal from '@/components/scroll-reveal';
+import BrandIntro from '@/components/brand-intro';
 
 export const metadata = {
   metadataBase: new URL('https://www.raiaweb.it'),
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <a href="#main-content" className="skip-link">Vai al contenuto</a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'LocalBusiness','@id':'https://www.raiaweb.it/#azienda',name:COMPANY.name,url:'https://www.raiaweb.it',image:'https://www.raiaweb.it/images/social-card.jpg',logo:'https://www.raiaweb.it/images/raia-logo-transparent.png',telephone:COMPANY.phoneLink,email:COMPANY.email,address:{'@type':'PostalAddress',streetAddress:'Via Bruno Pontecorvo 46',addressLocality:'Guidonia Montecelio',addressRegion:'RM',postalCode:'00012',addressCountry:'IT'},sameAs:SOCIALS.map(s=>s.href)}).replace(/</g,'\\u003c')}} />
         <Header />
+        <BrandIntro />
         <ScrollReveal />
         <main id="main-content">{children}</main>
         <Footer />
