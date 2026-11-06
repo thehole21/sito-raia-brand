@@ -1,15 +1,13 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import sprite from '@/public/images/raia-print-intro.webp';
 import './brand-intro.css';
 
 const LANDING = 2160;
-const FRAMES = [[0, 0], [50, 0], [100, 0], [0, 100], [50, 100], [100, 100]];
 
 export default function BrandIntro() {
   const [intro, setIntro] = useState(null);
-  const layer = useRef(null);
+  const stage = useRef(null);
   const logo = useRef(null);
 
   useEffect(() => {
@@ -18,27 +16,39 @@ export default function BrandIntro() {
     if (motion.matches || connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType ?? '') ||
       document.visibilityState !== 'visible' || window.location.hash) return;
 
-    let current = true;
+    const controller = new AbortController();
+    let objectUrl;
     let timeout;
-    const frame = requestAnimationFrame(() => {
+    const frame = requestAnimationFrame(async () => {
       const target = document.querySelector('.site-header .brand-logo__image');
       if (!target) return;
-      const film = new window.Image();
-      film.fetchPriority = 'low';
-      film.src = sprite.src;
-      timeout = window.setTimeout(() => { current = false; }, 420);
-      Promise.all([film.decode(), target.decode()]).then(() => {
-        if (current && target.currentSrc && !motion.matches && !window.location.hash &&
+      timeout = window.setTimeout(() => controller.abort(), 620);
+      try {
+        const [film] = await Promise.all([
+          fetch('/images/raia-print-intro.mp4', { signal: controller.signal, priority: 'low' })
+            .then(response => {
+              if (!response.ok) throw new Error('Intro video unavailable');
+              return response.blob();
+            }),
+          target.decode(),
+        ]);
+        if (!controller.signal.aborted && target.currentSrc && !motion.matches && !window.location.hash &&
           document.visibilityState === 'visible' && !document.activeElement?.closest('a, button, input')) {
-          setIntro({ target, src: target.currentSrc });
+          objectUrl = URL.createObjectURL(film);
+          setIntro({ target, src: target.currentSrc, film: objectUrl });
         }
-      }).catch(() => {}).finally(() => window.clearTimeout(timeout));
+      } catch {
+        // Leave the page interactive if optional media is unavailable.
+      } finally {
+        window.clearTimeout(timeout);
+      }
     });
 
     return () => {
-      current = false;
+      controller.abort();
       cancelAnimationFrame(frame);
       window.clearTimeout(timeout);
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
   }, []);
 
@@ -46,10 +56,10 @@ export default function BrandIntro() {
     if (!intro) return;
     const { target } = intro;
     const flying = logo.current;
+    const film = stage.current;
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const finish = () => setIntro(null);
     const onEscape = event => { if (event.key === 'Escape') finish(); };
-    const onFocus = event => { if (!layer.current?.contains(event.target)) finish(); };
 
     target.classList.add('raia-intro-target');
     const start = flying.getBoundingClientRect();
@@ -63,12 +73,17 @@ export default function BrandIntro() {
     const scale = Math.min(end.width / start.width, end.height / start.height);
     const dx = end.left + (end.width - start.width * scale) / 2 - start.left;
     const dy = end.top + (end.height - start.height * scale) / 2 - start.top;
+    const pose = (x, y, size, angle = 0) => `translate(${x}px, ${y}px) scale(${size}) rotate(${angle}deg)`;
+    const glide = 'cubic-bezier(.36, .2, .35, 1)';
+    const lift = Math.min(30, start.height * .2);
+    film.play().catch(finish);
     const animation = flying.animate([
-      { opacity: 0, transform: 'translateY(8px) scale(.985)', offset: 0 },
-      { opacity: 0, transform: 'translateY(8px) scale(.985)', offset: .44, easing: 'ease-out' },
-      { opacity: 1, transform: 'none', offset: .65 },
-      { opacity: 1, transform: 'none', offset: .72, easing: 'cubic-bezier(.65, 0, .2, 1)' },
-      { opacity: 1, transform: `translate(${dx}px, ${dy}px) scale(${scale})`, offset: 1 },
+      { opacity: 0, transform: pose(0, 16, .91), offset: 0 },
+      { opacity: 0, transform: pose(0, 16, .91), offset: .43, easing: 'ease-out' },
+      { opacity: 1, transform: pose(0, 0, 1), offset: .62, easing: 'ease-in' },
+      { opacity: 1, transform: pose(dx * .18, dy * .14 - lift, .94, -4), offset: .74 },
+      { opacity: 1, transform: pose(dx * .72, dy * .64 - lift * .65, scale + (1 - scale) * .2, -3), offset: .88, easing: glide },
+      { opacity: 1, transform: pose(dx, dy, scale), offset: 1 },
     ], { duration: LANDING, fill: 'both' });
 
     animation.onfinish = finish;
@@ -76,17 +91,19 @@ export default function BrandIntro() {
     window.addEventListener('resize', finish);
     window.addEventListener('keydown', onEscape);
     window.addEventListener('wheel', finish, { passive: true });
-    document.addEventListener('focusin', onFocus);
+    document.addEventListener('focusin', finish);
     document.addEventListener('visibilitychange', finish);
     motion.addEventListener('change', finish);
     return () => {
       target.classList.remove('raia-intro-target');
+      film.pause();
+      URL.revokeObjectURL(intro.film);
       animation.cancel();
       window.clearTimeout(fallback);
       window.removeEventListener('resize', finish);
       window.removeEventListener('keydown', onEscape);
       window.removeEventListener('wheel', finish);
-      document.removeEventListener('focusin', onFocus);
+      document.removeEventListener('focusin', finish);
       document.removeEventListener('visibilitychange', finish);
       motion.removeEventListener('change', finish);
     };
@@ -95,23 +112,17 @@ export default function BrandIntro() {
   if (!intro) return null;
 
   return (
-    <div className="raia-intro" ref={layer}>
-      <div className="raia-intro__backdrop" aria-hidden="true" />
-      <div className="raia-intro__scene" aria-hidden="true">
-        <div className="raia-intro__film" style={{ '--intro-sprite': `url("${sprite.src}")` }}>
-          {FRAMES.map(([x, y], index) => <span key={index} style={{
-            backgroundPosition: `${x}% ${y}%`,
-            animationDelay: `${index * 126 - 20}ms`,
-          }} />)}
-        </div>
+    <div className="raia-intro" aria-hidden="true" style={{ '--intro-duration': `${LANDING}ms` }}>
+      <div className="raia-intro__backdrop" />
+      <div className="raia-intro__scene">
+        <video ref={stage} className="raia-intro__film" src={intro.film} muted playsInline disablePictureInPicture />
         <p>Benvenuto In <em>RAIA S.R.L.</em></p>
       </div>
-      <div className="raia-intro__logo-slot" aria-hidden="true">
+      <div className="raia-intro__logo-slot">
         {/* Use the exact image response already selected by the header. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img ref={logo} className="raia-intro__logo" src={intro.src} alt="" width={2096} height={1084} />
       </div>
-      <button className="raia-intro__skip" type="button" onClick={() => setIntro(null)}>Salta intro</button>
     </div>
   );
 }

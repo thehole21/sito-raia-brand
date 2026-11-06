@@ -10,7 +10,7 @@
   position: absolute;
   inset: 0;
   background: var(--brand-paper);
-  animation: raia-intro-paper 2160ms ease both;
+  animation: raia-intro-paper var(--intro-duration) ease both;
   pointer-events: auto;
   touch-action: none;
 }
@@ -20,30 +20,20 @@
   display: grid;
   align-content: center;
   justify-items: center;
-  gap: clamp(16px, 3vh, 25px);
-  padding: 20px;
-  background: radial-gradient(ellipse at 50% 48%, #361d22, #150f12 68%);
-  color: var(--brand-paper);
-  animation: raia-intro-scene 1250ms ease both;
+  gap: clamp(0px, 1vh, 10px);
+  padding: 12px;
+  color: #161616;
+  animation: raia-intro-scene 1280ms ease both;
 }
 .raia-intro__film {
-  position: relative;
-  width: min(65vw, 53vh, 360px);
-  width: min(65vw, 53svh, 360px);
+  display: block;
+  width: min(96vw, 76vh, 600px);
+  width: min(96vw, 76svh, 600px);
+  height: auto;
   aspect-ratio: 1;
-  overflow: hidden;
-  background: #21191a;
-  border: 1px solid #bd8c9159;
-  box-shadow: 0 18px 72px #0007;
+  object-fit: cover;
+  mask-image: radial-gradient(ellipse closest-side, #000 56%, #000e 72%, transparent 100%);
 }
-.raia-intro__film span {
-  position: absolute;
-  inset: 0;
-  background-image: var(--intro-sprite);
-  background-size: 300% 200%;
-  animation: raia-intro-frame 190ms ease-out both;
-}
-.raia-intro__film span:first-child { animation: none; }
 .raia-intro__scene p {
   margin: 0;
   font-size: clamp(22px, 5vw, 41px);
@@ -53,7 +43,7 @@
   text-align: center;
   text-wrap: balance;
 }
-.raia-intro__scene em { font-style: normal; font-weight: 650; color: #f0cbd0; }
+.raia-intro__scene em { font-style: normal; font-weight: 650; }
 .raia-intro__logo-slot { position: absolute; inset: 0; display: grid; place-items: center; }
 .raia-intro__logo {
   display: block;
@@ -62,28 +52,13 @@
   opacity: 0;
   transform-origin: top left;
 }
-.raia-intro__skip {
-  position: absolute;
-  right: max(14px, env(safe-area-inset-right));
-  bottom: max(14px, env(safe-area-inset-bottom));
-  min-height: 44px;
-  padding: 0 15px;
-  border: 1px solid var(--brand-rose-line);
-  border-radius: 30px;
-  background: var(--brand-paper);
-  color: var(--brand-wine-deep);
-  font-size: 12px;
-  font-weight: 650;
-  pointer-events: auto;
-}
-@keyframes raia-intro-frame { from { opacity: 0; } to { opacity: 1; } }
 @keyframes raia-intro-scene {
-  0%, 66% { opacity: 1; }
-  100% { opacity: 0; }
+  0%, 69% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: scale(1.025); }
 }
 @keyframes raia-intro-paper {
-  0%, 67% { opacity: 1; }
-  96%, 100% { opacity: 0; }
+  0%, 69% { opacity: 1; }
+  98%, 100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .raia-intro { display: none; }
