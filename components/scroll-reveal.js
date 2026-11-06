@@ -27,6 +27,8 @@ export default function ScrollReveal() {
           for (const el of document.querySelectorAll(selector)) {
             if (watched.has(el) || el.closest('dialog, .clients-marquee')) continue;
             watched.add(el);
+            // Content already in view must paint immediately, without a hydration-triggered entrance.
+            if (el.getBoundingClientRect().top < window.innerHeight) continue;
             el.style.setProperty('--raia-enter-delay', ((delayIndex++ % 4) * 42) + 'ms');
             observer.observe(el);
           }

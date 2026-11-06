@@ -278,3 +278,6 @@ section.case-showcase .case-showcase__tile{opacity:1}
 .contact-page .location-section__map{min-height:320px}
 .contact-page .map-activate{min-height:0}
 .contact-page .location-section__address{display:inline-flex;align-items:center;min-height:44px}
+
+.quote-side .quote-side__content>p,.quote-side .quote-side__footer>span{color:#56534e}
+.quote-side .quote-side__hint{color:#56534e}

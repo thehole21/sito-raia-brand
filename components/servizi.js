@@ -1,97 +1,116 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, X } from 'lucide-react';
 import { SERVICES } from '@/lib/content';
 
+function serviceForHash(hash) {
+  return SERVICES.find(({ id }, index) => {
+    const number = index + 1;
+    return [id, `service_${number}`, `elementor-tab-title-568${number}`,
+      `elementor-tab-content-568${number}`].includes(hash.slice(1));
+  });
+}
+
 export default function Servizi() {
-  const [current, setCurrent] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const dialog = useRef(null);
+  const closeButton = useRef(null);
+  const opener = useRef(null);
 
-
-  function chooseService(index){setCurrent(index);history.replaceState(null,'','#'+SERVICES[index].id);}
-  useEffect(()=>{
-    function followAnchor(){
-      const hash=window.location.hash.slice(1);
-      const index=SERVICES.findIndex((service,i)=>[service.id,'service_'+(i+1),'elementor-tab-title-568'+(i+1),'elementor-tab-content-568'+(i+1)].includes(hash));
-      if(index<0)return;
-      setCurrent(index);
-      requestAnimationFrame(()=>document.getElementById('service-tab-'+SERVICES[index].id)?.scrollIntoView({block:'center',inline:'nearest'}));
+  useEffect(() => {
+    function followHash() {
+      const item = serviceForHash(window.location.hash);
+      if (item) {
+        opener.current = document.getElementById(`servizio-${item.id}`);
+        setSelected(item);
+      } else {
+        dialog.current?.close();
+      }
     }
-    followAnchor();window.addEventListener('hashchange',followAnchor);
-    return()=>window.removeEventListener('hashchange',followAnchor);
-  },[]);
+    followHash();
+    window.addEventListener('hashchange', followHash);
+    return () => window.removeEventListener('hashchange', followHash);
+  }, []);
 
-  function onTabKeyDown(event, index) {
-    const count = SERVICES.length;
-    let next = null;
-    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index + 1) % count;
-    if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index - 1 + count) % count;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = count - 1;
-    if (next === null) return;
-    event.preventDefault();
-    chooseService(next);
-    document.getElementById(`service-tab-${SERVICES[next].id}`)?.focus();
+  useEffect(() => {
+    if (!selected) return;
+    const panel = dialog.current;
+    if (!panel.open) panel.showModal();
+    panel.scrollTop = 0;
+    closeButton.current.focus({ preventScroll: true });
+  }, [selected]);
+
+  function openService(item, button) {
+    opener.current = button;
+    history.replaceState(history.state, '', `#${item.id}`);
+    setSelected(item);
+  }
+
+  function finishClosing() {
+    if (serviceForHash(window.location.hash)) {
+      history.replaceState(history.state, '', window.location.pathname + window.location.search);
+    }
+    setSelected(null);
+    opener.current?.focus({ preventScroll: true });
   }
 
   return (
-    <section className="services-explorer services-explorer--detailed" aria-label="Esplora i servizi RAIA">
-      <nav className="services-explorer__tabs" role="tablist" aria-label="Categorie di servizio">
-        {SERVICES.map((service, index) => (
-          <button
-            key={service.id}
-            type="button"
-            role="tab"
-            id={`service-tab-${service.id}`}
-            aria-controls={`service-panel-${service.id}`}
-            aria-selected={current === index}
-            tabIndex={current === index ? 0 : -1}
-            className={`services-tab${current === index ? ' is-active' : ''}`}
-            onClick={() => chooseService(index)}
-            onKeyDown={event => onTabKeyDown(event, index)}
-          >
-            <strong>{service.title}</strong>
-            <ArrowUpRight size={20} strokeWidth={1.5} aria-hidden="true" />
-          </button>
+    <section className="raia-services" aria-label="Le cinque aree di servizio RAIA">
+      <ul className="raia-services__grid">
+        {SERVICES.map((item, index) => (
+          <li className="raia-services__item" key={item.id}>
+            <article className="raia-service">
+              <div className="raia-service__image">
+                <Image src={item.image} alt={item.alt} fill
+                  priority={index === 0}
+                  sizes={index < 2 ? '(max-width: 599px) 100vw, 50vw' : '(max-width: 599px) 100vw, (max-width: 959px) 50vw, 33vw'} />
+                <span className="raia-service__number" aria-hidden="true">{item.number} / 05</span>
+              </div>
+              <div className="raia-service__body">
+                <h2><button id={`servizio-${item.id}`} type="button" aria-haspopup="dialog"
+                  onClick={event => openService(item, event.currentTarget)}>
+                  {item.title}
+                  <span className="raia-service__arrow" aria-hidden="true"><ArrowUpRight size={21} strokeWidth={1.6} /></span>
+                </button></h2>
+                <p>{item.short}</p>
+                <ul className="raia-service__tags" aria-label="Esempi di lavorazioni">
+                  {item.tags.map(tag => <li key={tag}>{tag}</li>)}
+                </ul>
+              </div>
+            </article>
+          </li>
         ))}
-      </nav>
+      </ul>
 
-      {SERVICES.map((item,index)=><div key={item.id} hidden={current!==index}
-        className="services-explorer__panel"
-        role="tabpanel"
-        id={`service-panel-${item.id}`}
-        aria-labelledby={`service-tab-${item.id}`}
-        tabIndex={0}
-      >
-        <article className="service-showcase service-showcase--detailed" key={item.id}>
-          <div className="service-showcase__visual">
-            <Image priority={index===0} fetchPriority={index===0?"high":undefined} src={item.image} alt={item.alt} fill sizes="(max-width: 959px) 100vw, 56vw" className="cover-image" />
-            <div className="service-showcase__image-caption" aria-hidden="true">
-              <span>RAIA / {item.title}</span>
-              <span>STAMPA E COMUNICAZIONE</span>
-            </div>
+      <dialog className="raia-service-dialog" ref={dialog} aria-labelledby="raia-service-title" onClose={finishClosing}>
+        {selected && <>
+          <div className="raia-service-dialog__top">
+            <span>RAIA / SERVIZI / {selected.number}</span>
+            <button ref={closeButton} type="button" aria-label="Chiudi dettaglio"
+              onClick={() => dialog.current.close()}><X size={22} strokeWidth={1.6} /></button>
           </div>
-
-          <div className="service-showcase__information">
-            <div className="service-showcase__lead">
-              <p className="service-showcase__overline">IL SERVIZIO</p>
-              <h2>{item.title}</h2>
-              <p className="service-showcase__description">{item.description}</p>
+          <div className="raia-service-dialog__layout">
+            <div className="raia-service-dialog__content">
+              <h2 id="raia-service-title">{selected.title}</h2>
+              <p className="raia-service-dialog__description">{selected.description}</p>
+              <dl className="raia-service-dialog__facts">
+                {selected.facts.map(fact => <div key={fact.title}><dt>{fact.title}</dt><dd>{fact.text}</dd></div>)}
+              </dl>
+              {selected.note && <p className="raia-service-dialog__note">{selected.note}</p>}
+              <Link className="raia-service-dialog__quote" href={`/preventivo?servizio=${selected.id}`}>
+                Richiedi un preventivo <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
             </div>
-
-            <div className="service-showcase__details" aria-label={`Dettagli: ${item.title}`}>
-              {item.facts.map(fact => (
-                <div className="service-showcase__fact" key={fact.title}>
-                  <h3>{fact.title}</h3>
-                  <p>{fact.text}</p>
-                </div>
-              ))}
-            </div>
-            {item.note && <p className="service-showcase__note"><strong>Da sapere.</strong> {item.note}</p>}
+            <figure className="raia-service-dialog__image">
+              <Image src={selected.image} alt={selected.alt} fill sizes="320px" />
+              <figcaption>{selected.detail}</figcaption>
+            </figure>
           </div>
-        </article>
-      </div>)}
+        </>}
+      </dialog>
     </section>
   );
 }
