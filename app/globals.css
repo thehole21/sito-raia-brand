@@ -1007,7 +1007,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 /* Client brands: single continuous film-strip, manual interaction for mobile and keyboard. */
 .section-overline { display: inline-block; color: #77786f; font-size: 10px; font-weight: 760; letter-spacing: .155em; line-height: 1.4; }
 .clients-section { background: #f9f8f5; padding: clamp(28px, 4vw, 54px) 0 28px; border-bottom: 1px solid #deddd7; overflow: hidden; }
-.clients-section__heading { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 22px; }
+.clients-section__heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; margin-bottom: 22px; }
 .clients-section__heading h2 { margin: 8px 0 0; font-size: clamp(27px, 3.2vw, 47px); line-height: 1.06; font-weight: 650; letter-spacing: -.064em; }
 .clients-section__heading h2 em { font-weight: 410; font-family: inherit; }
 .clients-section__all { display: inline-flex; align-items: center; justify-content: space-between; gap: 15px; flex: 0 0 auto; background: transparent; border: 0; border-bottom: 1px solid #79786e; padding: 9px 0 10px; color: #171916; font-weight: 690; font-size: 12px; transition: gap .25s var(--ease), color .2s; }
@@ -1030,7 +1030,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .clients-dialog { position: fixed; inset: 0; width: min(1080px, calc(100% - 36px)); max-width: none; max-height: min(85dvh, 850px); margin: auto; padding: 0; border: 1px solid #c6c3bc; background: #f9f8f5; color: #151614; box-shadow: 0 24px 110px rgba(0,0,0,.23); overflow: auto; }
 .clients-dialog::backdrop { background: rgba(10,12,10,.75); backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); }
 .clients-dialog__panel { padding: clamp(16px, 3.2vw, 42px); }
-.clients-dialog__header { position: sticky; z-index: 3; top: 0; display: flex; align-items: start; justify-content: space-between; gap: 22px; padding: 0 0 22px; background: #f9f8f5; border-bottom: 1px solid #d9d7cf; }
+.clients-dialog__header { position: sticky; z-index: 3; top: 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; padding: 0 0 22px; background: #f9f8f5; border-bottom: 1px solid #d9d7cf; }
 .clients-dialog__header h2 { max-width: 730px; font-size: clamp(24px, 3.2vw, 43px); line-height: 1.06; font-weight: 650; letter-spacing: -.06em; margin: 8px 0 0; }
 .clients-dialog__header h2 em { font-weight: 420; font-family: inherit; }
 .clients-dialog__close { width: 42px; height: 42px; border: 1px solid #ccc9c1; background: transparent; color: #111; display: grid; place-items: center; flex: 0 0 auto; transition: background .2s, color .2s, transform .2s; }
@@ -1062,7 +1062,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .contact-grid--v7 .contact-grid__dark { justify-content: space-between; }
 .contact-grid__tagline { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #a9a69f; text-transform: uppercase; }
 .location-section { padding-bottom: clamp(36px, 5vw, 70px); }
-.location-section__heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; padding: 0 0 18px; }
+.location-section__heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; padding: 0 0 18px; }
 .location-section__heading h2 { font-size: clamp(30px, 3.5vw, 48px); font-weight: 650; letter-spacing: -.065em; margin: 8px 0 0; line-height: 1.09; }
 .location-section__heading h2 span { color: #b79b78; }
 .location-section__heading a { display: inline-flex; align-items: center; gap: 12px; border-bottom: 1px solid #6d6a61; padding: 8px 0 9px; font-weight: 660; font-size: 12px; white-space: nowrap; }
@@ -1305,7 +1305,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   bottom: 21px;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 12px;
   color: #fff;
   font-size: 10px;

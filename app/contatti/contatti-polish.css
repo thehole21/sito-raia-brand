@@ -53,7 +53,7 @@
   right: -10%;
   width: min(46%, 225px);
   aspect-ratio: 1;
-  background: url("/images/raia-monogram-transparent.png") center / contain no-repeat;
+  background: url("/images/raia-monogram-transparent.webp") center / contain no-repeat;
   opacity: .075;
   pointer-events: none;
   z-index: 0;

@@ -11,13 +11,13 @@ export default function BrandLogo({ onDark = false, className = '', onClick }) {
       onClick={onClick}
     >
       <Image
-        src={onDark ? '/images/raia-logo-on-dark.png' : '/images/raia-logo-transparent.png'}
+        src={onDark ? '/images/raia-logo-on-dark.webp' : '/images/raia-logo-transparent.webp'}
         alt="RAIA — Design, Stampa, Comunicazione"
         width={2096}
         height={1084}
         className="brand-logo__image"
         priority={!onDark}
-        sizes="(max-width: 600px) 126px, (max-width: 959px) 142px, 170px"
+        sizes={onDark ? '(max-width: 560px) 119px, 151px' : '(max-width: 959px) 122px, 132px'}
       />
     </Link>
   );

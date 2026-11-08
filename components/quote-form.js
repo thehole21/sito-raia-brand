@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, ArrowUpRight, Check, FileText, RotateCcw } from 'lucide-react';
+import { ArrowUpRight, Check, FileText, RotateCcw } from 'lucide-react';
 import { COMPANY, SERVICES } from '@/lib/content';
 
 const makeInitial = (selectedService) => ({

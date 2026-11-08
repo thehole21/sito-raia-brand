@@ -85,7 +85,7 @@ export default function Servizi() {
               ref={index === current ? enlargeButton : undefined}
               onClick={() => setExpanded(true)} aria-label={`Ingrandisci immagine: ${item.title}`}>
               <Image src={`/images/servizi/${PHOTOS[index][0]}.webp`} alt={PHOTOS[index][1]}
-                width={1280} height={720} priority={index === 0}
+                width={1280} height={720} priority={index === 0} fetchPriority={index === 0 ? 'high' : undefined}
                 sizes="(max-width: 699px) 100vw, 48vw" />
               <span><Expand size={15} aria-hidden="true" /> Ingrandisci</span>
             </button>

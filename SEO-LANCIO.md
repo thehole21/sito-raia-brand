@@ -1,31 +1,80 @@
-# Pubblicazione su raiaweb.it
+# Lancio di RAIA su www.raiaweb.it
 
-- Impostare SEO_INDEXABLE=true solo nell'ambiente pubblico finale e ricompilare. Fino ad allora le pagine hanno noindex e la sitemap è vuota. Le distribuzioni Vercel di preview restano escluse; gli host *.vercel.app hanno anche X-Robots-Tag: noindex.
-- Collegare www.raiaweb.it, HTTPS e redirect 301/308 da raiaweb.it a www.raiaweb.it presso il provider. Non modificare MX, SPF, DKIM e DMARC della posta Aruba.
-- Il redirect permanente /galleria → /progetti è incluso. Next normalizza gli slash finali. Prima del cambio completare l'inventario URL da Search Console e dalla sitemap WordPress per individuare eventuali altre pagine indicizzate.
-- Verificare HTML pubblico: canonical corretto, robots index,follow, risposta 200, sitemap.xml popolata, robots.txt accessibile, /anteprima 404, /galleria redirect.
-- Inviare https://www.raiaweb.it/sitemap.xml alla proprietà esistente di Google Search Console e controllare indicizzazione e 404 dopo il lancio.
-- Verificare Rich Results Test e PageSpeed Insights su mobile e desktop sul dominio definitivo. I punteggi di laboratorio non garantiscono posizioni su Google né i Core Web Vitals reali.
-- Il modulo preventivo è ancora dimostrativo: non promette invii effettivi. Confermare recapiti e informazioni legali prima del lancio.
+Controllo aggiornato all’8 novembre 2026. Il sito pubblico WordPress è ancora il sito attuale. Le modifiche preparano la sostituzione sullo stesso dominio.
 
-## Mappa verificata il 22 ottobre 2026
+## Indicizzazione
 
-Fonte: https://www.raiaweb.it/page-sitemap.xml (6 pagine).
+- Una build di produzione è indicizzabile per impostazione predefinita. Lo sviluppo e gli ambienti Vercel di preview restano esclusi.
+- Su un altro hosting di staging impostare `SEO_INDEXABLE=false` e ricompilare.
+- Sulla pubblicazione definitiva eliminare eventuali `SEO_INDEXABLE=false`, ricompilare e verificare l’HTML effettivamente servito.
+- I domini `*.vercel.app` ricevono anche `X-Robots-Tag: noindex, follow`. Il dominio definitivo deve essere `www.raiaweb.it`.
+- Il prototipo `/preventivo` resta `noindex,follow` ed è escluso dalla sitemap finché il modulo è dimostrativo.
+- Se la proprietà Search Console usa una verifica tramite meta tag, impostare `GOOGLE_SITE_VERIFICATION` con il token già assegnato alla proprietà e ricompilare. Se la verifica usa DNS, conservare il relativo record.
 
-| Vecchio indirizzo | Nuova destinazione | Comportamento |
-| --- | --- | --- |
-| / | / | Mantiene la home |
-| /chi-siamo/ | /chi-siamo | Stessa sezione |
-| /servizi/ | /servizi | Stessa sezione, nuovi contenuti |
-| /contatti/ | /contatti | Stessa sezione |
-| /galleria/ | /progetti | Redirect permanente |
-| /privacy-policy/ | /privacy | Redirect permanente |
+## Indirizzi e archivio
 
-I link #service_1…5 e #elementor-tab-title-5681…5685 aprono la scheda corrispondente. I nuovi link usano l'id leggibile del servizio. Le vecchie sitemap rimandano a /sitemap.xml.
+La sitemap pubblica attuale contiene sei pagine, verificate direttamente.
 
-### Foto vecchie e nuove
-Le immagini dichiarate nella sitemap storica sono conservate in public/wp-content/uploads, agli stessi URL. Sono un archivio di compatibilità, non un obbligo di mostrarle nel nuovo sito. Le nuove foto vanno in public/projects/<progetto>/ oppure nello storage futuro: aggiornarne i riferimenti in lib/content.js e lib/project-stories.js senza sovrascrivere l'archivio. Non reindirizzare indiscriminatamente immagini vecchie verso foto di un lavoro diverso o verso la home.
+| Indirizzo storico | Destinazione |
+| --- | --- |
+| / | / |
+| /servizi/ | /servizi |
+| /chi-siamo/ | /chi-siamo |
+| /contatti/ | /contatti |
+| /galleria/ | /progetti |
+| /privacy-policy/ | /privacy |
 
-Questa mappa copre la sitemap pubblica, non URL orfani, query WordPress o varianti delle immagini assenti dalla sitemap. Incrociare l'esportazione di Search Console prima del cambio DNS. Dominio, hosting e posta non sono stati modificati.
+I cambi di indirizzo e la normalizzazione degli slash usano redirect permanenti. Le sitemap WordPress passano a `/sitemap.xml`. I vecchi shortlink `?p=` e `?page_id=` sono gestiti per gli ID 415, 427, 430, 438, 989 e 1286, anche da `/index.php`. Le ancore dei servizi `service_1…5` e `elementor-tab-title/content-5681…5685` restano compatibili.
 
-Controllo dei collegamenti pubblici: gestiti anche i vecchi shortlink WordPress ?p=415,427,430,438,989,1286 e le corrispondenti varianti page_id. La verifica degli URL privati di Search Console resta in attesa di accesso.
+Gli URL delle immagini pubblicate nella sitemap corrente sono registrati in `migration/launch-urls.json` e mantenuti nell’archivio pubblico. Conservare anche gli originali non più mostrati nelle pagine. Gli URL inesistenti devono rispondere 404, senza inoltrare indiscriminatamente tutto alla Home.
+
+Il controllo comprende anche le varianti responsive collegate dagli HTML WordPress. Sono stati conservati 281 URL unici di immagini e risorse storiche. Questo archivio protegge i collegamenti esistenti e non viene scaricato automaticamente dai visitatori delle nuove pagine.
+
+## Verifiche da eseguire sulla pubblicazione
+
+```sh
+npm ci
+npm run lint
+npm run check:seo
+npm run build
+npm run start
+node scripts/check-launch.mjs http://127.0.0.1:3000
+```
+
+Dopo il collegamento del dominio eseguire nuovamente il controllo.
+
+```sh
+node scripts/check-launch.mjs https://www.raiaweb.it
+```
+
+Il controllo verifica status delle pagine, canonical, metadati, JSON-LD, sitemap, robots, redirect storici, una vera risposta 404 e disponibilità delle risorse interne e storiche.
+
+## Passaggio del dominio e servizi esterni
+
+- Collegare `www.raiaweb.it` alla nuova pubblicazione e verificare il certificato HTTPS.
+- Il sito gestisce il redirect dall’host `raiaweb.it` a `www.raiaweb.it`. L’hosting deve raggiungere correttamente l’app e inoltrare HTTP verso HTTPS.
+- Conservare MX, SPF, DKIM e DMARC della posta. Il cambio del sito non richiede di cambiare la posta.
+- Prima di spostare i record DNS, confrontare anche gli URL esportati dalla proprietà esistente di Search Console. La sitemap pubblica non elenca necessariamente tutti gli URL storicamente visitati.
+- Inviare la nuova sitemap alla proprietà Search Console esistente. Monitorare indicizzazione e 404 dopo il passaggio.
+- Provare Rich Results Test e PageSpeed Insights sul dominio definitivo. Verificare i Core Web Vitals reali quando sono disponibili dati sufficienti.
+- Controllare la scheda Google Business Profile già esistente e la corrispondenza di nome, indirizzo, telefono e sito. I dati sul sito sono coerenti e includono schema LocalBusiness e collegamento alla mappa.
+
+## Pubblicazione prevista su VPS Aruba
+
+Il progetto è un’applicazione Next.js con processo Node.js persistente. Verificare questa possibilità nel piano scelto. Per il VPS servono un ambiente Node.js supportato, un reverse proxy come Nginx, HTTPS e un gestore del processo che lo riavvii dopo errori o riavvio del server.
+
+Eseguire il processo applicativo su un’interfaccia locale, ad esempio `npm run start -- --hostname 127.0.0.1 --port 3000`, dietro il reverse proxy. Il proxy deve conservare l’header Host originale, inoltrare il protocollo HTTPS e lasciare a Next.js i redirect applicativi. Attivare la compressione HTTP del proxy senza introdurre una cache delle pagine HTML che ignori gli header della risposta.
+
+Il dominio e la posta possono restare su Aruba. Il solo cambio di server web non richiede un nuovo dominio. Prima del cambio esportare la zona DNS e conservare MX, SPF, DKIM, DMARC ed eventuali record di verifica di Google. La configurazione effettiva e il controllo HTTPS vanno completati sul VPS e sul pannello del dominio.
+
+Riferimenti Aruba — [VPS e sistemi operativi](https://www.arubacloud.com/vps/), [record della posta](https://guide.aruba.it/hosting-e-domini/gestione-dns/gestione-name-server-e-record/gestire-record-posta-mx).
+
+## Aspetti ancora da completare prima del lancio
+
+Il modulo Preventivo è dimostrativo e mostra soltanto un riepilogo locale. Il collegamento a un servizio di invio richiede una configurazione di consegna reale e una prova con la casella destinataria. Finché rimane così, i recapiti email e telefono sono i canali operativi.
+
+Le schede dei progetti includono fasi dichiarate come prive di fotografie. Le foto mancanti devono essere fornite dall’azienda per completare il diario di ogni lavoro.
+
+Il posizionamento dipende anche da concorrenza, contenuti, reputazione, collegamenti esterni e segnali locali. Lighthouse e i dati strutturati aiutano la qualità tecnica, ma non garantiscono il primo posto.
+
+Riferimenti ufficiali — [migrazione degli URL](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes), [LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business), [Core Web Vitals](https://web.dev/articles/lcp).

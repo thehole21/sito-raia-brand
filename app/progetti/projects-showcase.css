@@ -4,7 +4,7 @@
   padding-block: clamp(18px, 2.3vw, 30px) clamp(48px, 6vw, 80px);
   color: var(--brand-graphite, #202020);
 }
-.case-showcase__top { display:flex; align-items:end; justify-content:space-between; gap:24px; padding-bottom:19px; border-bottom:1px solid #ded4d0; }
+.case-showcase__top { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; padding-bottom:19px; border-bottom:1px solid #ded4d0; }
 .case-showcase__top-text { max-width:390px; flex:0 1 360px; }
 .case-showcase__eyebrow { color:var(--brand-wine,#8a3840); font-size:10px; font-weight:750; letter-spacing:.13em; line-height:1.5; }
 .case-showcase__top-text p { font-size:12px; line-height:1.55; color:#756d69; margin:6px 0 0; }

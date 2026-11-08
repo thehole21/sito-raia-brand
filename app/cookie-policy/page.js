@@ -10,15 +10,15 @@ const sections = [
   {
     id: 'cosa-sono', title: 'Cookie e tecnologie simili',
     content: <>
-      <p>I cookie sono piccoli file che un sito può memorizzare sul dispositivo dell'utente. Esistono anche tecnologie analoghe, come la memorizzazione locale o altri identificatori. Alcuni strumenti sono necessari al funzionamento tecnico; altri possono servire per statistiche, personalizzazione o pubblicità.</p>
-      <p>Le regole applicabili dipendono dalla finalità concreta: per cookie e strumenti strettamente tecnici è necessaria l'informativa, ma di norma non il consenso preventivo; per quelli non tecnici, salvo specifiche eccezioni, è richiesto il consenso prima dell'attivazione.</p>
+      <p>I cookie sono piccoli file che un sito può memorizzare sul dispositivo dell&apos;utente. Esistono anche tecnologie analoghe, come la memorizzazione locale o altri identificatori. Alcuni strumenti sono necessari al funzionamento tecnico; altri possono servire per statistiche, personalizzazione o pubblicità.</p>
+      <p>Le regole applicabili dipendono dalla finalità concreta: per cookie e strumenti strettamente tecnici è necessaria l&apos;informativa, ma di norma non il consenso preventivo; per quelli non tecnici, salvo specifiche eccezioni, è richiesto il consenso prima dell&apos;attivazione.</p>
     </>
   },
   {
     id: 'configurazione', title: 'Configurazione attuale del sito',
     content: <>
       <p>Nel codice realizzato per RAIA non sono stati integrati intenzionalmente Google Analytics, Google Tag Manager, Meta Pixel o sistemi pubblicitari di profilazione. Non è presente al momento un pannello di marketing o un sistema di raccolta del consenso destinato a tali strumenti.</p>
-      <p>Il sito può impiegare funzionalità tecniche necessarie alla sicurezza, alla navigazione e alla distribuzione dei contenuti attraverso l'hosting. La presenza, i nomi, le scadenze e le finalità degli eventuali identificatori devono essere verificati sulla versione effettivamente pubblicata, in particolare dopo l'attivazione di nuovi servizi.</p>
+      <p>Il sito può impiegare funzionalità tecniche necessarie alla sicurezza, alla navigazione e alla distribuzione dei contenuti attraverso l&apos;hosting. La presenza, i nomi, le scadenze e le finalità degli eventuali identificatori devono essere verificati sulla versione effettivamente pubblicata, in particolare dopo l&apos;attivazione di nuovi servizi.</p>
       <div className="legal-page__note"><strong>Nota sulla configurazione</strong><span>Questa pagina descrive il progetto nella sua configurazione attualmente conosciuta. Non costituisce un elenco certificato di tutti i cookie installati dal browser: la verifica tecnica andrà eseguita sul dominio definitivo.</span></div>
     </>
   },

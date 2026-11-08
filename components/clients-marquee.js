@@ -132,7 +132,7 @@ export default function ClientsMarquee() {
             <button className="clients-dialog__close" type="button" onClick={closeClients} aria-label="Chiudi elenco collaborazioni"><X size={23} strokeWidth={1.5} aria-hidden="true" /></button>
           </header>
           <div className="clients-dialog__grid" role="group" aria-label="Seleziona un logo per evidenziarlo">
-            {CLIENTS.map(client => (
+            {isOpen && CLIENTS.map(client => (
               <button
                 className={`clients-dialog__logo${selected === client.name ? ' is-selected' : ''}`}
                 key={client.name}

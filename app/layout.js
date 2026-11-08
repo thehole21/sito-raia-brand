@@ -1,6 +1,6 @@
 import './globals.css';
-import { INDEXABLE } from '@/lib/seo';
-import { COMPANY, SOCIALS } from '@/lib/content';
+import { INDEXABLE, SITE_URL } from '@/lib/seo';
+import { businessStructuredData } from '@/lib/structured-data';
 import './brand.css';
 import './internal-pages.css';
 import Header from '@/components/header';
@@ -9,10 +9,11 @@ import ScrollReveal from '@/components/scroll-reveal';
 import BrandIntro from '@/components/brand-intro';
 
 export const metadata = {
-  metadataBase: new URL('https://www.raiaweb.it'),
+  metadataBase: new URL(SITE_URL),
   title: { default: 'RAIA — Design, Stampa, Comunicazione', template: '%s | RAIA' },
   description: 'RAIA srl — servizi tipografici, grande formato, insegne, allestimenti, car wrapping e gadget personalizzati a Guidonia Montecelio.',
   robots: { index: INDEXABLE, follow: true },
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
   icons: { icon: '/images/raia-icon.png', apple: '/images/raia-apple-icon.png' },
   openGraph: { title: 'RAIA — Pensa. Crea. Stampa.', type: 'website', locale: 'it_IT' }
 };
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="it">
       <body>
         <a href="#main-content" className="skip-link">Vai al contenuto</a>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'LocalBusiness','@id':'https://www.raiaweb.it/#azienda',name:COMPANY.name,url:'https://www.raiaweb.it',image:'https://www.raiaweb.it/images/social-card.jpg',logo:'https://www.raiaweb.it/images/raia-logo-transparent.png',telephone:COMPANY.phoneLink,email:COMPANY.email,address:{'@type':'PostalAddress',streetAddress:'Via Bruno Pontecorvo 46',addressLocality:'Guidonia Montecelio',addressRegion:'RM',postalCode:'00012',addressCountry:'IT'},sameAs:SOCIALS.map(s=>s.href)}).replace(/</g,'\\u003c')}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData).replace(/</g, '\\u003c') }} />
         <Header />
         <BrandIntro />
         <ScrollReveal />

@@ -22,24 +22,24 @@ const sections = [
       <p>Durante la consultazione del sito i sistemi necessari al suo funzionamento possono trattare dati tecnici, quali indirizzo IP, data e ora delle richieste, indirizzi delle risorse richieste, informazioni sul browser o sul dispositivo ed eventuali log diagnostici.</p>
       <p>Queste informazioni sono utilizzate per erogare il sito, garantire sicurezza, prevenire abusi e risolvere problemi tecnici. Le basi giuridiche applicabili sono, secondo il trattamento, il legittimo interesse alla gestione e protezione del sito (art. 6, par. 1, lett. f, GDPR) e gli eventuali obblighi di legge (lett. c).</p>
       <h3>Richieste inviate spontaneamente</h3>
-      <p>Quando un visitatore scrive all'indirizzo email pubblicato o contatta RAIA telefonicamente, possono essere trattati nome, recapiti, informazioni aziendali e contenuti della richiesta per rispondere e valutare eventuali progetti o preventivi. La base giuridica è l'esecuzione di misure precontrattuali richieste dall'interessato (art. 6, par. 1, lett. b, GDPR) e, quando pertinente, il legittimo interesse a gestire le comunicazioni.</p>
+      <p>Quando un visitatore scrive all&apos;indirizzo email pubblicato o contatta RAIA telefonicamente, possono essere trattati nome, recapiti, informazioni aziendali e contenuti della richiesta per rispondere e valutare eventuali progetti o preventivi. La base giuridica è l&apos;esecuzione di misure precontrattuali richieste dall&apos;interessato (art. 6, par. 1, lett. b, GDPR) e, quando pertinente, il legittimo interesse a gestire le comunicazioni.</p>
       <h3>Modulo preventivo</h3>
       <p>Nella configurazione attuale il modulo preventivo è una <strong>dimostrazione grafica</strong>: genera un riepilogo nel browser ma non invia automaticamente a RAIA i dati compilati né gli allegati selezionati.</p>
-      <p>Prima dell'attivazione di un invio effettivo dei preventivi, dell'archiviazione dei progetti o di altri servizi online, questa informativa sarà integrata con finalità, destinatari e tempi di conservazione pertinenti.</p>
+      <p>Prima dell&apos;attivazione di un invio effettivo dei preventivi, dell&apos;archiviazione dei progetti o di altri servizi online, questa informativa sarà integrata con finalità, destinatari e tempi di conservazione pertinenti.</p>
     </>
   },
   {
     id: 'fornitori', title: 'Servizi esterni e destinatari',
     content: <>
-      <p>Per la pubblicazione e la gestione tecnica del sito possono essere coinvolti fornitori di hosting, manutenzione e infrastruttura, autorizzati a trattare dati nella misura necessaria all'erogazione dei servizi. La versione dimostrativa è predisposta per l'hosting su <strong>Vercel</strong>; la configurazione del servizio e i ruoli privacy dei fornitori devono essere confermati prima della messa in produzione.</p>
-      <p>Alcune immagini dei lavori RAIA sono caricate da <strong>raiaweb.it</strong>, mentre la pagina Contatti incorpora una <strong>mappa di Google Maps</strong>. Quando il browser carica queste risorse può comunicare ai relativi fornitori dati tecnici, come l'indirizzo IP e informazioni di navigazione. Per dettagli sui cookie e sugli strumenti esterni consulta la <Link href="/cookie-policy">Cookie Policy</Link>.</p>
+      <p>Per la pubblicazione e la gestione tecnica del sito possono essere coinvolti fornitori di hosting, manutenzione e infrastruttura, autorizzati a trattare dati nella misura necessaria all&apos;erogazione dei servizi. La versione dimostrativa è predisposta per l&apos;hosting su <strong>Vercel</strong>; la configurazione del servizio e i ruoli privacy dei fornitori devono essere confermati prima della messa in produzione.</p>
+      <p>Alcune immagini dei lavori RAIA sono caricate da <strong>raiaweb.it</strong>, mentre la pagina Contatti incorpora una <strong>mappa di Google Maps</strong>. Quando il browser carica queste risorse può comunicare ai relativi fornitori dati tecnici, come l&apos;indirizzo IP e informazioni di navigazione. Per dettagli sui cookie e sugli strumenti esterni consulta la <Link href="/cookie-policy">Cookie Policy</Link>.</p>
       <p>I collegamenti a Facebook, Instagram e LinkedIn rimandano a siti esterni: la loro consultazione è soggetta alle informative dei rispettivi gestori.</p>
     </>
   },
   {
     id: 'trasferimenti', title: 'Trasferimenti fuori dallo SEE',
     content: <>
-      <p>Alcuni fornitori tecnologici possono operare anche al di fuori dello Spazio Economico Europeo. L'eventuale trasferimento di dati personali richiede una base valida ai sensi degli artt. 44 e seguenti del GDPR, come una decisione di adeguatezza applicabile o appropriate garanzie contrattuali.</p>
+      <p>Alcuni fornitori tecnologici possono operare anche al di fuori dello Spazio Economico Europeo. L&apos;eventuale trasferimento di dati personali richiede una base valida ai sensi degli artt. 44 e seguenti del GDPR, come una decisione di adeguatezza applicabile o appropriate garanzie contrattuali.</p>
       <p>Prima della pubblicazione definitiva RAIA dovrà verificare i fornitori effettivamente utilizzati, i paesi coinvolti e le garanzie previste dai relativi accordi.</p>
     </>
   },
@@ -67,7 +67,7 @@ const sections = [
   {
     id: 'aggiornamenti', title: 'Aggiornamenti dell’informativa',
     content: <>
-      <p>RAIA può aggiornare questa informativa quando cambiano funzionalità, fornitori o modalità di trattamento. L'ultima revisione è indicata in alto. Eventuali nuovi strumenti di analisi, moduli di invio, servizi di marketing saranno descritti <strong>prima della loro attivazione</strong>, con le misure e i consensi eventualmente necessari.</p>
+      <p>RAIA può aggiornare questa informativa quando cambiano funzionalità, fornitori o modalità di trattamento. L&apos;ultima revisione è indicata in alto. Eventuali nuovi strumenti di analisi, moduli di invio, servizi di marketing saranno descritti <strong>prima della loro attivazione</strong>, con le misure e i consensi eventualmente necessari.</p>
     </>
   },
 ];
