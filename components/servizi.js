@@ -70,7 +70,7 @@ export default function Servizi() {
             aria-selected={current === index} aria-controls={`service-panel-${item.id}`}
             tabIndex={current === index ? 0 : -1}
             onClick={() => chooseService(index)} onKeyDown={event => onTabKeyDown(event, index)}>
-            <span>{item.number}</span><strong>{item.title}</strong>
+            <strong>{item.title}</strong>
             <ArrowUpRight size={16} aria-hidden="true" />
           </button>
         ))}
@@ -89,7 +89,7 @@ export default function Servizi() {
                 sizes="(max-width: 699px) 100vw, 48vw" />
               <span><Expand size={15} aria-hidden="true" /> Ingrandisci</span>
             </button>
-            <figcaption><span>{item.number} / 05</span>{item.detail}</figcaption>
+            <figcaption>{item.detail}</figcaption>
           </figure>
           <div className="service-desk__information">
             <div className="service-desk__heading">

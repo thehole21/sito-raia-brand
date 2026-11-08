@@ -12,6 +12,8 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const sectionPath = pathname === '/preventivo' ? '/contatti' : pathname;
+  const sectionIndex = NAV.findIndex(({ href }) => href === sectionPath);
 
   useEffect(() => { setOpen(false); }, [pathname]);
   useEffect(() => {
@@ -35,7 +37,9 @@ export default function Header() {
 
   return (
     <>
-      <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''} ${open ? 'site-header--open' : ''}`}>
+      <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''} ${open ? 'site-header--open' : ''}`}
+        style={{ '--section-step': Math.max(0, sectionIndex), '--section-count': NAV.length }}
+        data-section-active={sectionIndex >= 0}>
         <div className="shell site-header__inner">
           <BrandLogo onClick={() => setOpen(false)} />
 
