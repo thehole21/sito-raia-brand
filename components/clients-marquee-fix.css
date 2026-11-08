@@ -75,3 +75,30 @@
 .clients-section .clients-marquee__tile:hover .clients-marquee__artwork,.clients-section .clients-marquee__tile:focus-visible .clients-marquee__artwork{transform:scale(1.05)}
 @media(max-width:700px){.clients-section .clients-marquee__tile{--logo-scale:.84;width:164px;height:94px;padding:12px 14px}}
 @media(prefers-reduced-motion:reduce){.clients-section .clients-marquee__artwork{transition:none}}
+
+/* The popup uses the same measured artwork bounds as the home carousel. */
+.clients-section .clients-dialog__logo { --logo-scale: 1; }
+.clients-section .clients-dialog__artwork-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 84px;
+  flex: 0 0 auto;
+}
+.clients-section .clients-dialog__logo .clients-marquee__artwork img {
+  transform: none;
+  transition: none;
+}
+.clients-section .clients-dialog__logo:hover .clients-marquee__artwork,
+.clients-section .clients-dialog__logo:focus-visible .clients-marquee__artwork,
+.clients-section .clients-dialog__logo.is-selected .clients-marquee__artwork {
+  transform: scale(1.07);
+}
+@media (max-width: 700px) {
+  .clients-section .clients-dialog__logo { --logo-scale: .84; }
+  .clients-section .clients-dialog__artwork-slot { height: 70px; }
+}
+@media (max-width: 359px) {
+  .clients-section .clients-dialog__logo { --logo-scale: .72; }
+}

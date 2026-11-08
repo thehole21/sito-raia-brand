@@ -6,8 +6,18 @@ import { CLIENTS } from '@/lib/clients';
 import logoLayout from '@/lib/client-logo-layout.json';
 import './clients-marquee-fix.css';
 
-function ClientTile({ client, onClick, duplicate = false }) {
+function ClientArtwork({ client, duplicate = false }) {
   const layout = logoLayout[client.name];
+  return (
+    <span className="clients-marquee__artwork" style={{ '--logo-width': layout.width + 'px', '--logo-height': layout.height + 'px' }}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={client.src} alt={duplicate ? '' : client.name} width="180" height="120" loading="lazy" decoding="async"
+        style={{ width: layout.imageWidth + '%', height: layout.imageHeight + '%', left: layout.left + '%', top: layout.top + '%' }} />
+    </span>
+  );
+}
+
+function ClientTile({ client, onClick, duplicate = false }) {
   return (
     <button
       type="button"
@@ -16,11 +26,7 @@ function ClientTile({ client, onClick, duplicate = false }) {
       tabIndex={0}
       onClick={onClick}
     >
-      {/* Immagini ufficiali di RAIA; non sono loghi generati o stock. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <span className="clients-marquee__artwork" style={{ '--logo-width': layout.width + 'px', '--logo-height': layout.height + 'px' }}>
-        <img src={client.src} alt={duplicate ? '' : client.name} width="180" height="120" loading="lazy" decoding="async" style={{ width: layout.imageWidth + '%', height: layout.imageHeight + '%', left: layout.left + '%', top: layout.top + '%' }} />
-      </span>
+      <ClientArtwork client={client} duplicate={duplicate} />
     </button>
   );
 }
@@ -135,8 +141,7 @@ export default function ClientsMarquee() {
                 aria-pressed={selected === client.name}
                 onClick={() => setSelected(old => old === client.name ? null : client.name)}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={client.src} alt={client.name} width="180" height="120" loading="lazy" decoding="async" />
+                <span className="clients-dialog__artwork-slot"><ClientArtwork client={client} /></span>
                 <span className="clients-dialog__name">{client.name}</span>
               </button>
             ))}
