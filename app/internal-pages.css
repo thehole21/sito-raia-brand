@@ -1,0 +1,147 @@
+/* Compact scale for internal pages. Page-specific classes keep the home independent. */
+body:has(:is(.page-opening, .legal-page)) .site-header { height: 78px; }
+body:has(:is(.page-opening, .legal-page)) .site-header .brand-logo__image { width: 132px; max-height: 67px; }
+body:has(:is(.page-opening, .legal-page)) .site-header .header-links { gap: 22px; }
+body:has(:is(.page-opening, .legal-page)) .site-header .header-quote { min-height: 42px; }
+
+#main-content .page-opening { padding-block: 24px 20px; }
+#main-content .page-opening__eyebrow { margin-bottom: 10px; font-size: 10px; }
+#main-content .page-opening__grid { grid-template-columns: minmax(0, 1.25fr) minmax(240px, .75fr); gap: 26px; align-items: center; }
+#main-content .page-opening h1 { font-size: clamp(36px, 3.8vw, 56px); line-height: .99; letter-spacing: -.06em; }
+#main-content .page-opening__grid > p { font-size: 14px; line-height: 1.55; max-width: 420px; margin: 0; }
+#main-content .page-endline { padding-block: 18px 22px; margin-top: 0; }
+#main-content .page-endline p { font-size: 20px; }
+
+/* About keeps the story, milestones and mission close together. */
+#main-content .about-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-block: 24px; gap: 32px; }
+#main-content .about-feature__visual { min-height: 300px; }
+#main-content .about-feature__story { padding: 0; }
+#main-content .about-feature__story h2 { font-size: clamp(29px, 3vw, 42px); margin: 10px 0 12px; }
+#main-content .about-feature__story > p { font-size: 14px; line-height: 1.6; margin: 9px 0; }
+#main-content .about-facts { padding-block: 18px 24px; gap: 22px; }
+#main-content .about-facts h3 { font-size: 24px; margin: 7px 0; }
+#main-content .about-facts p { line-height: 1.55; font-size: 13px; }
+#main-content .about-mission { padding-block: 24px; }
+#main-content .about-mission__inner { grid-template-columns: .55fr 1.3fr 1fr; gap: 20px; }
+#main-content .about-mission h2 { font-size: clamp(24px, 2.5vw, 34px); padding-right: 0; }
+#main-content .about-mission p { font-size: 13px; line-height: 1.6; }
+
+/* Projects show the selected case and the beginning of the gallery together. */
+#main-content .case-showcase { padding-block: 18px 30px; }
+#main-content .case-showcase__top { gap: 18px; padding-bottom: 12px; }
+#main-content .case-showcase__feature { min-height: 320px; margin-top: 14px; grid-template-columns: minmax(0, 1.15fr) minmax(290px, .85fr); }
+#main-content .case-showcase__cover { min-height: 320px; }
+#main-content .case-showcase__detail { padding: 20px 24px; }
+#main-content .case-showcase__identity h2 { font-size: clamp(28px, 3vw, 42px); margin: 8px 0 10px; }
+#main-content .case-showcase__identity p { font-size: 13px; line-height: 1.5; }
+#main-content .case-showcase__path { padding-top: 16px; }
+#main-content .case-showcase__phases { padding-top: 12px; }
+#main-content .case-showcase__phases li { gap: 8px; }
+#main-content .case-showcase__path > p { margin-top: 8px; }
+#main-content .case-showcase__primary { min-height: 44px; margin-top: 16px; padding: 11px 15px; }
+#main-content .case-showcase__stepper { margin-top: 10px; }
+#main-content .case-showcase__reel-head { padding-block: 18px 10px; }
+#main-content .case-showcase__tile { flex-basis: clamp(160px, 16vw, 205px); gap: 7px; }
+#main-content .case-showcase__tile-photo { aspect-ratio: 1.9; }
+
+/* Contacts place practical details and the map closer to the opening. */
+#main-content .contact-grid { padding-block: 20px; gap: 28px; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+#main-content .contact-grid--v7 .contact-grid__dark.contact-feature { min-height: 240px; padding: 24px; }
+#main-content .contact-grid__dark.contact-feature h2 { font-size: clamp(32px, 3.4vw, 46px); margin: 20px 0; }
+#main-content .contact-feature__mark { font-size: 32px; }
+#main-content .contact-grid__details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+#main-content .contact-grid__details > div { padding-block: 14px; gap: 11px; align-items: start; }
+#main-content .contact-grid__details > div:first-child { border-top: 1px solid var(--brand-line); }
+#main-content .contact-grid__details a:not(.contact-map) { font-size: 18px; line-height: 1.35; }
+#main-content .contact-grid__details > div > div { min-width: 0; }
+#main-content .location-section { padding-bottom: 28px; }
+#main-content .location-section__heading { padding-block: 15px 12px; }
+#main-content .location-section__heading h2 { font-size: 30px; margin-top: 5px; }
+#main-content .location-section__map { height: 230px; }
+
+/* Quote fields stay readable while decorative spacing is reduced. */
+#main-content .quote-layout { padding-block: 20px 32px; gap: 20px; grid-template-columns: minmax(0, 1.75fr) minmax(260px, .65fr); }
+#main-content .quote-form-shell__head { padding: 12px 20px; }
+#main-content .quote-form { padding: 14px 20px 20px; }
+#main-content .quote-fieldset { margin-bottom: 18px; }
+#main-content .quote-fieldset legend { font-size: 19px; padding: 6px 0 10px; margin-bottom: 14px; }
+#main-content .form-row { gap: 14px; margin-bottom: 14px; }
+#main-content .quote-form label:not(.quote-service-option) { gap: 6px; }
+#main-content .quote-form input:not([type='radio']), #main-content .quote-form select { height: 44px; padding: 10px 12px; }
+#main-content .quote-form textarea { min-height: 100px; padding: 10px 12px; }
+#main-content .quote-service-options { gap: 6px; margin-bottom: 14px; }
+#main-content .quote-service-option { min-height: 44px; padding: 9px 10px; }
+#main-content .quote-details-label { margin-bottom: 14px; }
+#main-content .quote-form__submit { padding-top: 14px; }
+#main-content .quote-side { min-height: 350px; padding: 20px; top: 94px; }
+#main-content .quote-side__content { padding-top: 24px; }
+#main-content .quote-side__content h2 { font-size: 34px; margin-bottom: 16px; }
+#main-content .quote-side__content p { line-height: 1.6; }
+#main-content .quote-side__hint { margin-block: 18px; }
+
+#main-content .legal-page__opening { padding-block: 24px; }
+#main-content .legal-page__eyebrow { margin-bottom: 14px; }
+#main-content .legal-page h1 { font-size: clamp(36px, 3.8vw, 56px); }
+#main-content .legal-page__rule { margin-top: 15px; }
+#main-content .legal-page__layout { padding-block: 24px 40px; gap: 32px; }
+#main-content .legal-page__section { padding-bottom: 22px; margin-bottom: 22px; }
+#main-content .legal-page__section h2 { font-size: 25px; margin-bottom: 12px; }
+#main-content .legal-page__copy { font-size: 14px; line-height: 1.65; }
+
+body:has(:is(.page-opening, .legal-page)) .footer { padding-top: 30px; }
+body:has(:is(.page-opening, .legal-page)) .footer__top { padding-bottom: 24px; gap: 20px; }
+
+@media (max-width: 959px) {
+  body:has(:is(.page-opening, .legal-page)) .site-header { height: 70px; }
+  body:has(:is(.page-opening, .legal-page)) .site-header .brand-logo__image { width: 122px; max-height: 60px; }
+  #main-content .about-feature { gap: 22px; }
+  #main-content .about-feature__visual { min-height: 300px; }
+  #main-content .case-showcase__feature { grid-template-columns: minmax(0, 1fr) minmax(260px, .9fr); }
+  #main-content .case-showcase__detail { padding: 18px; }
+  #main-content .quote-layout { grid-template-columns: minmax(0, 1fr); }
+  #main-content .quote-side { position: static; min-height: 0; }
+}
+@media (max-width: 699px) {
+  #main-content .page-opening { padding-block: 19px 16px; }
+  #main-content .page-opening__grid { grid-template-columns: 1fr; gap: 12px; }
+  #main-content .page-opening__grid > p { font-size: 13px; max-width: 480px; }
+  #main-content .page-opening h1 { font-size: 38px; }
+  #main-content .page-opening h1 br { display: none; }
+  #main-content .page-opening h1 em::before { content: ' '; }
+  #main-content .about-feature { grid-template-columns: minmax(0, 1fr); padding-block: 18px; gap: 18px; }
+  #main-content .about-feature__visual { min-height: 0; height: 210px; }
+  #main-content .about-feature__story h2 { font-size: 30px; }
+  #main-content .about-feature__story h2 br { display: none; }
+  #main-content .about-feature__story h2 em { white-space: normal; }
+  #main-content .about-facts { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-block: 16px; }
+  #main-content .about-facts > div:not(:last-child) { border-right: 0; padding: 0 0 12px; border-bottom: 1px solid var(--brand-line); }
+  #main-content .about-facts h3 { font-size: 21px; margin: 5px 0; }
+  #main-content .about-facts p { max-width: none; }
+  #main-content .about-mission__inner { grid-template-columns: 1fr; gap: 12px; }
+  #main-content .about-mission { padding-block: 18px; }
+  #main-content .about-mission h2 { font-size: 26px; }
+  #main-content .case-showcase__top { flex-direction: column; align-items: stretch; gap: 12px; }
+  #main-content .case-showcase__top-text { flex-basis: auto; max-width: none; }
+  #main-content .case-showcase__filters { justify-content: flex-start; }
+  #main-content .case-showcase__filters button { min-height: 40px; padding: 8px 10px; }
+  #main-content .case-showcase__feature { grid-template-columns: 1fr; min-height: 0; }
+  #main-content .case-showcase__cover { min-height: 0; height: 225px; }
+  #main-content .case-showcase__identity h2 { font-size: 30px; }
+  #main-content .case-showcase__tile { flex-basis: 160px; }
+  #main-content .contact-grid { grid-template-columns: 1fr; gap: 16px; padding-block: 18px; }
+  #main-content .contact-grid--v7 .contact-grid__dark.contact-feature { min-height: 155px; padding: 18px; }
+  #main-content .contact-grid__dark.contact-feature h2 { font-size: 30px; margin: 12px 0; }
+  #main-content .contact-grid__details { column-gap: 18px; }
+  #main-content .contact-grid__details a:not(.contact-map) { font-size: 16px; overflow-wrap: anywhere; }
+  #main-content .contact-grid__details > div { gap: 8px; }
+  #main-content .location-section__heading { flex-direction: row; align-items: center; gap: 12px; }
+  #main-content .location-section__heading h2 { font-size: 25px; }
+  #main-content .location-section__heading a { font-size: 11px; }
+  #main-content .location-section__map { height: 210px; }
+  #main-content .quote-form { padding: 14px; }
+  #main-content .quote-form input:not([type='radio']), #main-content .quote-form select, #main-content .quote-form textarea { font-size: 16px; }
+  #main-content .quote-service-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 379px) {
+  #main-content .contact-grid__details { grid-template-columns: 1fr; }
+}

@@ -2,6 +2,7 @@ import './globals.css';
 import { INDEXABLE } from '@/lib/seo';
 import { COMPANY, SOCIALS } from '@/lib/content';
 import './brand.css';
+import './internal-pages.css';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import ScrollReveal from '@/components/scroll-reveal';
