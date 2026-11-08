@@ -73,13 +73,11 @@
 #main-content .contact-grid { padding-block: 20px; gap: 32px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); align-items: stretch; }
 #main-content .contact-grid--v7 .contact-grid__dark.contact-feature { min-height: 240px; padding: 24px; }
 #main-content .contact-grid__dark.contact-feature h2 { font-size: clamp(32px, 3.4vw, 46px); margin: 20px 0; }
-#main-content .contact-feature__mark { font-size: 32px; }
 #main-content .contact-grid__details { display: grid; grid-template-columns: minmax(0, 1fr); align-content: stretch; }
 #main-content .contact-grid__details > div { padding-block: 12px; gap: 14px; align-items: start; }
-#main-content .contact-grid__details > div:first-child { border-top: 1px solid var(--brand-line); }
+#main-content .contact-grid__details > div:first-child { border-top: 0; }
 #main-content .contact-grid__details a:not(.contact-map) { font-size: 18px; line-height: 1.35; }
 #main-content .contact-grid__details > div > div { min-width: 0; }
-#main-content .contact-page .page-opening { border-bottom: 0; }
 #main-content .contact-grid--v7 .contact-grid__dark.contact-feature {
   border: 0;
   border-left: 3px solid var(--brand-wine);

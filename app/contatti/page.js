@@ -32,7 +32,6 @@ export default function ContattiPage() {
           <h2>Diamo forma<br /><em>alle tue idee.</em></h2>
           <div className="contact-feature__bottom">
             <span>Pensa · Crea · Stampa</span>
-            <span className="contact-feature__mark" aria-hidden="true">↗</span>
           </div>
         </div>
 
