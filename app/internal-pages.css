@@ -1,9 +1,11 @@
 /* Shared compact header and page-specific scale for internal content. */
-.site-header.site-header { height: 78px; }
+:root { --site-header-height: 78px; }
+.site-header.site-header { height: var(--site-header-height); }
 .site-header .brand-logo__image { width: 132px; max-height: 67px; }
 .site-header .header-links { gap: 22px; }
+.site-header .header-links a::after { display: none; }
 .site-header .header-quote { min-height: 42px; }
-.site-header::after { background: var(--brand-paper); opacity: 1; }
+.site-header::after { background: var(--brand-line); opacity: 1; }
 .site-header::before {
   content: '';
   position: absolute;
@@ -18,6 +20,13 @@
   pointer-events: none;
 }
 .site-header[data-section-active="false"]::before { opacity: 0; }
+
+.film-hero {
+  height: calc(100vh - var(--site-header-height));
+  height: calc(100dvh - var(--site-header-height));
+  min-height: 0;
+  max-height: none;
+}
 
 #main-content .page-opening { padding-block: 24px 20px; }
 #main-content .page-opening__eyebrow { margin-bottom: 10px; font-size: 10px; }
@@ -70,10 +79,22 @@
 #main-content .contact-grid__details > div:first-child { border-top: 1px solid var(--brand-line); }
 #main-content .contact-grid__details a:not(.contact-map) { font-size: 18px; line-height: 1.35; }
 #main-content .contact-grid__details > div > div { min-width: 0; }
+#main-content .contact-page .page-opening { border-bottom: 0; }
+#main-content .contact-grid--v7 .contact-grid__dark.contact-feature {
+  border: 0;
+  border-left: 3px solid var(--brand-wine);
+}
+#main-content .contact-feature::before {
+  width: 26%;
+  background: var(--brand-wine);
+}
+#main-content .contact-feature__line { display: none; }
+#main-content .contact-feature__bottom { border-top: 0; }
 #main-content .location-section { padding-bottom: 28px; }
 #main-content .location-section__heading { padding-block: 15px 12px; }
 #main-content .location-section__heading h2 { font-size: 30px; margin-top: 5px; }
 #main-content .location-section__map { height: 230px; }
+#main-content .contact-page .location-section__heading { border-top: 0; }
 
 /* Quote fields stay readable while decorative spacing is reduced. */
 #main-content .quote-layout { padding-block: 20px 32px; gap: 20px; grid-template-columns: minmax(0, 1.75fr) minmax(260px, .65fr); }
@@ -106,9 +127,12 @@
 
 body:has(:is(.page-opening, .legal-page)) .footer { padding-top: 30px; }
 body:has(:is(.page-opening, .legal-page)) .footer__top { padding-bottom: 24px; gap: 20px; }
+.footer { border-top: 1px solid var(--brand-line); }
+.footer::before { display: none; }
+#main-content .page-endline { border-top: 0; }
 
 @media (max-width: 959px) {
-  .site-header.site-header { height: 70px; }
+  :root { --site-header-height: 70px; }
   .site-header .brand-logo__image { width: 122px; max-height: 60px; }
   #main-content .about-feature { gap: 22px; }
   #main-content .about-feature__visual { min-height: 300px; }
