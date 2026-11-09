@@ -7,11 +7,11 @@ import { ArrowUpRight, Expand, X } from 'lucide-react';
 import { SERVICES } from '@/lib/content';
 
 const PHOTOS = [
-  ['stampa', 'Libri, cataloghi, pieghevoli e packaging su un banco di stampa'],
-  ['grande-formato', 'Stampa di banner, pannelli, carta da parati e tessuti'],
-  ['allestimenti', 'Insegne luminose, lettere tridimensionali e stand espositivo'],
-  ['wrapping', 'Applicazione di pellicola su un veicolo e vetrofanie per interni'],
-  ['gadget', 'Abbigliamento, cappellini, borraccia, tazza e oggetti personalizzabili'],
+  ['stampa-v2', 'Cataloghi stampati, campioni di carta e cartellina RAIA a rilievo su un banco di legatoria'],
+  ['grande-formato-v3', 'Plotter industriale durante la stampa di una grafica botanica su vinile'],
+  ['allestimenti-v3', 'Insegna RAIA luminosa, stand modulare, lettere tridimensionali e pannelli sagomati'],
+  ['wrapping-v3', 'Applicazione di pellicola privacy su vetrate di un ufficio e rivestimento effetto legno per interni'],
+  ['gadget-v2', 'Shopper in cotone, polo ricamata e borraccia personalizzate RAIA'],
 ];
 
 function indexFromHash() {
