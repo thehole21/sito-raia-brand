@@ -107,6 +107,16 @@ export default function BrandIntro() {
                 <path d="M270 405H345M270 420H345M285 481H330" strokeWidth="4" />
               </g>
             </g>
+            {/* The brief contact prints the original mark before the stamp lifts away. */}
+            <ellipse className="raia-intro__stamp-contact" cx="584" cy="550" rx="205" ry="48" stroke="#9c2f3e" strokeWidth="6" />
+            <g className="raia-intro__stamp" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M530 320 C540 365 550 388 550 420 H618 C618 388 628 365 638 320 Z" fill="var(--brand-paper)" />
+              <rect x="509" y="244" width="150" height="90" rx="40" fill="#9c2f3e" stroke="#9c2f3e" />
+              <path d="M478 428 Q584 395 690 428 L728 505 Q584 550 440 505 Z" fill="var(--brand-paper)" />
+              <path d="M440 505 V532 Q584 578 728 532 V505" fill="var(--brand-paper)" />
+              <path d="M466 530 Q584 563 702 530" stroke="#9c2f3e" strokeWidth="12" />
+              <path d="M538 267 H594" stroke="#fff" strokeWidth="5" opacity=".4" />
+            </g>
           </svg>
         </div>
         <p className="raia-intro__welcome">Benvenuto in <strong>RAIA S.R.L.</strong></p>

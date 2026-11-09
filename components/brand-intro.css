@@ -16,8 +16,24 @@
 @keyframes raia-head { 0%, 10% { transform: translateX(0); } 48% { transform: translateX(540px); } 100% { transform: translateX(110px); } }
 @keyframes raia-sheet { 0%, 7% { opacity: 0; } 12%, 48% { opacity: 1; } 60%, 100% { opacity: 0; } }
 @keyframes raia-fold { 0%, 19% { opacity: 0; } 25%, 28% { opacity: .65; } 38%, 100% { opacity: 0; } }
-@keyframes raia-reveal { 0%, 46% { opacity: 0; } 59%, 100% { opacity: 1; } }
+@keyframes raia-reveal { 0%, 45% { opacity: 0; } 56%, 100% { opacity: 1; } }
 @keyframes raia-wordmark { 0%, 53% { opacity: 0; transform: translateX(-18px); } 65%, 100% { opacity: 1; transform: none; } }
 @keyframes raia-welcome { 0% { opacity: 0; transform: translateY(8px); } 16%, 58% { opacity: 1; transform: none; } 71%, 100% { opacity: 0; transform: translateY(-6px); } }
 @keyframes raia-paper { 0%, 68% { opacity: 1; } 95%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .raia-intro { display: none; } .raia-intro-target { opacity: 1; } }
+
+.raia-intro__stamp { transform-origin: 584px 550px; animation: raia-stamp var(--intro-duration) linear both; }
+.raia-intro__stamp-contact { transform-origin: 584px 550px; animation: raia-stamp-contact var(--intro-duration) ease-out both; }
+@keyframes raia-stamp {
+  0%, 32% { opacity: 0; transform: translate(55px, -230px) rotate(-12deg); }
+  36% { opacity: 1; transform: translate(28px, -155px) rotate(-7deg); animation-timing-function: cubic-bezier(.55,0,.85,.45); }
+  45% { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+  47% { opacity: 1; transform: translate(0, 7px) scaleY(.97); animation-timing-function: cubic-bezier(.15,.6,.25,1); }
+  52% { opacity: 1; transform: translate(12px, -100px) rotate(4deg); }
+  59%, 100% { opacity: 0; transform: translate(40px, -210px) rotate(9deg); }
+}
+@keyframes raia-stamp-contact {
+  0%, 44% { opacity: 0; transform: scale(.92); }
+  47% { opacity: .4; transform: scale(1); }
+  57%, 100% { opacity: 0; transform: scale(1.14); }
+}
