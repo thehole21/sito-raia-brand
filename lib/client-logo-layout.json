@@ -142,5 +142,13 @@
     "imageHeight": 131.85328185328186,
     "left": -66.36363636363636,
     "top": -15.83011583011583
+  },
+  "CBRE Hitrac": {
+    "width": 146,
+    "height": 16.539,
+    "imageWidth": 100,
+    "imageHeight": 100,
+    "left": 0,
+    "top": 0
   }
 }
