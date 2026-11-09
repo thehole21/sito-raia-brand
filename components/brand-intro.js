@@ -1,29 +1,27 @@
 'use client';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import './brand-intro.css';
-const DURATION = 3200;
-const FONT_STACK = '"Segoe UI", "Helvetica Neue", Arial, sans-serif';
-
+const DURATION = 3000;
+const ART = '/_next/image?url=%2Fimages%2Fraia-logo-transparent.webp&w=1080&q=75';
 export default function BrandIntro() {
   const [intro, setIntro] = useState(null);
   const logo = useRef(null);
-  const leftArtRef = useRef(null);
-  const rightArtRef = useRef(null);
-  const welcomeRef = useRef(null);
-  const inkId = `ink-${useId().replace(/:/g, '')}`;
-
+  const maskId = `print-${useId().replace(/:/g, '')}`;
   useEffect(() => {
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const connection = navigator.connection;
     if (motion.matches || connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType ?? '') || document.visibilityState !== 'visible' || location.hash) return;
-    const timer = setTimeout(() => {
-      const target = document.querySelector('.site-header .brand-logo__image');
-      if (!target || motion.matches || document.visibilityState !== 'visible' || location.hash || document.activeElement?.closest('a, button, input')) return;
-      setIntro({ target });
-    }, 90);
-    return () => clearTimeout(timer);
+    let cancelled = false;
+    const target = document.querySelector('.site-header .brand-logo__image');
+    if (!target) return;
+    const artwork = new Image();
+    artwork.src = ART;
+    const deadline = setTimeout(() => { cancelled = true; }, 900);
+    Promise.all([artwork.decode(), target.decode()]).then(() => {
+      if (!cancelled && !motion.matches && document.visibilityState === 'visible' && !location.hash && !document.activeElement?.closest('a, button, input')) setIntro({ target });
+    }).catch(() => {}).finally(() => clearTimeout(deadline));
+    return () => { cancelled = true; clearTimeout(deadline); };
   }, []);
-
   useLayoutEffect(() => {
     if (!intro) return;
     const { target } = intro;
@@ -31,80 +29,22 @@ export default function BrandIntro() {
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const finish = () => setIntro(null);
     const onKey = event => { if (event.key === 'Escape') finish(); };
-    if (motion.matches || !flying?.animate) {
-      const cancelFrame = requestAnimationFrame(finish);
-      return () => cancelAnimationFrame(cancelFrame);
-    }
-
-    const drawArt = () => {
-      const nw = target.naturalWidth;
-      const nh = target.naturalHeight;
-      if (!nw || !nh) return;
-      const splitX = nw * (1115 / 2096);
-      const leftCanvas = leftArtRef.current;
-      const leftCtx = leftCanvas?.getContext('2d');
-      if (leftCtx) {
-        leftCtx.clearRect(0, 0, leftCanvas.width, leftCanvas.height);
-        leftCtx.drawImage(target, 0, 0, splitX, nh, 0, 0, leftCanvas.width, leftCanvas.height);
-      }
-      const rightCanvas = rightArtRef.current;
-      const rightCtx = rightCanvas?.getContext('2d');
-      if (rightCtx) {
-        rightCtx.clearRect(0, 0, rightCanvas.width, rightCanvas.height);
-        rightCtx.drawImage(target, splitX, 0, nw - splitX, nh, 0, 0, rightCanvas.width, rightCanvas.height);
-      }
-    };
-    if (target.complete && target.naturalWidth > 0) drawArt();
-    else if (target.decode) target.decode().then(drawArt).catch(() => {});
-    else target.addEventListener('load', drawArt, { once: true });
-
-    const welcomeCanvas = welcomeRef.current;
-    const welcomeCtx = welcomeCanvas?.getContext('2d');
-    if (welcomeCanvas && welcomeCtx) {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const fontSize = Math.min(30, Math.max(19, window.innerWidth * 0.038));
-      const prefix = 'Benvenuto in ';
-      const brand = 'RAIA S.R.L.';
-      welcomeCtx.font = `350 ${fontSize}px ${FONT_STACK}`;
-      const prefixWidth = welcomeCtx.measureText(prefix).width;
-      welcomeCtx.font = `550 ${fontSize}px ${FONT_STACK}`;
-      const brandWidth = welcomeCtx.measureText(brand).width;
-      const totalWidth = Math.ceil(prefixWidth + brandWidth + 40);
-      const totalHeight = Math.ceil(fontSize * 1.45);
-      welcomeCanvas.width = Math.ceil(totalWidth * dpr);
-      welcomeCanvas.height = Math.ceil(totalHeight * dpr);
-      welcomeCanvas.style.width = `${totalWidth}px`;
-      welcomeCanvas.style.height = `${totalHeight}px`;
-      welcomeCtx.scale(dpr, dpr);
-      welcomeCtx.fillStyle = '#161616';
-      welcomeCtx.textBaseline = 'middle';
-      const xStart = (totalWidth - (prefixWidth + brandWidth)) / 2;
-      const yMid = totalHeight / 2;
-      welcomeCtx.font = `350 ${fontSize}px ${FONT_STACK}`;
-      welcomeCtx.fillText(prefix, xStart, yMid);
-      welcomeCtx.font = `550 ${fontSize}px ${FONT_STACK}`;
-      welcomeCtx.fillText(brand, xStart + prefixWidth, yMid);
-    }
-
+    const start = flying.getBoundingClientRect();
+    const end = target.getBoundingClientRect();
+    if (!start.width || !end.width || motion.matches || !flying.animate) { finish(); return; }
     target.classList.add('raia-intro-target');
-    let flight = null;
-    const flightTimer = setTimeout(() => {
-      if (!flying.isConnected || !target.isConnected) { finish(); return; }
-      const start = flying.getBoundingClientRect();
-      const end = target.getBoundingClientRect();
-      if (!start.width || !end.width) { finish(); return; }
-      const scale = Math.min(end.width / start.width, end.height / start.height);
-      const dx = end.left + (end.width - start.width * scale) / 2 - start.left;
-      const dy = end.top + (end.height - start.height * scale) / 2 - start.top;
-      const pose = (x, y, size) => `translate3d(${x}px, ${y}px, 0) scale(${size})`;
-      flight = flying.animate([
-        { transform: pose(0, 0, 1), offset: 0, easing: 'cubic-bezier(.4,0,.2,1)' },
-        { transform: pose(dx, dy, scale), offset: .89 },
-        { transform: pose(dx, dy, scale), offset: 1 },
-      ], { duration: DURATION * 0.19, fill: 'both' });
-      flight.onfinish = finish;
-    }, DURATION * 0.81);
-
+    // Match the contained header image, including its max-height constraint.
+    const scale = Math.min(end.width / start.width, end.height / start.height);
+    const dx = end.left + (end.width - start.width * scale) / 2 - start.left;
+    const dy = end.top + (end.height - start.height * scale) / 2 - start.top;
+    const pose = (x, y, size) => `translate3d(${x}px, ${y}px, 0) scale(${size})`;
+    const flight = flying.animate([
+      { transform: pose(0, 0, 1), offset: 0 },
+      { transform: pose(0, 0, 1), offset: .68, easing: 'cubic-bezier(.4,0,.2,1)' },
+      { transform: pose(dx, dy, scale), offset: .97 },
+      { transform: pose(dx, dy, scale), offset: 1 },
+    ], { duration: DURATION, fill: 'both' });
+    flight.onfinish = finish;
     const deadline = setTimeout(finish, DURATION + 150);
     window.addEventListener('resize', finish);
     window.addEventListener('keydown', onKey);
@@ -115,9 +55,7 @@ export default function BrandIntro() {
     motion.addEventListener('change', finish);
     return () => {
       target.classList.remove('raia-intro-target');
-      clearTimeout(flightTimer);
-      clearTimeout(deadline);
-      if (flight) flight.cancel();
+      flight.cancel(); clearTimeout(deadline);
       window.removeEventListener('resize', finish);
       window.removeEventListener('keydown', onKey);
       window.removeEventListener('wheel', finish);
@@ -127,34 +65,32 @@ export default function BrandIntro() {
       motion.removeEventListener('change', finish);
     };
   }, [intro]);
-
   if (!intro) return null;
   return (
     <div className="raia-intro" aria-hidden="true" style={{ '--intro-duration': `${DURATION}ms` }}>
       <div className="raia-intro__backdrop" />
       <div className="raia-intro__composition">
         <div ref={logo} className="raia-intro__logo">
-          <canvas ref={leftArtRef} width="558" height="542" className="raia-intro__reveal" />
-          <canvas ref={rightArtRef} width="490" height="542" className="raia-intro__wordmark" />
-          <div className="raia-intro__layer raia-intro__sheet">
-            <div className="raia-intro__layer raia-intro__ink">
-              <svg viewBox="0 0 2096 1084" fill="none" className="raia-intro__art">
-                <defs>
-                  <linearGradient id={inkId} x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stopColor="#b84b58" /><stop offset=".5" stopColor="#9c2f3e" /><stop offset="1" stopColor="#7d2332" />
-                  </linearGradient>
-                </defs>
-                <path fill={`url(#${inkId})`} d="M584 16 C873 16 1108 244 1108 526 C1108 808 873 1036 584 1036 C295 1036 60 808 60 526 C60 244 295 16 584 16 Z" />
-              </svg>
-            </div>
-            <div className="raia-intro__layer raia-intro__fold">
-              <svg viewBox="0 0 2096 1084" fill="none" className="raia-intro__art">
-                <path d="M270 890 Q620 980 1000 905" stroke="#e3a1a7" strokeWidth="5" />
-              </svg>
-            </div>
-          </div>
-          <div className="raia-intro__layer raia-intro__press">
-            <svg viewBox="0 0 2096 1084" fill="none" className="raia-intro__art" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
+          <svg viewBox="0 0 2096 1084" fill="none" className="raia-intro__art">
+            <defs>
+              <linearGradient id={`${maskId}-ink`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#b84b58" /><stop offset=".5" stopColor="#9c2f3e" /><stop offset="1" stopColor="#7d2332" />
+              </linearGradient>
+              <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="2096" height="1084">
+                <rect className="raia-intro__reveal" width="1115" height="1084" fill="white" />
+                <rect className="raia-intro__wordmark" x="1115" y="0" width="981" height="1084" fill="white" />
+              </mask>
+            </defs>
+            {/* The sheet and the monogram share their final centre and silhouette. */}
+            <image href={ART} width="2096" height="1084" mask={`url(#${maskId})`} />
+            <g className="raia-intro__sheet">
+              <path fill={`url(#${maskId}-ink)`} d="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z">
+                <animate attributeName="d" dur="1.72s" fill="freeze" calcMode="spline" keyTimes="0; .12; .49; .72; 1" keySplines=".4 0 .2 1; .25 .1 .25 1; .4 0 .2 1; .4 0 .2 1" values="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 690 970 850 1010 930 C780 1000 470 1000 270 920 C230 800 250 690 250 560 Z; M340 190 C600 80 1010 190 1080 420 C1150 690 960 970 720 1010 C430 1070 140 870 130 620 C110 400 180 270 340 190 Z; M584 16 C873 16 1108 244 1108 526 C1108 808 873 1036 584 1036 C295 1036 60 808 60 526 C60 244 295 16 584 16 Z" />
+              </path>
+              <path className="raia-intro__fold" d="M270 890 Q620 980 1000 905" stroke="#e3a1a7" strokeWidth="5" />
+            </g>
+            <g className="raia-intro__press" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
+              {/* Wide carriage, side cabinets, feed rollers and freestanding chassis. */}
               <path d="M100 560V370Q100 342 128 342H1040Q1070 342 1070 370V560H940M100 560H230" fill="var(--brand-paper)" />
               <path d="M175 342V290H1000V342M190 380H980M190 460H980" />
               <rect x="95" y="365" width="130" height="245" rx="16" fill="var(--brand-paper)" />
@@ -166,16 +102,14 @@ export default function BrandIntro() {
               <rect x="973" y="394" width="71" height="49" rx="5" strokeWidth="5" />
               <path d="M989 411H1027M989 426H1013M123 400H195M123 417H195M123 434H195" strokeWidth="4" opacity=".5" />
               <circle cx="1008" cy="477" r="7" fill="#9c2f3e" stroke="none" />
-            </svg>
-            <div className="raia-intro__layer raia-intro__head">
-              <svg viewBox="0 0 2096 1084" fill="none" className="raia-intro__art" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
+              <g className="raia-intro__head">
                 <rect x="250" y="385" width="115" height="112" rx="10" fill="var(--brand-paper)" />
                 <path d="M270 405H345M270 420H345M285 481H330" strokeWidth="4" />
-              </svg>
-            </div>
-          </div>
+              </g>
+            </g>
+          </svg>
         </div>
-        <canvas ref={welcomeRef} className="raia-intro__welcome" />
+        <p className="raia-intro__welcome">Benvenuto in <strong>RAIA S.R.L.</strong></p>
       </div>
     </div>
   );

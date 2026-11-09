@@ -36,13 +36,12 @@ const nextConfig = {
       },
       ...['/images/:path*', '/videos/:path*', '/wp-content/uploads/:path*'].map(source => ({
         source,
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
       })),
     ];
   },
   images: {
-    minimumCacheTTL: 31536000,
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 320, 384],
+    minimumCacheTTL: 86400,
     remotePatterns: [
       { protocol: 'https', hostname: 'www.raiaweb.it', pathname: '/wp-content/uploads/**' },
     ],

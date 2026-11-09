@@ -4,11 +4,11 @@ Controllo aggiornato all’8 novembre 2026. Il sito pubblico WordPress è ancora
 
 ## Indicizzazione
 
-- Il sito è indicizzabile per impostazione predefinita; gli ambienti Vercel di preview (`VERCEL_ENV !== 'production'`) restano esclusi automaticamente.
+- Una build di produzione è indicizzabile per impostazione predefinita. Lo sviluppo e gli ambienti Vercel di preview restano esclusi.
 - Su un altro hosting di staging impostare `SEO_INDEXABLE=false` e ricompilare.
 - Sulla pubblicazione definitiva eliminare eventuali `SEO_INDEXABLE=false`, ricompilare e verificare l’HTML effettivamente servito.
 - I domini `*.vercel.app` ricevono anche `X-Robots-Tag: noindex, follow`. Il dominio definitivo deve essere `www.raiaweb.it`.
-- Tutte le pagine pubbliche (inclusa `/preventivo`) sono indicizzabili e presenti in `/sitemap.xml`.
+- Il prototipo `/preventivo` resta `noindex,follow` ed è escluso dalla sitemap finché il modulo è dimostrativo.
 - Se la proprietà Search Console usa una verifica tramite meta tag, impostare `GOOGLE_SITE_VERIFICATION` con il token già assegnato alla proprietà e ricompilare. Se la verifica usa DNS, conservare il relativo record.
 
 ## Indirizzi e archivio

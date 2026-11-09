@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process';
 
 const cases = [
   { name: 'produzione', NODE_ENV: 'production', expected: true },
-  { name: 'sviluppo locale', NODE_ENV: 'development', expected: true },
+  { name: 'sviluppo', NODE_ENV: 'development', expected: false },
   { name: 'Vercel produzione', NODE_ENV: 'production', VERCEL_ENV: 'production', expected: true },
   { name: 'Vercel anteprima', NODE_ENV: 'production', VERCEL_ENV: 'preview', SEO_INDEXABLE: 'true', expected: false },
   { name: 'staging esplicito', NODE_ENV: 'production', SEO_INDEXABLE: 'false', expected: false },

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Expand, X } from 'lucide-react';
-import HeroCanvas from '@/components/hero-canvas';
 import { SERVICES } from '@/lib/content';
 
 const PHOTOS = [
@@ -85,8 +84,9 @@ export default function Servizi() {
             <button type="button" className="service-desk__enlarge"
               ref={index === current ? enlargeButton : undefined}
               onClick={() => setExpanded(true)} aria-label={`Ingrandisci immagine: ${item.title}`}>
-              <HeroCanvas src={`/images/servizi/${PHOTOS[index][0]}.webp`} alt={PHOTOS[index][1]}
-                width={1280} height={720} quality={60} />
+              <Image src={`/images/servizi/${PHOTOS[index][0]}.webp`} alt={PHOTOS[index][1]}
+                width={1280} height={720} priority={index === 0} fetchPriority={index === 0 ? 'high' : undefined}
+                sizes="(max-width: 699px) 100vw, 48vw" />
               <span><Expand size={15} aria-hidden="true" /> Ingrandisci</span>
             </button>
             <figcaption>{item.detail}</figcaption>

@@ -46,17 +46,19 @@
     transparent 54%);
   pointer-events: none;
 }
-.contact-page .contact-feature__watermark {
+.contact-page .contact-feature::after {
+  content: "";
   position: absolute;
   bottom: -10%;
   right: -10%;
   width: min(46%, 225px);
   aspect-ratio: 1;
+  background: url("/images/raia-monogram-transparent.webp") center / contain no-repeat;
   opacity: .075;
   pointer-events: none;
   z-index: 0;
 }
-.contact-page .contact-feature > *:not(.contact-feature__watermark) { position: relative; z-index: 1; }
+.contact-page .contact-feature > * { position: relative; z-index: 1; }
 .contact-page .contact-feature__head {
   display: flex;
   align-items: center;
@@ -189,7 +191,7 @@
     font-size: clamp(37px, 9.6vw, 48px);
     margin: 32px 0;
   }
-  .contact-page .contact-feature__watermark { width: 41%; right: -6%; }
+  .contact-page .contact-feature::after { width: 41%; right: -6%; }
   .contact-page .contact-feature__bottom > span:first-child { font-size: 9px; }
   .contact-page .location-section__heading { align-items: flex-start; }
   .contact-page .location-section__heading a { white-space: normal; }
