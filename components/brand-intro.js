@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import './brand-intro.css';
-const DURATION = 2800;
+const DURATION = 3000;
 const ART = '/_next/image?url=%2Fimages%2Fraia-logo-transparent.webp&w=1080&q=75';
 export default function BrandIntro() {
   const [intro, setIntro] = useState(null);
@@ -40,7 +40,7 @@ export default function BrandIntro() {
     const pose = (x, y, size) => `translate3d(${x}px, ${y}px, 0) scale(${size})`;
     const flight = flying.animate([
       { transform: pose(0, 0, 1), offset: 0 },
-      { transform: pose(0, 0, 1), offset: .65, easing: 'cubic-bezier(.4,0,.2,1)' },
+      { transform: pose(0, 0, 1), offset: .68, easing: 'cubic-bezier(.4,0,.2,1)' },
       { transform: pose(dx, dy, scale), offset: .97 },
       { transform: pose(dx, dy, scale), offset: 1 },
     ], { duration: DURATION, fill: 'both' });
@@ -73,21 +73,40 @@ export default function BrandIntro() {
         <div ref={logo} className="raia-intro__logo">
           <svg viewBox="0 0 2096 1084" fill="none" className="raia-intro__art">
             <defs>
+              <linearGradient id={`${maskId}-ink`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#b84b58" /><stop offset=".5" stopColor="#9c2f3e" /><stop offset="1" stopColor="#7d2332" />
+              </linearGradient>
               <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="2096" height="1084">
-                <circle className="raia-intro__reveal" cx="582" cy="535" r="300" stroke="white" strokeWidth="620" pathLength="1" transform="rotate(90 582 535)" />
+                <rect className="raia-intro__reveal" width="1115" height="1084" fill="white" />
                 <rect className="raia-intro__wordmark" x="1115" y="0" width="981" height="1084" fill="white" />
-                <rect className="raia-intro__seal" width="2096" height="1084" fill="white" />
               </mask>
             </defs>
-            {/* Reveal the original artwork: the final shape is never an approximation. */}
+            {/* The sheet and the monogram share their final centre and silhouette. */}
             <image href={ART} width="2096" height="1084" mask={`url(#${maskId})`} />
-            <g className="raia-intro__press" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M200 700V460Q200 430 230 430H920Q950 430 950 460V700M200 600H950M230 700H920M270 700V860M880 700V860M250 860H300M850 860H900" />
-              <path d="M235 490H915M280 545H865M310 650H845" opacity=".35" />
-              <rect className="raia-intro__head" x="280" y="465" width="90" height="110" rx="10" fill="var(--brand-paper)" />
-              <circle cx="895" cy="540" r="7" fill="#9c2f3e" stroke="none" />
+            <g className="raia-intro__sheet">
+              <path fill={`url(#${maskId}-ink)`} d="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z">
+                <animate attributeName="d" dur="1.72s" fill="freeze" calcMode="spline" keyTimes="0; .12; .49; .72; 1" keySplines=".4 0 .2 1; .25 .1 .25 1; .4 0 .2 1; .4 0 .2 1" values="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 690 970 850 1010 930 C780 1000 470 1000 270 920 C230 800 250 690 250 560 Z; M340 190 C600 80 1010 190 1080 420 C1150 690 960 970 720 1010 C430 1070 140 870 130 620 C110 400 180 270 340 190 Z; M584 16 C873 16 1108 244 1108 526 C1108 808 873 1036 584 1036 C295 1036 60 808 60 526 C60 244 295 16 584 16 Z" />
+              </path>
+              <path className="raia-intro__fold" d="M270 890 Q620 980 1000 905" stroke="#e3a1a7" strokeWidth="5" />
             </g>
-            <path className="raia-intro__ribbon" d="M575 615C575 735 645 895 785 895C1080 895 1100 330 780 220C470 110 190 350 245 620C275 795 395 900 565 900" stroke="#9c2f3e" strokeWidth="100" strokeLinecap="butt" pathLength="1" />
+            <g className="raia-intro__press" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round">
+              {/* Wide carriage, side cabinets, feed rollers and freestanding chassis. */}
+              <path d="M100 560V370Q100 342 128 342H1040Q1070 342 1070 370V560H940M100 560H230" fill="var(--brand-paper)" />
+              <path d="M175 342V290H1000V342M190 380H980M190 460H980" />
+              <rect x="95" y="365" width="130" height="245" rx="16" fill="var(--brand-paper)" />
+              <rect x="945" y="365" width="130" height="245" rx="16" fill="var(--brand-paper)" />
+              <path d="M235 520H935M235 548H935" strokeWidth="13" />
+              <path d="M165 615V920H255M1010 615V920H920M170 850H1005" />
+              <path d="M220 790H940" strokeWidth="25" opacity=".32" />
+              <circle cx="165" cy="936" r="13" /><circle cx="1010" cy="936" r="13" />
+              <rect x="973" y="394" width="71" height="49" rx="5" strokeWidth="5" />
+              <path d="M989 411H1027M989 426H1013M123 400H195M123 417H195M123 434H195" strokeWidth="4" opacity=".5" />
+              <circle cx="1008" cy="477" r="7" fill="#9c2f3e" stroke="none" />
+              <g className="raia-intro__head">
+                <rect x="250" y="385" width="115" height="112" rx="10" fill="var(--brand-paper)" />
+                <path d="M270 405H345M270 420H345M285 481H330" strokeWidth="4" />
+              </g>
+            </g>
           </svg>
         </div>
         <p className="raia-intro__welcome">Benvenuto in <strong>RAIA S.R.L.</strong></p>

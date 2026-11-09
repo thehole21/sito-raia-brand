@@ -20,7 +20,7 @@ export default function HomeVideo() {
       }
       if (!video.getAttribute('src')) {
         const device = window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop';
-        video.src = `/videos/raia-home-${device}.mp4`;
+        video.src = `/videos/raia-home-${device}-v2.mp4`;
       }
       video.play().catch(() => {});
     }
@@ -58,7 +58,7 @@ export default function HomeVideo() {
 
   return (
     <>
-      <Image src="/images/home-poster.webp" alt="" fill unoptimized priority fetchPriority="high"
+      <Image src="/images/home-poster-v2.webp" alt="" fill unoptimized priority fetchPriority="high"
         className="film-hero__video" style={{ objectFit: 'cover' }} />
       <video ref={videoRef} className="film-hero__video" muted playsInline loop preload="none"
         aria-hidden="true" tabIndex={-1} />
