@@ -1,0 +1,992 @@
+[
+  {
+    "id": "gucci",
+    "title": "Vetrine floreali",
+    "client": "Gucci · Parigi",
+    "category": "Vetrofanie",
+    "image": "/projects/archivio/05.webp",
+    "alt": "Operatore di Raia Srl indossa equipaggiamento da lavoro davanti a vetrofania floreale con scritta Gucci.",
+    "photos": [
+      {
+        "image": "/projects/archivio/05.webp",
+        "label": "Posa",
+        "alt": "Operatore di Raia Srl indossa equipaggiamento da lavoro davanti a vetrofania floreale con scritta Gucci."
+      },
+      {
+        "image": "/projects/archivio/06.webp",
+        "label": "Dettaglio",
+        "alt": "Dettaglio delle vetrofanie floreali sulla facciata di negozio Gucci."
+      },
+      {
+        "image": "/projects/archivio/09.webp",
+        "label": "Vista esterna",
+        "alt": "Facciata negozio Gucci con prima pagina di giornale che ne parla."
+      }
+    ]
+  },
+  {
+    "id": "ntt",
+    "title": "Insegna su parete verde",
+    "client": "NTT DATA",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/19.webp",
+    "alt": "Insegna",
+    "photos": [
+      {
+        "image": "/projects/archivio/19.webp",
+        "label": "Risultato",
+        "alt": "Insegna"
+      }
+    ]
+  },
+  {
+    "id": "caps",
+    "title": "Cappellini personalizzati",
+    "client": "Rimac",
+    "category": "Gadget",
+    "image": "/projects/archivio/42.webp",
+    "alt": "Cappellini",
+    "photos": [
+      {
+        "image": "/projects/archivio/42.webp",
+        "label": "Personalizzazione",
+        "alt": "Cappellini"
+      }
+    ]
+  },
+  {
+    "id": "kit",
+    "title": "Kit stampato",
+    "client": "UILPA",
+    "category": "Stampa",
+    "image": "/projects/archivio/27.webp",
+    "alt": "Kit",
+    "photos": [
+      {
+        "image": "/projects/archivio/27.webp",
+        "label": "Kit completo",
+        "alt": "Kit"
+      }
+    ]
+  },
+  {
+    "id": "interior",
+    "title": "Vetrofania decorativa",
+    "client": "Applicazione per interni",
+    "category": "Vetrofanie",
+    "image": "/wp-content/uploads/2026/04/Jungle-_B-768x576.jpg",
+    "alt": "Vetrofania decorativa con foglie su parete di vetro",
+    "photos": [
+      {
+        "image": "/wp-content/uploads/2026/04/Jungle-_B-768x576.jpg",
+        "label": "Decorazione",
+        "alt": "Vetrofania decorativa con foglie su parete di vetro"
+      }
+    ]
+  },
+  {
+    "id": "wrapping",
+    "title": "Pellicole per auto",
+    "client": "Car wrapping",
+    "category": "Wrapping",
+    "image": "/projects/archivio/74.webp",
+    "alt": "Operatore di Raia srl applica adesivo su una Maserati.",
+    "photos": [
+      {
+        "image": "/projects/archivio/74.webp",
+        "label": "Applicazione",
+        "alt": "Operatore di Raia srl applica adesivo su una Maserati."
+      }
+    ]
+  },
+  {
+    "id": "gucci-roma",
+    "title": "Identità in vetrina",
+    "client": "Gucci · Via Condotti",
+    "category": "Wrapping",
+    "image": "/projects/archivio/02.webp",
+    "alt": "Operatori di Raia srl applicano gli sticker all'insegna del negozio Gucci.",
+    "photos": [
+      {
+        "image": "/projects/archivio/01.webp",
+        "label": "Rivestimento",
+        "alt": "Operatore di Raia srl applica gli sticker in un negozio."
+      },
+      {
+        "image": "/projects/archivio/02.webp",
+        "label": "Posa insegna",
+        "alt": "Operatori di Raia srl applicano gli sticker all'insegna del negozio Gucci."
+      }
+    ]
+  },
+  {
+    "id": "gucci-milano",
+    "title": "Rivestimenti su misura",
+    "client": "Gucci · Milano",
+    "category": "Wrapping",
+    "image": "/projects/archivio/03.webp",
+    "alt": "Tre operatori di Raia srl intenti ad applicare stickers in un corridoio.",
+    "photos": [
+      {
+        "image": "/projects/archivio/03.webp",
+        "label": "Applicazione",
+        "alt": "Tre operatori di Raia srl intenti ad applicare stickers in un corridoio."
+      },
+      {
+        "image": "/projects/archivio/04.webp",
+        "label": "Dettaglio posa",
+        "alt": "Operatore di Raia srl applica un adesivo tramite paletta."
+      }
+    ]
+  },
+  {
+    "id": "gucci-pavimenti",
+    "title": "Pavimenti floreali",
+    "client": "Gucci · Parigi",
+    "category": "Wrapping",
+    "image": "/projects/archivio/08.webp",
+    "alt": "Pavimenti floreali — Gucci · Parigi",
+    "photos": [
+      {
+        "image": "/projects/archivio/07.webp",
+        "label": "Preparazione",
+        "alt": "Operatore di Raia srl tiene in mano i teloni per pavimento nel negozio Gucci."
+      },
+      {
+        "image": "/projects/archivio/08.webp",
+        "label": "Risultato",
+        "alt": "Pavimenti floreali — Risultato"
+      }
+    ]
+  },
+  {
+    "id": "midas",
+    "title": "Insegne e pannelli",
+    "client": "Midas",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/11.webp",
+    "alt": "Ufficio della Midas con pannelli stampati da Raia srl.",
+    "photos": [
+      {
+        "image": "/projects/archivio/10.webp",
+        "label": "Posa insegna",
+        "alt": "Operatore di Raia srl monta pannello con insegna di Midas."
+      },
+      {
+        "image": "/projects/archivio/11.webp",
+        "label": "Spazi interni",
+        "alt": "Ufficio della Midas con pannelli stampati da Raia srl."
+      }
+    ]
+  },
+  {
+    "id": "elt",
+    "title": "Vetrate personalizzate",
+    "client": "ELT Group",
+    "category": "Vetrofanie",
+    "image": "/projects/archivio/12.webp",
+    "alt": "Operatore di Raia srl applica la vetrofania ad una porta di vetro.",
+    "photos": [
+      {
+        "image": "/projects/archivio/12.webp",
+        "label": "Applicazione",
+        "alt": "Operatore di Raia srl applica la vetrofania ad una porta di vetro."
+      }
+    ]
+  },
+  {
+    "id": "ntt-privacy",
+    "title": "Privacy in ufficio",
+    "client": "NTT DATA",
+    "category": "Vetrofanie",
+    "image": "/projects/archivio/14.webp",
+    "alt": "Privacy in ufficio — NTT DATA",
+    "photos": [
+      {
+        "image": "/projects/archivio/13.webp",
+        "label": "Area ristoro",
+        "alt": "Privacy in ufficio — Area ristoro"
+      },
+      {
+        "image": "/projects/archivio/14.webp",
+        "label": "Vetrate ufficio",
+        "alt": "Privacy in ufficio — Vetrate ufficio"
+      }
+    ]
+  },
+  {
+    "id": "pellicole-ufficio",
+    "title": "Pellicole per uffici",
+    "client": "Spazi di lavoro",
+    "category": "Vetrofanie",
+    "image": "/projects/archivio/15.webp",
+    "alt": "Operatore di Raia srl intento ad applicare vetrofanie in un ufficio.",
+    "photos": [
+      {
+        "image": "/projects/archivio/15.webp",
+        "label": "Applicazione",
+        "alt": "Operatore di Raia srl intento ad applicare vetrofanie in un ufficio."
+      }
+    ]
+  },
+  {
+    "id": "blumare",
+    "title": "Superfici decorative",
+    "client": "Blumare Privé",
+    "category": "Wrapping",
+    "image": "/projects/archivio/16.webp",
+    "alt": "Entrata di Blumare Privé con vetrofania.",
+    "photos": [
+      {
+        "image": "/projects/archivio/16.webp",
+        "label": "Ingresso",
+        "alt": "Entrata di Blumare Privé con vetrofania."
+      },
+      {
+        "image": "/projects/archivio/17.webp",
+        "label": "Porte decorate",
+        "alt": "Superfici decorative — Porte decorate"
+      }
+    ]
+  },
+  {
+    "id": "smau",
+    "title": "Logo a parete",
+    "client": "Smau",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/18.webp",
+    "alt": "Logo a parete — Smau",
+    "photos": [
+      {
+        "image": "/projects/archivio/18.webp",
+        "label": "Insegna",
+        "alt": "Logo a parete — Insegna"
+      }
+    ]
+  },
+  {
+    "id": "ntt-desk",
+    "title": "Reception rinnovata",
+    "client": "NTT DATA",
+    "category": "Wrapping",
+    "image": "/projects/archivio/21.webp",
+    "alt": "Reception rinnovata — NTT DATA",
+    "photos": [
+      {
+        "image": "/projects/archivio/20.webp",
+        "label": "Prima",
+        "alt": "Reception rinnovata — Prima"
+      },
+      {
+        "image": "/projects/archivio/21.webp",
+        "label": "Dopo",
+        "alt": "Reception rinnovata — Dopo"
+      }
+    ]
+  },
+  {
+    "id": "sm-oil-gas",
+    "title": "Insegna esterna",
+    "client": "SM Oil & Gas",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/22.webp",
+    "alt": "Insegna esterna — SM Oil & Gas",
+    "photos": [
+      {
+        "image": "/projects/archivio/23.webp",
+        "label": "Montaggio",
+        "alt": "Operatori della Raia srl. montano insegna usando gru e caterpillar."
+      },
+      {
+        "image": "/projects/archivio/22.webp",
+        "label": "Risultato",
+        "alt": "Insegna esterna — Risultato"
+      }
+    ]
+  },
+  {
+    "id": "gns",
+    "title": "Desk personalizzato",
+    "client": "GNS Group",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/24.webp",
+    "alt": "Desk personalizzato — GNS Group",
+    "photos": [
+      {
+        "image": "/projects/archivio/24.webp",
+        "label": "Reception",
+        "alt": "Desk personalizzato — Reception"
+      }
+    ]
+  },
+  {
+    "id": "feneal-stand",
+    "title": "Stand fieristico",
+    "client": "FENEALUIL",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/25.webp",
+    "alt": "insegne e allestimenti fieristici",
+    "photos": [
+      {
+        "image": "/projects/archivio/25.webp",
+        "label": "Stand",
+        "alt": "insegne e allestimenti fieristici"
+      }
+    ]
+  },
+  {
+    "id": "feneal-ombrelli",
+    "title": "Ombrelli di marca",
+    "client": "FENEALUIL",
+    "category": "Gadget",
+    "image": "/projects/archivio/26.webp",
+    "alt": "Pila di ombrelli blu con logotipo di FENEALUIL.",
+    "photos": [
+      {
+        "image": "/projects/archivio/26.webp",
+        "label": "Personalizzazione",
+        "alt": "Pila di ombrelli blu con logotipo di FENEALUIL."
+      }
+    ]
+  },
+  {
+    "id": "uil-sagoma",
+    "title": "Identità in tre dimensioni",
+    "client": "UIL",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/29.webp",
+    "alt": "Identità in tre dimensioni — UIL",
+    "photos": [
+      {
+        "image": "/projects/archivio/28.webp",
+        "label": "Sagoma",
+        "alt": "Identità in tre dimensioni — Sagoma"
+      },
+      {
+        "image": "/projects/archivio/29.webp",
+        "label": "Installazione",
+        "alt": "Identità in tre dimensioni — Installazione"
+      }
+    ]
+  },
+  {
+    "id": "femca",
+    "title": "Fondale per eventi",
+    "client": "FEMCA CISL",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/30.webp",
+    "alt": "Fondale per eventi — FEMCA CISL",
+    "photos": [
+      {
+        "image": "/projects/archivio/30.webp",
+        "label": "Fondale",
+        "alt": "Fondale per eventi — Fondale"
+      }
+    ]
+  },
+  {
+    "id": "feneal-rollup",
+    "title": "Roll-up per eventi",
+    "client": "FENEALUIL",
+    "category": "Stampa",
+    "image": "/projects/archivio/31.webp",
+    "alt": "Roll-up per eventi — FENEALUIL",
+    "photos": [
+      {
+        "image": "/projects/archivio/31.webp",
+        "label": "Roll-up",
+        "alt": "Roll-up per eventi — Roll-up"
+      }
+    ]
+  },
+  {
+    "id": "cesma",
+    "title": "Roll-up coordinati",
+    "client": "CESMA",
+    "category": "Stampa",
+    "image": "/projects/archivio/32.webp",
+    "alt": "Roll-up coordinati — CESMA",
+    "photos": [
+      {
+        "image": "/projects/archivio/32.webp",
+        "label": "Esposizione",
+        "alt": "Roll-up coordinati — Esposizione"
+      }
+    ]
+  },
+  {
+    "id": "uil-banner",
+    "title": "Banner congressuali",
+    "client": "UIL",
+    "category": "Stampa",
+    "image": "/projects/archivio/33.webp",
+    "alt": "Entrata del Consiglio Nazionale del UILFPL.",
+    "photos": [
+      {
+        "image": "/projects/archivio/33.webp",
+        "label": "Ingresso",
+        "alt": "Entrata del Consiglio Nazionale del UILFPL."
+      }
+    ]
+  },
+  {
+    "id": "leonardo",
+    "title": "Totem di comunicazione",
+    "client": "Leonardo",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/34.webp",
+    "alt": "Dieci totem con il logo Leonardo.",
+    "photos": [
+      {
+        "image": "/projects/archivio/34.webp",
+        "label": "Totem",
+        "alt": "Dieci totem con il logo Leonardo."
+      }
+    ]
+  },
+  {
+    "id": "asnacodi",
+    "title": "Spazi per il congresso",
+    "client": "Asnacodi",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/36.webp",
+    "alt": "Sala allestita per il forum Asnacodi 2017.",
+    "photos": [
+      {
+        "image": "/projects/archivio/35.webp",
+        "label": "Montaggio",
+        "alt": "Spazi per il congresso — Montaggio"
+      },
+      {
+        "image": "/projects/archivio/36.webp",
+        "label": "Risultato",
+        "alt": "Sala allestita per il forum Asnacodi 2017."
+      }
+    ]
+  },
+  {
+    "id": "uil-stand",
+    "title": "Allestimento congressuale",
+    "client": "UIL",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/37.webp",
+    "alt": "Allestimento congressuale — UIL",
+    "photos": [
+      {
+        "image": "/projects/archivio/37.webp",
+        "label": "Preparazione",
+        "alt": "Allestimento congressuale — Preparazione"
+      }
+    ]
+  },
+  {
+    "id": "uil-pavimento",
+    "title": "Pavimento personalizzato",
+    "client": "UIL",
+    "category": "Wrapping",
+    "image": "/projects/archivio/38.webp",
+    "alt": "Pavimento personalizzato — UIL",
+    "photos": [
+      {
+        "image": "/projects/archivio/38.webp",
+        "label": "Applicazione",
+        "alt": "Pavimento personalizzato — Applicazione"
+      }
+    ]
+  },
+  {
+    "id": "pride",
+    "title": "Pannello per eventi",
+    "client": "Roma Pride",
+    "category": "Stampa",
+    "image": "/projects/archivio/39.webp",
+    "alt": "Pannello per il Pride di Roma nel laboratorio di Raia srl.",
+    "photos": [
+      {
+        "image": "/projects/archivio/39.webp",
+        "label": "Pannello",
+        "alt": "Pannello per il Pride di Roma nel laboratorio di Raia srl."
+      }
+    ]
+  },
+  {
+    "id": "borse",
+    "title": "Borse personalizzate",
+    "client": "Accessori promozionali",
+    "category": "Gadget",
+    "image": "/projects/archivio/40.webp",
+    "alt": "Borse personalizzate — Accessori promozionali",
+    "photos": [
+      {
+        "image": "/projects/archivio/40.webp",
+        "label": "Accessori",
+        "alt": "Borse personalizzate — Accessori"
+      }
+    ]
+  },
+  {
+    "id": "ebm",
+    "title": "Abbigliamento coordinato",
+    "client": "EBM",
+    "category": "Gadget",
+    "image": "/projects/archivio/41.webp",
+    "alt": "Abiti e cappelli realizzati da Raia srl per la ditta EBM.",
+    "photos": [
+      {
+        "image": "/projects/archivio/41.webp",
+        "label": "Capi personalizzati",
+        "alt": "Abiti e cappelli realizzati da Raia srl per la ditta EBM."
+      }
+    ]
+  },
+  {
+    "id": "rimac-macchinari",
+    "title": "Macchinari di marca",
+    "client": "Rimac",
+    "category": "Wrapping",
+    "image": "/projects/archivio/43.webp",
+    "alt": "Macchinari di marca — Rimac",
+    "photos": [
+      {
+        "image": "/projects/archivio/43.webp",
+        "label": "Rivestimento",
+        "alt": "Macchinari di marca — Rivestimento"
+      }
+    ]
+  },
+  {
+    "id": "rimac-penne",
+    "title": "Penne personalizzate",
+    "client": "Rimac",
+    "category": "Gadget",
+    "image": "/projects/archivio/44.webp",
+    "alt": "Penne con logotipo di Rimac",
+    "photos": [
+      {
+        "image": "/projects/archivio/44.webp",
+        "label": "Personalizzazione",
+        "alt": "Penne con logotipo di Rimac"
+      }
+    ]
+  },
+  {
+    "id": "cnce",
+    "title": "Gadget coordinati",
+    "client": "CNCE",
+    "category": "Gadget",
+    "image": "/projects/archivio/45.webp",
+    "alt": "Particolare di un coperchio e telo con logo di CNCE.",
+    "photos": [
+      {
+        "image": "/projects/archivio/45.webp",
+        "label": "Dettagli di stampa",
+        "alt": "Particolare di un coperchio e telo con logo di CNCE."
+      }
+    ]
+  },
+  {
+    "id": "altea",
+    "title": "Insegna tridimensionale",
+    "client": "Fondo Altea",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/48.webp",
+    "alt": "Insegna tridimensionale — Fondo Altea",
+    "photos": [
+      {
+        "image": "/projects/archivio/46.webp",
+        "label": "Fissaggio",
+        "alt": "Operatore di RAIA srl applica la matrice dell'insegna di Altea."
+      },
+      {
+        "image": "/projects/archivio/47.webp",
+        "label": "Posa elementi",
+        "alt": "Operatore di RAIA srl appiccica le sagome dell'insegna di Altea."
+      },
+      {
+        "image": "/projects/archivio/48.webp",
+        "label": "Risultato",
+        "alt": "Insegna tridimensionale — Risultato"
+      }
+    ]
+  },
+  {
+    "id": "manageritalia",
+    "title": "Identità a parete",
+    "client": "Manageritalia",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/49.webp",
+    "alt": "Operatore della Raia srl indica insegna sul muro.",
+    "photos": [
+      {
+        "image": "/projects/archivio/49.webp",
+        "label": "Insegna",
+        "alt": "Operatore della Raia srl indica insegna sul muro."
+      }
+    ]
+  },
+  {
+    "id": "sisal",
+    "title": "Pannelli per interni",
+    "client": "Sisal",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/51.webp",
+    "alt": "Operatore di Raia srl attacca pannelli a muro dalla piattaforma di una gru.",
+    "photos": [
+      {
+        "image": "/projects/archivio/50.webp",
+        "label": "Trasporto",
+        "alt": "Operatore di Raia srl trasporta pannello."
+      },
+      {
+        "image": "/projects/archivio/51.webp",
+        "label": "Montaggio",
+        "alt": "Operatore di Raia srl attacca pannelli a muro dalla piattaforma di una gru."
+      }
+    ]
+  },
+  {
+    "id": "verdeoro",
+    "title": "Espositori su misura",
+    "client": "VerdeOro",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/54.webp",
+    "alt": "Espositori su misura — VerdeOro",
+    "photos": [
+      {
+        "image": "/projects/archivio/52.webp",
+        "label": "Stampa",
+        "alt": "Macchinario stampa su un'asse di legno."
+      },
+      {
+        "image": "/projects/archivio/53.webp",
+        "label": "Preparazione",
+        "alt": "Quattro pannelli"
+      },
+      {
+        "image": "/projects/archivio/54.webp",
+        "label": "Allestimento",
+        "alt": "Espositori su misura — Allestimento"
+      }
+    ]
+  },
+  {
+    "id": "sadas",
+    "title": "Biglietti da visita",
+    "client": "Sadas",
+    "category": "Stampa",
+    "image": "/projects/archivio/55.webp",
+    "alt": "Biglietti da visita — Sadas",
+    "photos": [
+      {
+        "image": "/projects/archivio/55.webp",
+        "label": "Stampati",
+        "alt": "Biglietti da visita — Stampati"
+      }
+    ]
+  },
+  {
+    "id": "padeia",
+    "title": "Segnaletica in plexiglass",
+    "client": "Padeia",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/56.webp",
+    "alt": "Segnaletica in plexiglass — Padeia",
+    "photos": [
+      {
+        "image": "/projects/archivio/56.webp",
+        "label": "Targhe",
+        "alt": "Segnaletica in plexiglass — Targhe"
+      }
+    ]
+  },
+  {
+    "id": "etru-facciata",
+    "title": "Facciata scenografica",
+    "client": "Museo Nazionale Etrusco",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/58.webp",
+    "alt": "Facciata di Villa Giulia a Roma con telone e insegna realizzata da Raia srl.",
+    "photos": [
+      {
+        "image": "/projects/archivio/57.webp",
+        "label": "Prima",
+        "alt": "Facciata di Villa Giulia a Roma con teli ed impalcature."
+      },
+      {
+        "image": "/projects/archivio/58.webp",
+        "label": "Dopo",
+        "alt": "Facciata di Villa Giulia a Roma con telone e insegna realizzata da Raia srl."
+      }
+    ]
+  },
+  {
+    "id": "etru-sposi",
+    "title": "Sagoma espositiva",
+    "client": "Museo Nazionale Etrusco",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/60.webp",
+    "alt": "Operatori di Raia srl inseriscono sagoma in teca del Museo Nazionale Etrusco.",
+    "photos": [
+      {
+        "image": "/projects/archivio/59.webp",
+        "label": "Sagoma",
+        "alt": "Sagoma di polistirolo della statua del Sarcofago degli Sposi nel laboratorio di Raia srl."
+      },
+      {
+        "image": "/projects/archivio/60.webp",
+        "label": "Installazione",
+        "alt": "Operatori di Raia srl inseriscono sagoma in teca del Museo Nazionale Etrusco."
+      }
+    ]
+  },
+  {
+    "id": "etru-vetri",
+    "title": "Vetrine del museo",
+    "client": "Museo Nazionale Etrusco",
+    "category": "Vetrofanie",
+    "image": "/projects/archivio/61.webp",
+    "alt": "Entrata di ufficio del Museo Nazionale Etrusco con vetrofanie ai vetri di porta e finestre.",
+    "photos": [
+      {
+        "image": "/projects/archivio/61.webp",
+        "label": "Vetrofanie",
+        "alt": "Entrata di ufficio del Museo Nazionale Etrusco con vetrofanie ai vetri di porta e finestre."
+      }
+    ]
+  },
+  {
+    "id": "etru-stendardi",
+    "title": "Stendardi e rivestimenti",
+    "client": "Museo Nazionale Etrusco",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/62.webp",
+    "alt": "Due operatori di Raia srl applicano da una gru gli sticker sulla facciata del Museo Nazionale Etrusco.",
+    "photos": [
+      {
+        "image": "/projects/archivio/62.webp",
+        "label": "Facciata",
+        "alt": "Due operatori di Raia srl applicano da una gru gli sticker sulla facciata del Museo Nazionale Etrusco."
+      },
+      {
+        "image": "/projects/archivio/63.webp",
+        "label": "Stendardo",
+        "alt": "Stendardo al lato dell'entrata di Villa Giulia."
+      }
+    ]
+  },
+  {
+    "id": "bicicletta",
+    "title": "Dettagli su due ruote",
+    "client": "Personalizzazione bici",
+    "category": "Wrapping",
+    "image": "/projects/archivio/64.webp",
+    "alt": "Dettaglio di una scritta su bicicletta.",
+    "photos": [
+      {
+        "image": "/projects/archivio/64.webp",
+        "label": "Dettaglio",
+        "alt": "Dettaglio di una scritta su bicicletta."
+      }
+    ]
+  },
+  {
+    "id": "bibliotheka-insegna",
+    "title": "Insegna sagomata",
+    "client": "Bibliotheka",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/65.webp",
+    "alt": "Sul muro l'insegna di Bibliotheka mentre l'operatore di Raia srl tiene le matrici.",
+    "photos": [
+      {
+        "image": "/projects/archivio/65.webp",
+        "label": "Insegna e matrice",
+        "alt": "Sul muro l'insegna di Bibliotheka mentre l'operatore di Raia srl tiene le matrici."
+      }
+    ]
+  },
+  {
+    "id": "bibliotheka-libri",
+    "title": "Libri in produzione",
+    "client": "Bibliotheka",
+    "category": "Stampa",
+    "image": "/projects/archivio/67.webp",
+    "alt": "Pila di libri da rifilare.",
+    "photos": [
+      {
+        "image": "/projects/archivio/66.webp",
+        "label": "Copertine",
+        "alt": "Macchina applica pellicola a copertina."
+      },
+      {
+        "image": "/projects/archivio/67.webp",
+        "label": "Volumi",
+        "alt": "Pila di libri da rifilare."
+      }
+    ]
+  },
+  {
+    "id": "bibliotheka-stand",
+    "title": "Stand per l’editoria",
+    "client": "Bibliotheka",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/68.webp",
+    "alt": "Padiglione di Bibliotheka edizioni in allestimento.",
+    "photos": [
+      {
+        "image": "/projects/archivio/68.webp",
+        "label": "Allestimento",
+        "alt": "Padiglione di Bibliotheka edizioni in allestimento."
+      }
+    ]
+  },
+  {
+    "id": "mimaki",
+    "title": "Stampa in produzione",
+    "client": "Laboratorio RAIA",
+    "category": "Stampa",
+    "image": "/projects/archivio/69.webp",
+    "alt": "Stampante Mimaki in funzione.",
+    "photos": [
+      {
+        "image": "/projects/archivio/69.webp",
+        "label": "Stampa digitale",
+        "alt": "Stampante Mimaki in funzione."
+      }
+    ]
+  },
+  {
+    "id": "carta-parati",
+    "title": "Texture da parete",
+    "client": "Interior design",
+    "category": "Wrapping",
+    "image": "/projects/archivio/70.webp",
+    "alt": "Texture da parete — Interior design",
+    "photos": [
+      {
+        "image": "/projects/archivio/70.webp",
+        "label": "Carte da parati",
+        "alt": "Texture da parete — Carte da parati"
+      }
+    ]
+  },
+  {
+    "id": "mts",
+    "title": "Targhette informative",
+    "client": "MTS",
+    "category": "Stampa",
+    "image": "/projects/archivio/71.webp",
+    "alt": "Targette per area videosorvegliata.",
+    "photos": [
+      {
+        "image": "/projects/archivio/71.webp",
+        "label": "Targhette",
+        "alt": "Targette per area videosorvegliata."
+      }
+    ]
+  },
+  {
+    "id": "lg-sticker",
+    "title": "Sticker personalizzati",
+    "client": "LG SuperService",
+    "category": "Stampa",
+    "image": "/projects/archivio/72.webp",
+    "alt": "Stickers di Dunlop e Good Year assieme a mazzetta colore.",
+    "photos": [
+      {
+        "image": "/projects/archivio/72.webp",
+        "label": "Adesivi",
+        "alt": "Stickers di Dunlop e Good Year assieme a mazzetta colore."
+      }
+    ]
+  },
+  {
+    "id": "pitstop",
+    "title": "Bandiere pubblicitarie",
+    "client": "Pitstop",
+    "category": "Stampa",
+    "image": "/projects/archivio/73.webp",
+    "alt": "Operatore di Raia srl regge la bandiera di Pitstop.",
+    "photos": [
+      {
+        "image": "/projects/archivio/73.webp",
+        "label": "Bandiera",
+        "alt": "Operatore di Raia srl regge la bandiera di Pitstop."
+      }
+    ]
+  },
+  {
+    "id": "rimac-furgone",
+    "title": "Mezzi personalizzati",
+    "client": "Rimac",
+    "category": "Wrapping",
+    "image": "/projects/archivio/75.webp",
+    "alt": "Operatore di Raia srl pulisce furgone della Rimac.",
+    "photos": [
+      {
+        "image": "/projects/archivio/75.webp",
+        "label": "Applicazione",
+        "alt": "Operatore di Raia srl pulisce furgone della Rimac."
+      }
+    ]
+  },
+  {
+    "id": "mezzo",
+    "title": "Grafica per automezzi",
+    "client": "Gruppo Comunicazione Mezzo",
+    "category": "Wrapping",
+    "image": "/projects/archivio/76.webp",
+    "alt": "Adesivo su portiera di un furgoncino.",
+    "photos": [
+      {
+        "image": "/projects/archivio/76.webp",
+        "label": "Grafica applicata",
+        "alt": "Adesivo su portiera di un furgoncino."
+      }
+    ]
+  },
+  {
+    "id": "sel",
+    "title": "Divise personalizzate",
+    "client": "SEL Pulizie",
+    "category": "Gadget",
+    "image": "/projects/archivio/77.webp",
+    "alt": "Pile di magliette e felpe con logo Sel Pulizie su tavolo con taglierini e forbice.",
+    "photos": [
+      {
+        "image": "/projects/archivio/77.webp",
+        "label": "Abbigliamento",
+        "alt": "Pile di magliette e felpe con logo Sel Pulizie su tavolo con taglierini e forbice."
+      }
+    ]
+  },
+  {
+    "id": "aeronautica-teli",
+    "title": "Teli per il restauro",
+    "client": "Associazione Arma Aeronautica",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/78.webp",
+    "alt": "Camera nobile con teli stampati da Raia srl.",
+    "photos": [
+      {
+        "image": "/projects/archivio/78.webp",
+        "label": "Interni",
+        "alt": "Camera nobile con teli stampati da Raia srl."
+      }
+    ]
+  },
+  {
+    "id": "pionieri",
+    "title": "Sagoma in legno",
+    "client": "Associazione Pionieri Aeronautica",
+    "category": "Allestimenti",
+    "image": "/projects/archivio/79.webp",
+    "alt": "Sagoma di legno appesa al muro con lancia.",
+    "photos": [
+      {
+        "image": "/projects/archivio/79.webp",
+        "label": "Sagoma",
+        "alt": "Sagoma di legno appesa al muro con lancia."
+      }
+    ]
+  }
+]

@@ -3,11 +3,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import {
-  ArrowUpRight, ArrowLeft, ArrowRight, Camera, Check,
-  Images, X,
+  ArrowUpRight, ArrowLeft, ArrowRight, Check,
+  X,
 } from 'lucide-react';
-import { PROJECTS } from '@/lib/content';
-import { PROJECT_STEPS, getProjectImage } from '@/lib/project-stories';
+import { PROJECTS } from '@/lib/projects';
+import { getProjectSteps, getProjectImage } from '@/lib/project-stories';
 
 const CATEGORIES = ['Tutti', 'Vetrofanie', 'Allestimenti', 'Gadget', 'Stampa', 'Wrapping'];
 
@@ -16,7 +16,7 @@ export default function ProjectsGrid() {
   const [spotlightId, setSpotlightId] = useState('gucci');
   const reelRef = useRef(null);
   const [selectedId, setSelectedId] = useState(null);
-  const [stepIndex, setStepIndex] = useState(5); // Foto finale disponibile, le altre si aggiungono in seguito.
+  const [stepIndex, setStepIndex] = useState(0);
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
   const triggerRef = useRef(null);
@@ -27,9 +27,8 @@ export default function ProjectsGrid() {
   );
   const featured = visible.find((project) => project.id === spotlightId) || visible[0] || null;
   const featuredPosition = Math.max(0, visible.findIndex((project) => project.id === featured?.id));
-  const featuredAvailableCount = featured
-    ? PROJECT_STEPS.filter((item) => Boolean(getProjectImage(featured, item.id))).length
-    : 0;
+  const featuredSteps = getProjectSteps(featured);
+  const featuredAvailableCount = featuredSteps.length;
 
   function chooseFilter(category) {
     setFilter(category);
@@ -55,15 +54,15 @@ export default function ProjectsGrid() {
   }, [spotlightId, filter]);
 
   const selected = PROJECTS.find((project) => project.id === selectedId) || null;
-  const step = PROJECT_STEPS[stepIndex];
-  const currentImage = selected ? getProjectImage(selected, step.id) : null;
-  const availableCount = selected
-    ? PROJECT_STEPS.filter((item) => Boolean(getProjectImage(selected, item.id))).length
-    : 0;
+  const selectedSteps = getProjectSteps(selected);
+  const step = selectedSteps[stepIndex] || selectedSteps[0];
+  const currentImage = step?.image || null;
+  const availableCount = selectedSteps.length;
 
   function openProject(id, element) {
     triggerRef.current = element;
-    setStepIndex(5);
+    const project = PROJECTS.find(item => item.id === id);
+    setStepIndex(Math.max(0, getProjectSteps(project).findIndex(photo => photo.image === project.image)));
     setSelectedId(id);
   }
 
@@ -93,7 +92,7 @@ export default function ProjectsGrid() {
       }
       if (event.key === 'ArrowRight') {
         event.preventDefault();
-        setStepIndex((prev) => Math.min(PROJECT_STEPS.length - 1, prev + 1));
+        setStepIndex((prev) => Math.min(availableCount - 1, prev + 1));
       }
     }
     window.addEventListener('keydown', onKeyDown);
@@ -101,7 +100,7 @@ export default function ProjectsGrid() {
       document.body.style.overflow = oldOverflow;
       window.removeEventListener('keydown', onKeyDown);
     };
-  }, [selectedId]);
+  }, [selectedId, availableCount]);
 
   return (
     <section className="shell case-showcase" aria-label="Lavori e percorsi RAIA">
@@ -154,16 +153,16 @@ export default function ProjectsGrid() {
               <div className="case-showcase__identity">
                 <span className="case-showcase__eyebrow">{featured.category} <span aria-hidden="true">/</span> {featured.client}</span>
                 <h2>{featured.title}</h2>
-                <p>Un progetto RAIA, raccontato attraverso le sue fasi di realizzazione.</p>
+                <p>Un progetto RAIA, raccontato attraverso le fotografie della sua realizzazione.</p>
               </div>
 
               <div className="case-showcase__path">
                 <div className="case-showcase__path-top">
                   <strong>Dentro il progetto</strong>
-                  <span>{featuredAvailableCount} di 6 foto disponibili</span>
+                  <span>{featuredAvailableCount} {featuredAvailableCount === 1 ? 'foto disponibile' : 'foto disponibili'}</span>
                 </div>
-                <ol className="case-showcase__phases" aria-label="Le fasi del progetto">
-                  {PROJECT_STEPS.map((item) => (
+                <ol className="case-showcase__phases" aria-label="Le foto del progetto" style={{ '--photo-count': featuredSteps.length }}>
+                  {featuredSteps.map((item) => (
                     <li
                       key={item.id}
                       className={getProjectImage(featured, item.id) ? 'has-image' : ''}
@@ -173,7 +172,7 @@ export default function ProjectsGrid() {
                     </li>
                   ))}
                 </ol>
-                <p>Le tappe prive di fotografie saranno completate con la documentazione originale.</p>
+                <p>Fotografie originali del lavoro e delle lavorazioni disponibili.</p>
               </div>
 
               <button
@@ -255,35 +254,26 @@ export default function ProjectsGrid() {
             </header>
 
             <div className="raia-story__body">
-              <section className="raia-story__viewer" aria-label="Fotografia della fase selezionata">
+              <section className="raia-story__viewer" aria-label="Fotografia selezionata">
                 <div className="raia-story__photo">
-                  {currentImage ? (
-                    <Image
-                      key={`${selected.id}-${step.id}`}
-                      src={currentImage}
-                      alt={`${selected.title}: ${step.short.toLowerCase()} — ${step.id === 'final' ? selected.alt : 'documentazione della fase'}`}
-                      fill
-                      sizes="(max-width: 780px) 100vw, 70vw"
-                    />
-                  ) : (
-                    <div className="raia-story__missing">
-                      <span className="raia-story__ghost-index" aria-hidden="true">{step.number}</span>
-                      <Camera size={29} strokeWidth={1.3} aria-hidden="true" />
-                      <strong>Immagine da inserire</strong>
-                      <p>Questa fase sarà documentata con una foto reale RAIA.</p>
-                    </div>
-                  )}
-                  <span className="raia-story__photo-index">{step.number} / 06 — {step.short.toUpperCase()}</span>
+                  <Image
+                    key={selected.id + '-' + step.id}
+                    src={currentImage}
+                    alt={step.alt}
+                    fill
+                    sizes="(max-width: 720px) 100vw, 75vw"
+                  />
+                  <span className="raia-story__photo-index">{step.number} / {String(availableCount).padStart(2, '0')} — {step.short.toUpperCase()}</span>
                 </div>
               </section>
 
-              <aside className="raia-story__rail" aria-label="Fasi di realizzazione">
+              <aside className="raia-story__rail" aria-label="Fotografie del progetto">
                 <div className="raia-story__rail-top">
                   <span>IL PERCORSO</span>
-                  <small>{availableCount}/6 foto disponibili</small>
+                  <small>{availableCount} {availableCount === 1 ? 'foto' : 'foto disponibili'}</small>
                 </div>
-                <ol className="raia-story__steps">
-                  {PROJECT_STEPS.map((item, index) => {
+                <ol className="raia-story__steps" style={{ '--photo-count': availableCount }}>
+                  {selectedSteps.map((item, index) => {
                     const source = getProjectImage(selected, item.id);
                     const isActive = stepIndex === index;
                     return (
@@ -295,16 +285,12 @@ export default function ProjectsGrid() {
                           onClick={() => setStepIndex(index)}
                         >
                           <span className="raia-story__thumb">
-                            {source ? (
-                              <Image src={source} alt="" fill sizes="100px" />
-                            ) : (
-                              <Images size={20} strokeWidth={1.3} aria-hidden="true" />
-                            )}
+                            <Image src={source} alt="" fill sizes="100px" />
                           </span>
                           <span className="raia-story__step-info">
                             <small>{item.number} — {item.short}</small>
                             <strong>{item.title}</strong>
-                            <span>{source ? 'Foto disponibile' : 'Da documentare'}</span>
+                            <span>Foto originale</span>
                           </span>
                           {source && <Check className="raia-story__step-check" size={15} aria-hidden="true" />}
                         </button>

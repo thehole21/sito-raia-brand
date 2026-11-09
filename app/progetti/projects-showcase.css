@@ -31,7 +31,7 @@
 .case-showcase__path-top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:5px; }
 .case-showcase__path-top strong { font-size:12px; font-weight:735; }
 .case-showcase__path-top > span { font-size:10px; white-space:nowrap; color:#958680; }
-.case-showcase__phases { padding:17px 0 0; margin:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:2px; list-style:none; }
+.case-showcase__phases { padding:17px 0 0; margin:0; display:grid; grid-template-columns:repeat(var(--photo-count,6),minmax(0,1fr)); gap:2px; list-style:none; }
 .case-showcase__phases li { position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:12px; min-width:0; font-size:9px; font-weight:650; color:#a29692; }
 .case-showcase__phase-dot { width:8px; height:8px; border:1px solid #b7a29e; border-radius:50%; background:#fff; }
 .case-showcase__phases li::after { content:""; position:absolute; top:4px; left:14px; right:-1px; height:1px; background:#dacbc7; }
