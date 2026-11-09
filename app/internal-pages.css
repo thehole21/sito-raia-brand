@@ -58,10 +58,10 @@
 #main-content .case-showcase__top { gap: 18px; padding-bottom: 12px; }
 #main-content .case-showcase__feature { min-height: 320px; margin-top: 14px; grid-template-columns: minmax(0, 1.15fr) minmax(290px, .85fr); }
 #main-content .case-showcase__cover { min-height: 320px; }
-#main-content .case-showcase__detail { padding: 20px 24px; }
+#main-content .case-showcase__detail { padding: 20px 24px; justify-content: center; }
 #main-content .case-showcase__identity h2 { font-size: clamp(28px, 3vw, 42px); margin: 8px 0 10px; }
 #main-content .case-showcase__identity p { font-size: 13px; line-height: 1.5; }
-#main-content .case-showcase__path { padding-top: 16px; }
+#main-content .case-showcase__path { margin-top: 0; padding-top: 16px; }
 #main-content .case-showcase__phases { padding-top: 12px; }
 #main-content .case-showcase__phases li { gap: 8px; }
 #main-content .case-showcase__path > p { margin-top: 8px; }

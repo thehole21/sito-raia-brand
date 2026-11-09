@@ -107,7 +107,7 @@ export default function ProjectsGrid() {
     <section className="shell case-showcase" aria-label="Lavori e percorsi RAIA">
       <div className="case-showcase__top">
         <div className="case-showcase__top-text">
-          <span className="case-showcase__eyebrow">ARCHIVIO / CASE STUDY</span>
+          <span className="case-showcase__eyebrow">ARCHIVIO</span>
           <p>Scegli un lavoro. Poi entra nel suo percorso, dalla prima idea al risultato.</p>
         </div>
         <div className="case-showcase__filters" role="group" aria-label="Filtra i progetti">
@@ -275,21 +275,6 @@ export default function ProjectsGrid() {
                   )}
                   <span className="raia-story__photo-index">{step.number} / 06 — {step.short.toUpperCase()}</span>
                 </div>
-                <div className="raia-story__viewer-foot">
-                  <div className="raia-story__phase-copy" aria-live="polite" aria-atomic="true">
-                    <span>FASE {step.number} / 06</span>
-                    <h3>{step.title}</h3>
-                    <p>{step.hint}</p>
-                  </div>
-                  <div className="raia-story__arrows">
-                    <button type="button" aria-label="Fase precedente" disabled={stepIndex === 0} onClick={() => setStepIndex((value) => Math.max(0, value - 1))}>
-                      <ArrowLeft size={19}/>
-                    </button>
-                    <button type="button" aria-label="Fase successiva" disabled={stepIndex === 5} onClick={() => setStepIndex((value) => Math.min(5, value + 1))}>
-                      <ArrowRight size={19}/>
-                    </button>
-                  </div>
-                </div>
               </section>
 
               <aside className="raia-story__rail" aria-label="Fasi di realizzazione">
@@ -327,12 +312,9 @@ export default function ProjectsGrid() {
                     );
                   })}
                 </ol>
-                <p className="raia-story__disclaimer">
-                  Anteprima editoriale del percorso. Le fasi senza foto sono segnaposto e non rappresentano lavorazioni già documentate.
-                </p>
+
               </aside>
             </div>
-            <div className="raia-story__mobile-note">Usa le frecce per scorrere le sei fasi · Esc per chiudere</div>
           </div>
         )}
       </dialog>

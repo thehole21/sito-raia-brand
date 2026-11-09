@@ -28,7 +28,7 @@
 .case-showcase__identity h2 { font-size:clamp(33px,3.9vw,61px); letter-spacing:-.072em; font-weight:640; line-height:1.01; margin:17px 0 13px; text-wrap:balance; }
 .case-showcase__identity p { margin:0; color:#79716c; font-size:13px; line-height:1.6; max-width:35ch; }
 .case-showcase__path { margin-top:auto; padding-top:30px; }
-.case-showcase__path-top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:13px; border-bottom:1px solid #dfd4d0; }
+.case-showcase__path-top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:5px; }
 .case-showcase__path-top strong { font-size:12px; font-weight:735; }
 .case-showcase__path-top > span { font-size:10px; white-space:nowrap; color:#958680; }
 .case-showcase__phases { padding:17px 0 0; margin:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:2px; list-style:none; }
