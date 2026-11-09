@@ -14,7 +14,7 @@ export default function HomeVideo() {
     let idle;
 
     function updatePlayback() {
-      if (cancelled || motion.matches || navigator.connection?.saveData || document.hidden || !visible) {
+      if (cancelled || document.documentElement.dataset.raiaIntro || motion.matches || navigator.connection?.saveData || document.hidden || !visible) {
         video.pause();
         return;
       }
@@ -42,6 +42,7 @@ export default function HomeVideo() {
     else window.addEventListener('load', ready, { once: true });
     motion.addEventListener('change', updatePlayback);
     document.addEventListener('visibilitychange', updatePlayback);
+    document.addEventListener('raia:intro-complete', updatePlayback);
 
     return () => {
       cancelled = true;
@@ -50,6 +51,7 @@ export default function HomeVideo() {
       window.removeEventListener('load', ready);
       motion.removeEventListener('change', updatePlayback);
       document.removeEventListener('visibilitychange', updatePlayback);
+      document.removeEventListener('raia:intro-complete', updatePlayback);
       video.pause();
       video.removeAttribute('src');
       video.load();

@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import './brand-intro.css';
-const DURATION = 3000;
+const DURATION = 2750;
 const ART = '/_next/image?url=%2Fimages%2Fraia-logo-transparent.webp&w=1080&q=75';
 export default function BrandIntro() {
   const [intro, setIntro] = useState(null);
@@ -11,16 +11,22 @@ export default function BrandIntro() {
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const connection = navigator.connection;
     if (motion.matches || connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType ?? '') || document.visibilityState !== 'visible' || location.hash) return;
+    document.documentElement.dataset.raiaIntro = 'pending';
+    let started = false;
+    const release = () => {
+      delete document.documentElement.dataset.raiaIntro;
+      document.dispatchEvent(new Event('raia:intro-complete'));
+    };
     let cancelled = false;
     const target = document.querySelector('.site-header .brand-logo__image');
-    if (!target) return;
+    if (!target) { release(); return; }
     const artwork = new Image();
     artwork.src = ART;
     const deadline = setTimeout(() => { cancelled = true; }, 900);
     Promise.all([artwork.decode(), target.decode()]).then(() => {
-      if (!cancelled && !motion.matches && document.visibilityState === 'visible' && !location.hash && !document.activeElement?.closest('a, button, input')) setIntro({ target });
-    }).catch(() => {}).finally(() => clearTimeout(deadline));
-    return () => { cancelled = true; clearTimeout(deadline); };
+      if (!cancelled && !motion.matches && document.visibilityState === 'visible' && !location.hash && !document.activeElement?.closest('a, button, input')) { started = true; setIntro({ target }); }
+    }).catch(() => {}).finally(() => { clearTimeout(deadline); if (!started) release(); });
+    return () => { cancelled = true; clearTimeout(deadline); if (!started) release(); };
   }, []);
   useLayoutEffect(() => {
     if (!intro) return;
@@ -31,7 +37,11 @@ export default function BrandIntro() {
     const onKey = event => { if (event.key === 'Escape') finish(); };
     const start = flying.getBoundingClientRect();
     const end = target.getBoundingClientRect();
-    if (!start.width || !end.width || motion.matches || !flying.animate) { finish(); return; }
+    if (!start.width || !end.width || motion.matches || !flying.animate) {
+      delete document.documentElement.dataset.raiaIntro;
+      document.dispatchEvent(new Event('raia:intro-complete'));
+      finish(); return;
+    }
     target.classList.add('raia-intro-target');
     // Match the contained header image, including its max-height constraint.
     const scale = Math.min(end.width / start.width, end.height / start.height);
@@ -55,6 +65,8 @@ export default function BrandIntro() {
     motion.addEventListener('change', finish);
     return () => {
       target.classList.remove('raia-intro-target');
+      delete document.documentElement.dataset.raiaIntro;
+      document.dispatchEvent(new Event('raia:intro-complete'));
       flight.cancel(); clearTimeout(deadline);
       window.removeEventListener('resize', finish);
       window.removeEventListener('keydown', onKey);
@@ -81,11 +93,12 @@ export default function BrandIntro() {
                 <rect className="raia-intro__wordmark" x="1115" y="0" width="981" height="1084" fill="white" />
               </mask>
             </defs>
+            <g className="raia-intro__scene-content">
             {/* The sheet and the monogram share their final centre and silhouette. */}
             <image href={ART} width="2096" height="1084" mask={`url(#${maskId})`} />
             <g className="raia-intro__sheet">
               <path fill={`url(#${maskId}-ink)`} d="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z">
-                <animate attributeName="d" dur="1.72s" fill="freeze" calcMode="spline" keyTimes="0; .12; .49; .72; 1" keySplines=".4 0 .2 1; .25 .1 .25 1; .4 0 .2 1; .4 0 .2 1" values="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 690 970 850 1010 930 C780 1000 470 1000 270 920 C230 800 250 690 250 560 Z; M340 190 C600 80 1010 190 1080 420 C1150 690 960 970 720 1010 C430 1070 140 870 130 620 C110 400 180 270 340 190 Z; M584 16 C873 16 1108 244 1108 526 C1108 808 873 1036 584 1036 C295 1036 60 808 60 526 C60 244 295 16 584 16 Z" />
+                <animate attributeName="d" dur="1.577s" fill="freeze" calcMode="spline" keyTimes="0; .12; .49; .72; 1" keySplines=".4 0 .2 1; .25 .1 .25 1; .4 0 .2 1; .4 0 .2 1" values="M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 580 910 600 910 620 C690 620 470 620 250 620 C250 600 250 580 250 560 Z; M250 560 C470 560 690 560 910 560 C910 690 970 850 1010 930 C780 1000 470 1000 270 920 C230 800 250 690 250 560 Z; M340 190 C600 80 1010 190 1080 420 C1150 690 960 970 720 1010 C430 1070 140 870 130 620 C110 400 180 270 340 190 Z; M584 16 C873 16 1108 244 1108 526 C1108 808 873 1036 584 1036 C295 1036 60 808 60 526 C60 244 295 16 584 16 Z" />
               </path>
               <path className="raia-intro__fold" d="M270 890 Q620 980 1000 905" stroke="#e3a1a7" strokeWidth="5" />
             </g>
@@ -117,9 +130,10 @@ export default function BrandIntro() {
               <path d="M466 530 Q584 563 702 530" stroke="#9c2f3e" strokeWidth="12" />
               <path d="M538 267 H594" stroke="#fff" strokeWidth="5" opacity=".4" />
             </g>
+            </g>
           </svg>
         </div>
-        <p className="raia-intro__welcome">Benvenuto in <strong>RAIA S.R.L.</strong></p>
+        <p className="raia-intro__welcome"><span>Benvenuto in</span><strong>RAIA S.R.L.</strong></p>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 /* Shared compact header and page-specific scale for internal content. */
-:root { --site-header-height: 78px; }
+:root { --site-header-height: 82px; }
 .site-header.site-header { height: var(--site-header-height); }
 .site-header .brand-logo__image { width: 132px; max-height: 67px; }
 .site-header .header-links { gap: 27px; }
@@ -135,7 +135,7 @@ body:has(:is(.page-opening, .legal-page)) .footer__top { padding-bottom: 24px; g
   .site-header .header-links a { font-size: 13px; }
 }
 @media (max-width: 959px) {
-  :root { --site-header-height: 70px; }
+  :root { --site-header-height: 74px; }
   .site-header .brand-logo__image { width: 122px; max-height: 60px; }
   #main-content .about-feature { gap: 22px; }
   #main-content .about-feature__visual { min-height: 300px; }
