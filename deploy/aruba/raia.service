@@ -1,0 +1,20 @@
+[Unit]
+Description=RAIA Next.js
+After=network.target
+
+[Service]
+Type=simple
+User=raia
+Group=raia
+WorkingDirectory=/srv/raia/app
+Environment=NODE_ENV=production
+Environment=SEO_INDEXABLE=true
+EnvironmentFile=-/etc/raia.env
+ExecStart=/usr/bin/node /srv/raia/app/node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3000
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

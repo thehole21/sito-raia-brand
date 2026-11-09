@@ -132,7 +132,7 @@ export default function ProjectsGrid() {
               type="button"
               className="case-showcase__cover"
               onClick={(event) => openProject(featured.id, event.currentTarget)}
-              aria-label={`Apri le fasi del progetto ${featured.title}`}
+              aria-label={`SCOPRI IL PERCORSO — ${featured.title}`}
             >
               <Image
                 key={featured.id}
@@ -212,7 +212,7 @@ export default function ProjectsGrid() {
                 className={`case-showcase__tile ${featured.id === project.id ? 'is-active' : ''}`}
                 onClick={() => setSpotlightId(project.id)}
                 aria-pressed={featured.id === project.id}
-                aria-label={`Seleziona il progetto ${project.title}`}
+                aria-label={`${String(index + 1).padStart(2, '0')} / ${project.client} ${project.title} — seleziona il progetto`}
               >
                 <span className="case-showcase__tile-photo">
                   <Image src={project.image} fill alt="" sizes="220px" />

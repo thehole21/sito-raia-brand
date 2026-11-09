@@ -101,6 +101,10 @@ if (base.hostname === '127.0.0.1' || base.hostname === 'localhost') {
     assert.equal(response.status, 308);
     assert.equal(response.headers.get('location'), canonical + '/servizi?utm_source=test');
   });
+  await check('dominio stabile Vercel', async () => {
+    const response = await request('/', { headers: { host: 'sito-raia-brand.vercel.app' } });
+    assert.doesNotMatch(response.headers.get('x-robots-tag') || '', /noindex/);
+  });
   await check('anteprima Vercel', async () => {
     const response = await request('/', { headers: { host: 'raia-audit.vercel.app' } });
     assert.match(response.headers.get('x-robots-tag') || '', /noindex/);

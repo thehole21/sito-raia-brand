@@ -7,7 +7,7 @@ Controllo aggiornato all’8 novembre 2026. Il sito pubblico WordPress è ancora
 - Una build di produzione è indicizzabile per impostazione predefinita. Lo sviluppo e gli ambienti Vercel di preview restano esclusi.
 - Su un altro hosting di staging impostare `SEO_INDEXABLE=false` e ricompilare.
 - Sulla pubblicazione definitiva eliminare eventuali `SEO_INDEXABLE=false`, ricompilare e verificare l’HTML effettivamente servito.
-- I domini `*.vercel.app` ricevono anche `X-Robots-Tag: noindex, follow`. Il dominio definitivo deve essere `www.raiaweb.it`.
+- Le anteprime `*.vercel.app` ricevono `X-Robots-Tag: noindex, follow`; il dominio stabile `sito-raia-brand.vercel.app` è escluso da questa regola per consentire la verifica SEO. Pubblicarlo come deployment Production. Canonical e sitemap rimangono su `www.raiaweb.it`, il dominio definitivo. Il punteggio SEO della preview non va confuso con quello della produzione.
 - Il prototipo `/preventivo` resta `noindex,follow` ed è escluso dalla sitemap finché il modulo è dimostrativo.
 - Se la proprietà Search Console usa una verifica tramite meta tag, impostare `GOOGLE_SITE_VERIFICATION` con il token già assegnato alla proprietà e ricompilare. Se la verifica usa DNS, conservare il relativo record.
 
@@ -78,3 +78,9 @@ Le schede dei progetti includono fasi dichiarate come prive di fotografie. Le fo
 Il posizionamento dipende anche da concorrenza, contenuti, reputazione, collegamenti esterni e segnali locali. Lighthouse e i dati strutturati aiutano la qualità tecnica, ma non garantiscono il primo posto.
 
 Riferimenti ufficiali — [migrazione degli URL](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes), [LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business), [Core Web Vitals](https://web.dev/articles/lcp).
+
+## Recupero selettivo dopo Antigravity — 9 novembre 2026
+
+Conservati intro SVG, immagini native e cache giornaliera. Recuperati loghi ridimensionati (384px, qualità 80 per preservare nitidezza), nomi accessibili dei pulsanti e configurazione lint. Nessun canvas introdotto. Prima di dismettere WordPress: backup completo e DNS, export pagine e query da Search Console, confronto con migration/launch-urls.json, redirect permanenti verso pagine pertinenti, conservazione record mail e verifica Search Console. Dopo il lancio controllare HTTPS, robots, canonical, sitemap, redirect, 404 e invio reale del modulo sul dominio definitivo. Con lo stesso dominio non serve il cambio indirizzo in Search Console.
+
+FAQ: rispondere a domande reali su file di stampa, materiali, preventivi e lavorazioni, con informazioni confermate dalla società; non inventare tempi, prezzi o certificazioni. Preferire approfondimenti sulle pagine dei singoli servizi. Non promettono il primo posto e non costituiscono una scorciatoia tramite markup FAQPage. Priorità: pagine servizio utili, casi reali, Google Business Profile aggiornato, recensioni autentiche e citazioni pertinenti.

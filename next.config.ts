@@ -32,6 +32,7 @@ const nextConfig = {
       {
         source: '/:path*',
         has: [{ type: 'host', value: '(?<preview>.*[.]vercel[.]app)' }],
+        missing: [{ type: 'host', value: 'sito-raia-brand.vercel.app' }],
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }],
       },
       ...['/images/:path*', '/videos/:path*', '/wp-content/uploads/:path*'].map(source => ({
