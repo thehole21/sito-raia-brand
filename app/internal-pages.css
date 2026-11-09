@@ -136,6 +136,7 @@ body:has(:is(.page-opening, .legal-page)) .footer__top { padding-bottom: 24px; g
   .site-header .header-links a { font-size: 13px; }
 }
 @media (max-width: 959px) {
+  #main-content .page-opening__grid > p { padding-inline-start: 12px; }
   :root { --site-header-height: 74px; }
   .site-header .brand-logo__image { width: 122px; max-height: 60px; }
   #main-content .about-feature { gap: 22px; }
@@ -149,14 +150,15 @@ body:has(:is(.page-opening, .legal-page)) .footer__top { padding-bottom: 24px; g
   #main-content .page-opening { padding-block: 19px 16px; }
   #main-content .page-opening__grid { grid-template-columns: 1fr; gap: 12px; }
   #main-content .page-opening__grid > p { font-size: 13px; max-width: 480px; }
-  #main-content .page-opening h1 { font-size: 38px; }
-  #main-content .page-opening h1 br { display: none; }
-  #main-content .page-opening h1 em::before { content: ' '; }
+  #main-content .page-opening h1 { font-size: clamp(30px, 8.5vw, 38px); white-space: nowrap; }
+  #main-content .page-opening h1 br { display: initial; }
+  #main-content .page-opening h1 em { white-space: nowrap; }
+  #main-content .page-opening h1 em::before { content: none; }
   #main-content .about-feature { grid-template-columns: minmax(0, 1fr); padding-block: 18px; gap: 18px; }
   #main-content .about-feature__visual { min-height: 0; height: 210px; }
-  #main-content .about-feature__story h2 { font-size: 30px; }
-  #main-content .about-feature__story h2 br { display: none; }
-  #main-content .about-feature__story h2 em { white-space: normal; }
+  #main-content .about-feature__story h2 { font-size: clamp(28px, 8vw, 32px); white-space: nowrap; }
+  #main-content .about-feature__story h2 br { display: initial; }
+  #main-content .about-feature__story h2 em { white-space: nowrap; }
   #main-content .about-facts { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-block: 16px; }
   #main-content .about-facts > div:not(:last-child) { border-right: 0; padding: 0 0 12px; border-bottom: 1px solid var(--brand-line); }
   #main-content .about-facts h3 { font-size: 21px; margin: 5px 0; }
