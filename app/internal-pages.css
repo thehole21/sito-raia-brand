@@ -4,7 +4,7 @@
 .site-header .brand-logo__image { width: 132px; max-height: 67px; }
 .site-header .header-links { gap: 27px; }
 .site-header .header-links a { font-size: clamp(13px, calc(.89vw + 1px), 15px); }
-.site-header .header-links a::after { display: block; height: 1px; background: var(--brand-wine); transform: scaleX(0); }
+.site-header .header-links a::after { display: block; bottom: 23px; height: 1px; background: var(--brand-wine); transform: scaleX(0); }
 .site-header .header-links a.is-active::after { transform: scaleX(1); }
 .site-header .header-quote { min-height: 42px; }
 .site-header::after { background: var(--brand-line); opacity: 1; }
