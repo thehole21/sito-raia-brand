@@ -43,7 +43,7 @@ for (const route of routes) {
     assert.equal(new URL(canonicalHref).href, new URL(route, canonical).href, 'Canonical errato');
     assert.match(html, /<meta name="description" content="[^"]+"/);
     const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1] || '';
-    assert.equal(robots.includes('noindex'), route === '/preventivo', 'Indicizzazione inattesa');
+    assert.equal(robots.includes('noindex'), false, 'Indicizzazione inattesa');
     for (const json of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
       JSON.parse(json[1]);
     }
@@ -92,8 +92,7 @@ await check('robots e sitemap', async () => {
   const robots = await (await request('/robots.txt')).text();
   assert.ok(robots.includes(canonical + '/sitemap.xml'));
   const sitemap = await (await request('/sitemap.xml')).text();
-  for (const route of routes.filter(route => route !== '/preventivo')) assert.ok(sitemap.includes(canonical + route));
-  assert.ok(!sitemap.includes(canonical + '/preventivo'));
+  for (const route of routes) assert.ok(sitemap.includes(canonical + route));
 });
 if (base.hostname === '127.0.0.1' || base.hostname === 'localhost') {
   await check('dominio senza www', async () => {

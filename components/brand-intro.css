@@ -1,23 +1,25 @@
 .raia-intro { position: fixed; z-index: 1500; inset: 0; isolation: isolate; pointer-events: none; }
 .raia-intro-target { opacity: 0; transform: none !important; }
-.raia-intro__backdrop { position: absolute; inset: 0; background: var(--brand-paper, #f7f5ef); animation: raia-paper var(--intro-duration) linear both; }
+.raia-intro__backdrop { position: absolute; inset: 0; background: var(--brand-paper, #f7f5ef); will-change: opacity; animation: raia-paper var(--intro-duration) linear both; }
 .raia-intro__composition { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(24px, 5vh, 48px); }
-.raia-intro__logo { width: min(86vw, 580px, 100svh); aspect-ratio: 2096 / 1084; transform-origin: top left; will-change: transform; }
+.raia-intro__logo { position: relative; width: min(86vw, 580px, 100svh); aspect-ratio: 2096 / 1084; transform-origin: top left; will-change: transform; }
+.raia-intro__layer { position: absolute; inset: 0; pointer-events: none; will-change: transform, opacity; }
 .raia-intro__art { display: block; width: 100%; height: 100%; overflow: visible; color: #262324; }
-.raia-intro__press { transform-origin: 575px 650px; animation: raia-press var(--intro-duration) ease both; }
+.raia-intro__reveal { position: absolute; left: 0; top: 0; width: 53.1966%; height: 100%; display: block; will-change: opacity; animation: raia-reveal var(--intro-duration) cubic-bezier(.4,0,.2,1) both; }
+.raia-intro__wordmark { position: absolute; left: 53.1966%; top: 0; width: 46.8034%; height: 100%; display: block; will-change: transform, opacity; animation: raia-wordmark var(--intro-duration) ease both; }
+.raia-intro__press { transform-origin: 27.43% 59.96%; animation: raia-press var(--intro-duration) ease both; }
 .raia-intro__head { animation: raia-head 900ms cubic-bezier(.45,0,.2,1) both; }
-.raia-intro__reveal { stroke-dasharray: 1; animation: raia-reveal var(--intro-duration) cubic-bezier(.4,0,.2,1) both; }
-.raia-intro__wordmark { transform-origin: 1115px 542px; animation: raia-wordmark var(--intro-duration) ease both; }
-.raia-intro__welcome { margin: 0; padding: 0 20px; color: #161616; font-size: clamp(19px, 3.8vw, 30px); font-weight: 350; letter-spacing: -.035em; text-align: center; animation: raia-welcome var(--intro-duration) ease both; }
-.raia-intro__welcome strong { font-weight: 550; }
+.raia-intro__welcome { display: block; margin: 0; will-change: transform, opacity; animation: raia-welcome var(--intro-duration) ease both; }
 .raia-intro__sheet { animation: raia-sheet var(--intro-duration) linear both; }
+.raia-intro__ink { transform-origin: 27.86% 51.66%; animation: raia-ink var(--intro-duration) cubic-bezier(.4,0,.2,1) both; }
 .raia-intro__fold { animation: raia-fold var(--intro-duration) ease both; }
-@keyframes raia-press { 0% { opacity: 0; transform: translateY(10px); } 8%, 28% { opacity: 1; transform: none; } 41%, 100% { opacity: 0; transform: translateY(-55px); } }
-@keyframes raia-head { 0%, 10% { transform: translateX(0); } 48% { transform: translateX(540px); } 100% { transform: translateX(110px); } }
+@keyframes raia-press { 0% { opacity: 0; transform: translateY(.92%); } 8%, 28% { opacity: 1; transform: none; } 41%, 100% { opacity: 0; transform: translateY(-5.07%); } }
+@keyframes raia-head { 0%, 10% { transform: translateX(0); } 48% { transform: translateX(25.76%); } 100% { transform: translateX(5.25%); } }
 @keyframes raia-sheet { 0%, 7% { opacity: 0; } 12%, 48% { opacity: 1; } 60%, 100% { opacity: 0; } }
+@keyframes raia-ink { 0%, 6.5% { transform: scale(.63, .058); } 26.5% { transform: translateY(10.15%) scale(.74, .38); } 39% { transform: translateY(2.77%) scale(.92, .82); } 54%, 100% { transform: none; } }
 @keyframes raia-fold { 0%, 19% { opacity: 0; } 25%, 28% { opacity: .65; } 38%, 100% { opacity: 0; } }
 @keyframes raia-reveal { 0%, 46% { opacity: 0; } 59%, 100% { opacity: 1; } }
-@keyframes raia-wordmark { 0%, 53% { opacity: 0; transform: translateX(-18px); } 65%, 100% { opacity: 1; transform: none; } }
-@keyframes raia-welcome { 0% { opacity: 0; transform: translateY(8px); } 16%, 58% { opacity: 1; transform: none; } 71%, 100% { opacity: 0; transform: translateY(-6px); } }
-@keyframes raia-paper { 0%, 68% { opacity: 1; } 95%, 100% { opacity: 0; } }
+@keyframes raia-wordmark { 0%, 53% { opacity: 0; transform: translateX(-1.83%); } 65%, 100% { opacity: 1; transform: none; } }
+@keyframes raia-welcome { 0% { opacity: 0; transform: translateY(8px); } 16%, 72% { opacity: 1; transform: none; } 83%, 100% { opacity: 0; transform: translateY(-6px); } }
+@keyframes raia-paper { 0%, 84% { opacity: 1; } 98%, 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .raia-intro { display: none; } .raia-intro-target { opacity: 1; } }

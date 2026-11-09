@@ -15,8 +15,8 @@
 .case-showcase__feature { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr); min-height:clamp(440px,42vw,605px); margin-top:23px; border:1px solid #e2d8d5; background:#fdfbf9; }
 .case-showcase__cover { display:block; position:relative; min-height:100%; padding:0; background:#e8e1db; overflow:hidden; border:0; width:100%; text-align:left; color:#fff; }
 .case-showcase__cover::after { content:""; position:absolute; z-index:1; inset:55% 0 0; background:linear-gradient(transparent,rgba(17,16,16,.5)); pointer-events:none; }
-.case-showcase__cover img { object-fit:cover; animation:raia-project-image-in .42s cubic-bezier(.2,.7,.2,1) both; transition:transform .7s cubic-bezier(.22,1,.36,1); }
-.case-showcase__cover:hover img { transform:scale(1.025); }
+.case-showcase__cover :is(img, canvas) { object-fit:cover; animation:raia-project-image-in .42s cubic-bezier(.2,.7,.2,1) both; transition:transform .7s cubic-bezier(.22,1,.36,1); }
+.case-showcase__cover:hover :is(img, canvas) { transform:scale(1.025); }
 @keyframes raia-project-image-in { from { translate:0 7px; } to { translate:0 0; } }
 .case-showcase__cover-top,.case-showcase__cover-bottom { position:absolute; z-index:2; }
 .case-showcase__cover-top { top:21px; left:22px; color:#342f2c; background:rgba(255,254,252,.95); padding:10px 12px; font-size:10px; letter-spacing:.12em; font-weight:760; }
@@ -88,9 +88,10 @@
   .case-showcase__cover-bottom { left:14px; right:14px; bottom:15px; }
   .case-showcase__path-top { flex-wrap:wrap; }
   .case-showcase__phases li { font-size:8px; }
-  .case-showcase__tile { flex-basis:66%; }
-  .case-showcase__reel-head > span { font-size:10px; }
+  .case-showcase__tile { flex-basis:64%; }
 }
-@media (prefers-reduced-motion:reduce) {
-  .case-showcase__cover img,.case-showcase__detail,.case-showcase__tile,.case-showcase__tile-photo img,.case-showcase__primary { animation:none; transition:none; }
+@media (prefers-reduced-motion: reduce) {
+  .case-showcase__cover :is(img, canvas),
+  .case-showcase__detail,
+  .case-showcase__tile-photo img { animation:none; transition:none; }
 }

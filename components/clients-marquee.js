@@ -8,10 +8,13 @@ import './clients-marquee-fix.css';
 
 function ClientArtwork({ client, duplicate = false }) {
   const layout = logoLayout[client.name];
+  const optimizedSrc = client.src.endsWith('.svg')
+    ? client.src
+    : `/_next/image?url=${encodeURIComponent(client.src)}&w=256&q=65`;
   return (
     <span className="clients-marquee__artwork" style={{ '--logo-width': layout.width + 'px', '--logo-height': layout.height + 'px' }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={client.src} alt={duplicate ? '' : client.name} width="180" height="120" loading="lazy" decoding="async"
+      <img src={optimizedSrc} alt={duplicate ? '' : client.name} width="180" height="120" loading="lazy" decoding="async"
         style={{ width: layout.imageWidth + '%', height: layout.imageHeight + '%', left: layout.left + '%', top: layout.top + '%' }} />
     </span>
   );

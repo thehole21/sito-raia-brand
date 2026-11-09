@@ -6,6 +6,7 @@ import {
   ArrowUpRight, ArrowLeft, ArrowRight, Camera, Check,
   Images, X,
 } from 'lucide-react';
+import HeroCanvas from '@/components/hero-canvas';
 import { PROJECTS } from '@/lib/content';
 import { PROJECT_STEPS, getProjectImage } from '@/lib/project-stories';
 
@@ -132,16 +133,13 @@ export default function ProjectsGrid() {
               type="button"
               className="case-showcase__cover"
               onClick={(event) => openProject(featured.id, event.currentTarget)}
-              aria-label={`Apri le fasi del progetto ${featured.title}`}
             >
-              <Image
+              <HeroCanvas
                 key={featured.id}
                 src={featured.image}
                 alt={featured.alt}
                 fill
-                priority={featuredPosition === 0}
-                fetchPriority={featuredPosition===0?"high":undefined}
-                sizes="(max-width: 760px) 100vw, (max-width: 1100px) 65vw, 65vw"
+                quality={55}
               />
               <span className="case-showcase__cover-top">LAVORO / {String(featuredPosition + 1).padStart(2, '0')}</span>
               <span className="case-showcase__cover-bottom">
@@ -212,10 +210,9 @@ export default function ProjectsGrid() {
                 className={`case-showcase__tile ${featured.id === project.id ? 'is-active' : ''}`}
                 onClick={() => setSpotlightId(project.id)}
                 aria-pressed={featured.id === project.id}
-                aria-label={`Seleziona il progetto ${project.title}`}
               >
                 <span className="case-showcase__tile-photo">
-                  <Image src={project.image} fill alt="" sizes="220px" />
+                  <Image src={project.image} fill alt="" quality={55} sizes="120px" />
                 </span>
                 <span className="case-showcase__tile-meta">
                   <span>{String(index + 1).padStart(2, '0')} / {project.client}</span>
