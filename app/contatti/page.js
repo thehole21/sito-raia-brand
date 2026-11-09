@@ -18,7 +18,7 @@ export default function ContattiPage() {
           <span className="little-dot" aria-hidden="true" /> CONTATTI
         </div>
         <div className="page-opening__grid">
-          <h1 id="contacts-title">Parliamone,<br /><em>insieme</em></h1>
+          <h1 id="contacts-title">Parliamone,<br /><em>insieme.</em></h1>
           <p>Una nuova idea o un progetto da realizzare? Qui trovi tutti i nostri recapiti.</p>
         </div>
       </section>
