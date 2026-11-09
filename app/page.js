@@ -27,7 +27,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="home-services-summary shell" aria-labelledby="home-services-title"><h2 id="home-services-title">Stampa e comunicazione a Guidonia Montecelio</h2><p>Libri e cataloghi, stampa in grande formato, insegne, allestimenti, wrapping e gadget personalizzati. Dalla progettazione alla realizzazione, nella nostra sede a Guidonia Montecelio, in provincia di Roma.</p><Link href="/servizi">Scopri tutti i servizi RAIA <ArrowUpRight size={18} aria-hidden="true" /></Link></section>
+      <section className="home-services-summary shell" aria-labelledby="home-services-title"><h2 id="home-services-title">Stampa e comunicazione</h2><p>Libri e cataloghi, stampa in grande formato, insegne, allestimenti, wrapping e gadget personalizzati. Dalla progettazione alla realizzazione.</p><Link href="/servizi">Scopri tutti i servizi RAIA <ArrowUpRight size={18} aria-hidden="true" /></Link></section>
       <ClientsMarquee />
       <ValuesStrip />
 
