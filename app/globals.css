@@ -1539,3 +1539,5 @@ a, button { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   .raia-text-enter { animation: none !important; }
 }
+
+.quote-privacy{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6}.quote-privacy input{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:#742439}.quote-privacy a{text-decoration:underline}.quote-antispam{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.quote-status{font-size:14px;line-height:1.6;color:#245c39}.quote-status--error{color:#8a2639}.quote-submit:disabled{opacity:.7;cursor:default}.quote-fieldset:disabled{opacity:.85}

@@ -1,0 +1,53 @@
+name: Pubblica su Aruba
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: raia-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Build Linux, lint e SEO
+        env:
+          UMAMI_ID: ${{ vars.UMAMI_WEBSITE_ID }}
+          WEB3FORMS_KEY: ${{ vars.WEB3FORMS_ACCESS_KEY }}
+        run: docker build --build-arg NEXT_PUBLIC_UMAMI_WEBSITE_ID="$UMAMI_ID" --build-arg NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY="$WEB3FORMS_KEY" -f deploy/aruba/Dockerfile -t "raia-web:$GITHUB_SHA" .
+      - name: Verifica pagine, redirect e risorse
+        run: |
+          docker run -d --name raia-check -p 127.0.0.1:3121:3000 "raia-web:$GITHUB_SHA"
+          for attempt in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3121/robots.txt >/dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/check-launch.mjs http://127.0.0.1:3121
+      - name: Pubblica con verifica e ripristino automatico
+        env:
+          DEPLOY_KEY: ${{ secrets.ARUBA_DEPLOY_KEY }}
+        run: |
+          test -n "$DEPLOY_KEY" || { echo 'Secret ARUBA_DEPLOY_KEY non configurato'; exit 1; }
+          umask 077
+          mkdir -p "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/raia_deploy"
+          cp deploy/aruba/known_hosts "$HOME/.ssh/raia_known_hosts"
+          trap 'rm -f "$HOME/.ssh/raia_deploy"' EXIT
+          set -o pipefail
+          docker save "raia-web:$GITHUB_SHA" | gzip -1 | ssh -i "$HOME/.ssh/raia_deploy" \
+            -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$HOME/.ssh/raia_known_hosts" -o ServerAliveInterval=15 \
+            raia-deploy@80.211.79.35 "deploy $GITHUB_SHA"
+      - name: Pulizia verifica
+        if: always()
+        run: docker rm -f raia-check || true

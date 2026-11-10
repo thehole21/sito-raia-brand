@@ -1,0 +1,14 @@
+.git
+.next
+.next-audit
+node_modules
+.env
+.env.*
+.vercel
+coverage
+*.tsbuildinfo
+*.log
+*.tar
+*.tar.gz
+outputs
+work

@@ -3,83 +3,29 @@ import Link from 'next/link';
 import LegalShell from '@/components/legal-shell';
 import { COMPANY } from '@/lib/content';
 import '../legal.css';
-
 export const metadata = pageMetadata('/privacy');
-
 const sections = [
-  {
-    id: 'titolare', title: 'Titolare del trattamento',
-    content: <>
-      <p>Il titolare del trattamento dei dati personali è <strong>{COMPANY.name}</strong> (P. IVA {COMPANY.vat}).</p>
-      <p><strong>Recapiti:</strong> {COMPANY.address}. Per informazioni o richieste relative alla privacy: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> · <a href={`tel:${COMPANY.phoneLink}`}>{COMPANY.phone}</a>.</p>
-      <p>Le informazioni si riferiscono alla navigazione di questo sito, non ai trattamenti effettuati da eventuali siti esterni raggiungibili tramite collegamenti.</p>
-    </>
-  },
-  {
-    id: 'dati-finalita', title: 'Dati trattati e finalità',
-    content: <>
-      <h3>Navigazione e sicurezza</h3>
-      <p>Durante la consultazione del sito i sistemi necessari al suo funzionamento possono trattare dati tecnici, quali indirizzo IP, data e ora delle richieste, indirizzi delle risorse richieste, informazioni sul browser o sul dispositivo ed eventuali log diagnostici.</p>
-      <p>Queste informazioni sono utilizzate per erogare il sito, garantire sicurezza, prevenire abusi e risolvere problemi tecnici. Le basi giuridiche applicabili sono, secondo il trattamento, il legittimo interesse alla gestione e protezione del sito (art. 6, par. 1, lett. f, GDPR) e gli eventuali obblighi di legge (lett. c).</p>
-      <h3>Richieste inviate spontaneamente</h3>
-      <p>Quando un visitatore scrive all&apos;indirizzo email pubblicato o contatta RAIA telefonicamente, possono essere trattati nome, recapiti, informazioni aziendali e contenuti della richiesta per rispondere e valutare eventuali progetti o preventivi. La base giuridica è l&apos;esecuzione di misure precontrattuali richieste dall&apos;interessato (art. 6, par. 1, lett. b, GDPR) e, quando pertinente, il legittimo interesse a gestire le comunicazioni.</p>
-      <h3>Modulo preventivo</h3>
-      <p>Nella configurazione attuale il modulo preventivo è una <strong>dimostrazione grafica</strong>: genera un riepilogo nel browser ma non invia automaticamente a RAIA i dati compilati né gli allegati selezionati.</p>
-      <p>Prima dell&apos;attivazione di un invio effettivo dei preventivi, dell&apos;archiviazione dei progetti o di altri servizi online, questa informativa sarà integrata con finalità, destinatari e tempi di conservazione pertinenti.</p>
-    </>
-  },
-  {
-    id: 'fornitori', title: 'Servizi esterni e destinatari',
-    content: <>
-      <p>Per la pubblicazione e la gestione tecnica del sito possono essere coinvolti fornitori di hosting, manutenzione e infrastruttura, autorizzati a trattare dati nella misura necessaria all&apos;erogazione dei servizi. La versione dimostrativa è predisposta per l&apos;hosting su <strong>Vercel</strong>; la configurazione del servizio e i ruoli privacy dei fornitori devono essere confermati prima della messa in produzione.</p>
-      <p>Alcune immagini dei lavori RAIA sono caricate da <strong>raiaweb.it</strong>, mentre la pagina Contatti incorpora una <strong>mappa di Google Maps</strong>. Quando il browser carica queste risorse può comunicare ai relativi fornitori dati tecnici, come l&apos;indirizzo IP e informazioni di navigazione. Per dettagli sui cookie e sugli strumenti esterni consulta la <Link href="/cookie-policy">Cookie Policy</Link>.</p>
-      <p>I collegamenti a Facebook, Instagram e LinkedIn rimandano a siti esterni: la loro consultazione è soggetta alle informative dei rispettivi gestori.</p>
-    </>
-  },
-  {
-    id: 'trasferimenti', title: 'Trasferimenti fuori dallo SEE',
-    content: <>
-      <p>Alcuni fornitori tecnologici possono operare anche al di fuori dello Spazio Economico Europeo. L&apos;eventuale trasferimento di dati personali richiede una base valida ai sensi degli artt. 44 e seguenti del GDPR, come una decisione di adeguatezza applicabile o appropriate garanzie contrattuali.</p>
-      <p>Prima della pubblicazione definitiva RAIA dovrà verificare i fornitori effettivamente utilizzati, i paesi coinvolti e le garanzie previste dai relativi accordi.</p>
-    </>
-  },
-  {
-    id: 'conservazione', title: 'Conservazione dei dati',
-    content: <>
-      <p>I dati tecnici vengono conservati secondo le necessità di sicurezza, diagnostica e funzionamento del sito e le impostazioni del servizio di hosting. I dati ricevuti tramite email o telefono vengono conservati per il tempo necessario a gestire la richiesta e, quando applicabili, gli obblighi di legge o la tutela dei diritti delle parti.</p>
-      <p>La durata esatta o i criteri dettagliati di conservazione devono essere verificati con RAIA e con i fornitori prima della pubblicazione definitiva. Il modulo dimostrativo attuale non prevede un archivio server dei dati inseriti nel browser.</p>
-    </>
-  },
-  {
-    id: 'conferimento', title: 'Conferimento dei dati',
-    content: <>
-      <p>I dati tecnici strettamente necessari alla navigazione sono trattati per consentire il funzionamento del servizio. Fornire nome, email e dettagli di un progetto quando si contatta RAIA è facoltativo, ma senza gli elementi necessari potrebbe non essere possibile rispondere o preparare un preventivo.</p>
-      <p>Non sono previste, nel codice applicativo attuale, decisioni esclusivamente automatizzate che producano effetti giuridici o analogamente significativi per il visitatore, né sistemi pubblicitari di profilazione configurati da RAIA.</p>
-    </>
-  },
-  {
-    id: 'diritti', title: 'I tuoi diritti',
-    content: <>
-      <p>Nei casi previsti dal GDPR puoi chiedere accesso ai tuoi dati, rettifica, cancellazione, limitazione del trattamento, portabilità, oppure opporti al trattamento. Se un trattamento si fonda sul consenso, puoi revocarlo in qualsiasi momento senza pregiudicare la liceità del trattamento precedente alla revoca.</p>
-      <p>Per esercitare i diritti puoi scrivere a <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>. Hai inoltre diritto a presentare un reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>.</p>
-    </>
-  },
-  {
-    id: 'aggiornamenti', title: 'Aggiornamenti dell’informativa',
-    content: <>
-      <p>RAIA può aggiornare questa informativa quando cambiano funzionalità, fornitori o modalità di trattamento. L&apos;ultima revisione è indicata in alto. Eventuali nuovi strumenti di analisi, moduli di invio, servizi di marketing saranno descritti <strong>prima della loro attivazione</strong>, con le misure e i consensi eventualmente necessari.</p>
-    </>
-  },
+  {id:'titolare',title:'Titolare e contatti',content:<>
+    <p>Il titolare del trattamento è <strong>{COMPANY.name}</strong>, P. IVA {COMPANY.vat}, con sede in {COMPANY.address}. Per richieste sulla privacy: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>.</p>
+    <p>Questa informativa riguarda il sito www.raiaweb.it. Le piattaforme esterne raggiunte tramite collegamenti hanno proprie informative.</p>
+  </>},
+  {id:'navigazione',title:'Navigazione e sicurezza',content:<>
+    <p>Il server tratta indirizzo IP, data e ora, risorse richieste, esito delle richieste e informazioni tecniche del browser per erogare il sito, prevenire abusi e diagnosticare errori. La base giuridica è il legittimo interesse alla gestione e sicurezza del servizio (art. 6, par. 1, lett. f, GDPR), oltre agli eventuali obblighi di legge.</p>
+    <p>Il sito è ospitato su un VPS Aruba. I log tecnici sono accessibili solo agli incaricati della gestione e conservati per un periodo limitato alle esigenze operative e di sicurezza; in caso di incidenti possono essere conservati per gli accertamenti necessari.</p>
+  </>},
+  {id:'richieste',title:'Contatti e preventivi',content:<>
+    <p>Quando invii il modulo preventivo, trattiamo nome, email, telefono e azienda se indicati, servizio richiesto, descrizione del progetto, tempistiche ed eventuale link ai file. Servono a rispondere alla richiesta e preparare un preventivo: la base giuridica è l’esecuzione di misure precontrattuali richieste da te (art. 6, par. 1, lett. b, GDPR). Lo stesso vale per richieste spontanee via email o telefono.</p>
+    <p>I campi obbligatori sono indicati nel modulo; senza tali informazioni non possiamo gestire la richiesta. Non inviare dati particolari o documenti non necessari. Il modulo non carica allegati: puoi condividere un link ai materiali.</p>
+    <p>Per inoltrare il modulo via email utilizziamo <strong>Web3Forms, servizio di Web3Creative</strong>, che tratta i dati per nostro conto e utilizza servizi infrastrutturali e antispam. Il servizio opera dall’India e può trattare dati fuori dallo Spazio Economico Europeo; le garanzie, incluse le clausole contrattuali standard, sono descritte nel relativo <a href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">accordo sul trattamento</a> e nella <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
+    <p>Le richieste sono conservate per il tempo necessario alla risposta e agli eventuali rapporti contrattuali, tenendo conto degli obblighi di legge e della tutela dei diritti. Web3Forms dichiara una conservazione massima delle submission di tre anni, salvo cancellazione anticipata o un termine inferiore configurato nel servizio. L’invio del modulo non iscrive a newsletter o comunicazioni promozionali.</p>
+  </>},
+  {id:'esterni',title:'Mappe e servizi esterni',content:<>
+    <p>Google Maps viene caricato soltanto premendo il pulsante dedicato nella pagina Contatti. Prima di quel clic non viene caricata la mappa. Attivandola, il browser comunica dati tecnici a Google, che può impiegare cookie e trattare dati anche fuori dallo SEE secondo la propria <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener noreferrer">informativa privacy</a>.</p>
+    <p>I collegamenti ai social e alle mappe esterne aprono i relativi servizi solo quando li selezioni. Consulta la <Link href="/cookie-policy">Cookie Policy</Link> per i dettagli sulle preferenze.</p>
+  </>},
+  {id:'destinatari',title:'Accesso ai dati e diritti',content:<>
+    <p>I dati possono essere trattati dal personale autorizzato RAIA e dai fornitori tecnici necessari al servizio, secondo i rispettivi ruoli e accordi. Non sono venduti. Non vengono adottate decisioni esclusivamente automatizzate con effetti giuridici o analogamente significativi.</p>
+    <p>Nei casi previsti dal GDPR puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opporti al trattamento. Puoi revocare il consenso senza pregiudicare la liceità del trattamento precedente alla revoca. Scrivi a <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>. Puoi inoltre presentare reclamo al <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>.</p>
+  </>},
 ];
-
-export default function PrivacyPage() {
-  return <LegalShell
-    kind="PRIVACY"
-    title="I tuoi dati."
-    accent="La nostra responsabilità."
-    description="Come vengono trattate le informazioni durante la navigazione e quando entri in contatto con RAIA. Un'informativa chiara, senza formule inutilmente complicate."
-    sections={sections}
-    updated="10 ottobre 2026"
-    sibling={{ href: '/cookie-policy', label: 'Leggi la Cookie Policy' }}
-  />;
-}
+export default function PrivacyPage(){return <LegalShell kind="PRIVACY" title="I tuoi dati." accent="La nostra responsabilità." description="Come trattiamo le informazioni durante la navigazione e quando ci invii una richiesta." sections={sections} updated="10 novembre 2026" sibling={{href:'/cookie-policy',label:'Leggi la Cookie Policy'}}/>;}

@@ -103,7 +103,7 @@ if (base.hostname === '127.0.0.1' || base.hostname === 'localhost') {
   });
   await check('dominio stabile Vercel', async () => {
     const response = await request('/', { headers: { host: 'sito-raia-brand.vercel.app' } });
-    assert.doesNotMatch(response.headers.get('x-robots-tag') || '', /noindex/);
+    assert.match(response.headers.get('x-robots-tag') || '', /noindex/);
   });
   await check('anteprima Vercel', async () => {
     const response = await request('/', { headers: { host: 'raia-audit.vercel.app' } });

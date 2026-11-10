@@ -1,0 +1,23 @@
+name: raia
+services:
+  web:
+    image: ${RAIA_IMAGE:?Set RAIA_IMAGE to a built release}
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+      SEO_INDEXABLE: "true"
+    volumes:
+      - image-cache:/app/.next/cache
+    mem_limit: 1536m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    stop_grace_period: 30s
+volumes:
+  image-cache:
