@@ -12,6 +12,7 @@ services:
       SEO_INDEXABLE: "true"
     volumes:
       - image-cache:/app/.next/cache
+      - quote-uploads:/app/data/quote-uploads
     mem_limit: 1536m
     logging:
       driver: json-file
@@ -21,3 +22,4 @@ services:
     stop_grace_period: 30s
 volumes:
   image-cache:
+  quote-uploads:

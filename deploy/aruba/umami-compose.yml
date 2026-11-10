@@ -1,0 +1,47 @@
+name: raia-stats
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:3.4.1
+    restart: unless-stopped
+    init: true
+    ports: ["127.0.0.1:3100:3000"]
+    mem_limit: 640m
+    environment:
+      DATABASE_URL: postgresql://umami:${DB_PASSWORD}@db:5432/umami
+      APP_SECRET: ${APP_SECRET}
+      TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY}
+      DISABLE_TELEMETRY: "1"
+      PRIVATE_MODE: "1"
+      SALT_ROTATION: day
+      CLIENT_IP_HEADER: x-real-ip
+    depends_on:
+      db: {condition: service_healthy}
+    logging:
+      driver: json-file
+      options: {max-size: 5m, max-file: "2"}
+    healthcheck:
+      test: [CMD-SHELL, "curl -fsS http://localhost:3000/api/heartbeat || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    mem_limit: 256m
+    environment:
+      POSTGRES_USER: umami
+      POSTGRES_DB: umami
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes: ["database:/var/lib/postgresql/data"]
+    command: [postgres, -c, shared_buffers=32MB, -c, max_connections=30]
+    logging:
+      driver: json-file
+      options: {max-size: 5m, max-file: "2"}
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U umami -d umami"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  database:

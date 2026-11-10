@@ -33,6 +33,7 @@ jobs:
             sleep 1
           done
           node scripts/check-launch.mjs http://127.0.0.1:3121
+          node scripts/check-uploads.mjs http://127.0.0.1:3121
       - name: Pubblica con verifica e ripristino automatico
         env:
           DEPLOY_KEY: ${{ secrets.ARUBA_DEPLOY_KEY }}

@@ -33,6 +33,7 @@ trap rollback ERR
 docker run -d --name "$container" --restart unless-stopped --init \
   --memory 1536m --log-driver json-file --log-opt max-size=10m --log-opt max-file=3 \
   -p "127.0.0.1:$port:3000" --mount type=volume,src=raia_image-cache,dst=/app/.next/cache \
+  --mount type=volume,src=raia_quote-uploads,dst=/app/data/quote-uploads \
   -e NODE_ENV=production -e SEO_INDEXABLE=true -e NEXT_TELEMETRY_DISABLED=1 "$image"
 ready=0
 for attempt in $(seq 1 60); do

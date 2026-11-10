@@ -1,66 +1,28 @@
 import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import LegalShell from '@/components/legal-shell';
-import { COMPANY } from '@/lib/content';
+import { CookieSettingsButton } from '@/components/cookie-consent';
 import '../legal.css';
-
 export const metadata = pageMetadata('/cookie-policy');
-
-const sections = [
-  {
-    id: 'cosa-sono', title: 'Cookie e tecnologie simili',
-    content: <>
-      <p>I cookie sono piccoli file che un sito può memorizzare sul dispositivo dell&apos;utente. Esistono anche tecnologie analoghe, come la memorizzazione locale o altri identificatori. Alcuni strumenti sono necessari al funzionamento tecnico; altri possono servire per statistiche, personalizzazione o pubblicità.</p>
-      <p>Le regole applicabili dipendono dalla finalità concreta: per cookie e strumenti strettamente tecnici è necessaria l&apos;informativa, ma di norma non il consenso preventivo; per quelli non tecnici, salvo specifiche eccezioni, è richiesto il consenso prima dell&apos;attivazione.</p>
-    </>
-  },
-  {
-    id: 'configurazione', title: 'Configurazione attuale del sito',
-    content: <>
-      <p>Nel codice realizzato per RAIA non sono stati integrati intenzionalmente Google Analytics, Google Tag Manager, Meta Pixel o sistemi pubblicitari di profilazione. Non è presente al momento un pannello di marketing o un sistema di raccolta del consenso destinato a tali strumenti.</p>
-      <p>Il sito può impiegare funzionalità tecniche necessarie alla sicurezza, alla navigazione e alla distribuzione dei contenuti attraverso l&apos;hosting. La presenza, i nomi, le scadenze e le finalità degli eventuali identificatori devono essere verificati sulla versione effettivamente pubblicata, in particolare dopo l&apos;attivazione di nuovi servizi.</p>
-      <div className="legal-page__note"><strong>Nota sulla configurazione</strong><span>Questa pagina descrive il progetto nella sua configurazione attualmente conosciuta. Non costituisce un elenco certificato di tutti i cookie installati dal browser: la verifica tecnica andrà eseguita sul dominio definitivo.</span></div>
-    </>
-  },
-  {
-    id: 'mappe', title: 'Google Maps e contenuti esterni',
-    content: <>
-      <p>La pagina <Link href="/contatti">Contatti</Link> include una mappa incorporata di Google Maps. Quando viene caricata, il browser può comunicare con i server Google e il servizio può utilizzare cookie o altre tecnologie secondo le proprie regole. Consulta le <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener noreferrer">informazioni sulla privacy di Google</a>.</p>
-      <p>La mappa è attualmente incorporata nella pagina: il caricamento differito non equivale da solo a un consenso. Prima della pubblicazione ufficiale occorre verificare il comportamento effettivo e, se necessario, attivare Google Maps soltanto dopo una scelta esplicita del visitatore.</p>
-      <p>Alcune fotografie sono recuperate dal sito <strong>raiaweb.it</strong>. I collegamenti ai profili social aprono invece piattaforme esterne soltanto quando vengono selezionati.</p>
-    </>
-  },
-  {
-    id: 'consenso', title: 'Consenso e preferenze',
-    content: <>
-      <p>Al momento non è configurato un sistema RAIA di profilazione pubblicitaria per cui raccogliere una scelta di marketing. Se verranno introdotti cookie o strumenti non tecnici, sarà necessario presentarne prima le finalità e, nei casi previsti dalla normativa, ottenere il consenso con la possibilità di rifiutare e modificare la scelta.</p>
-      <p>La pubblicazione di questa pagina non abilita né sostituisce un sistema di gestione del consenso. Prima del lancio occorre valutare in particolare il caricamento della mappa incorporata.</p>
-    </>
-  },
-  {
-    id: 'gestione-browser', title: 'Gestire i cookie nel browser',
-    content: <>
-      <p>È possibile controllare, cancellare o bloccare i cookie dalle impostazioni del proprio browser. La disabilitazione di cookie tecnici può compromettere alcune funzionalità. Le impostazioni del browser non sostituiscono le scelte di consenso che il sito deve eventualmente offrire per i tracciamenti non tecnici.</p>
-      <p>Per maggiori informazioni consulta le <a href="https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9677876" target="_blank" rel="noopener noreferrer">linee guida sui cookie del Garante Privacy</a>.</p>
-    </>
-  },
-  {
-    id: 'aggiornamenti', title: 'Aggiornamenti e contatti',
-    content: <>
-      <p>La presente informativa sarà aggiornata quando saranno attivati nuovi strumenti, anche di analytics o marketing, o quando cambieranno servizi esterni, scadenze e categorie di cookie. La versione effettivamente pubblicata sarà verificata prima del lancio.</p>
-      <p>Per informazioni contatta <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> oppure consulta la <Link href="/privacy">Privacy Policy</Link>.</p>
-    </>
-  },
+const sections=[
+ {id:'strumenti',title:'Strumenti tecnici e preferenze',content:<>
+   <p>Il sito utilizza le risorse tecniche necessarie alla navigazione e alla sicurezza. La scelta effettuata nel pannello è salvata nella memoria locale del browser con la chiave <code>raia-consent-v1</code>: contiene versione, scelta e data, senza identificatori pubblicitari. Vale per 180 giorni, poi viene richiesta nuovamente. Non è inviata a servizi pubblicitari.</p>
+   <p>Il funzionamento del sito e l’invio di un preventivo non dipendono dall’accettazione delle statistiche.</p>
+ </>},
+ {id:'statistiche',title:'Statistiche Umami',content:<>
+   <p>Le statistiche sono facoltative e disattivate fino alla scelta “Accetta statistiche”. Utilizziamo Umami sul nostro VPS Aruba per analizzare pagine, visite, provenienza e tipologia di dispositivo. Non installa cookie di tracciamento e non condivide i dati con Google Analytics o reti pubblicitarie.</p>
+   <p>Gli identificativi statistici pseudonimi ruotano ogni giorno. Non raccogliamo i dati compilati nei moduli, parametri degli indirizzi, registrazioni delle visite o profili nominativi. I dati dettagliati vengono eliminati dopo tredici mesi. Rispettiamo Do Not Track e Global Privacy Control quando attivi nel browser.</p>
+ </>},
+ {id:'scelte',title:'Accettare, rifiutare o cambiare scelta',content:<>
+   <p>“Rifiuta” mantiene disattivate le statistiche; “Accetta statistiche” le abilita. I due pulsanti hanno la stessa evidenza. Navigare o scorrere la pagina non equivale ad accettare.</p>
+   <p>Puoi riaprire il pannello e revocare il consenso in qualsiasi momento: <CookieSettingsButton />. La revoca interrompe le successive rilevazioni; non rende illecito il trattamento già svolto. La cancellazione della memoria locale del browser elimina anche la preferenza salvata.</p>
+ </>},
+ {id:'esterni',title:'Google Maps e modulo preventivo',content:<>
+   <p>La mappa nella pagina Contatti è bloccata fino al clic su “Carica Google Maps (servizio esterno)”. L’attivazione contatta Google, che può usare propri cookie e strumenti: consulta le <a href="https://policies.google.com/technologies/cookies?hl=it" target="_blank" rel="noopener noreferrer">informazioni Google sui cookie</a>. La scelta sulle statistiche Umami non attiva la mappa.</p>
+   <p>Il modulo contatta Web3Forms soltanto quando invii la richiesta. Non incorporiamo widget pubblicitari, Google Tag Manager o strumenti di profilazione. I dettagli dei fornitori sono nella <Link href="/privacy">Privacy Policy</Link>.</p>
+ </>},
+ {id:'browser',title:'Controlli del browser',content:<>
+   <p>Puoi cancellare cookie e memoria locale o bloccarli dalle impostazioni del browser. Alcuni strumenti tecnici possono essere necessari al funzionamento dei servizi. Per informazioni generali consulta le <a href="https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9677876" target="_blank" rel="noopener noreferrer">linee guida del Garante</a>.</p>
+ </>},
 ];
-
-export default function CookiePolicyPage() {
-  return <LegalShell
-    kind="COOKIE"
-    title="Trasparenza,"
-    accent="anche online."
-    description="Quali strumenti tecnici utilizza il sito e cosa cambia quando carichi una mappa o visiti un servizio esterno."
-    sections={sections}
-    updated="10 ottobre 2026"
-    sibling={{ href: '/privacy', label: 'Leggi la Privacy Policy' }}
-  />;
-}
+export default function CookiePolicyPage(){return <LegalShell kind="COOKIE" title="Trasparenza," accent="anche online." description="Strumenti tecnici, statistiche facoltative e preferenze: scegli tu come navigare." sections={sections} updated="10 novembre 2026" sibling={{href:'/privacy',label:'Leggi la Privacy Policy'}}/>;}

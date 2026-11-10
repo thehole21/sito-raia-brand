@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/cookie-consent";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import SocialLinks from "@/components/social-links";
 import BrandLogo from "@/components/brand-logo";
@@ -102,6 +103,7 @@ export default function Footer() {
             >
               Cookie Policy
             </Link>
+            {" · "}<CookieSettingsButton />
           </span>
 
           <SocialLinks

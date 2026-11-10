@@ -1,30 +1,43 @@
-# RAIA su VPS Aruba
+# RAIA su Aruba: pubblicazione e gestione
 
-Predisposizione locale, non installata sul VPS. Piano previsto O2A4: 2 vCPU, 4 GB RAM, 40 GB disco. Adeguato come punto di partenza al sito attuale; verificare sul server CPU, memoria, disco e tempi reali. Linux, preferibilmente datacenter italiano. Nessun pannello hosting necessario.
+Il sito ufficiale è https://www.raiaweb.it sul VPS 80.211.79.35. Nginx gestisce HTTPS e inoltra le richieste a un container Next.js non root. La posta resta sull'hosting Aruba precedente: non cambiare MX, SPF, DKIM, DMARC, nameserver o record mail.
 
-## Architettura
+## Modificare il sito
 
-Nginx con HTTPS -> Next.js su 127.0.0.1:3000 -> cache persistente su disco. Nessuna dipendenza da Vercel. Usare un utente di servizio `raia`, directory `/srv/raia/app`, Node.js LTS supportato dal progetto e dipendenze Linux installate sul server. Non copiare node_modules o build Windows. I template assumono Node in `/usr/bin/node`: verificarlo con `command -v node`.
+```powershell
+cd C:\Users\manij\sito-raia-brand
+npm run dev
+# Dopo aver verificato le modifiche:
+git add .
+git commit -m "Descrizione della modifica"
+git push origin main
+```
 
-## Preparazione
+Ogni push su `main` avvia `.github/workflows/deploy-aruba.yml`. GitHub Actions costruisce l'immagine Linux, esegue lint, controlli SEO, migrazione e allegati, poi la trasferisce al VPS. Il nuovo container parte su una porta interna alternativa; solo dopo i controlli Nginx passa alla nuova versione. In caso di errore durante la commutazione lo script conserva/ripristina il precedente backend. Il risultato è visibile nella scheda Actions di GitHub. Un push non equivale a un deploy riuscito: controllare il segno verde.
 
-1. Conservare backup WordPress completo, zona DNS, mailbox e verifica Search Console.
-2. Installare Node, Nginx e un client per certificati ACME. Predisporre aggiornamenti, firewall, backup esterno e rotazione log. Esporre web 80/443; limitare SSH; non esporre 3000.
-3. Copiare il sorgente e public in `/srv/raia/app`, assegnati all'utente raia. Eseguire `npm ci`, `npm run lint`, `npm run check:seo`, quindi `npm run build` come utente non root. La build può usare più memoria del normale servizio; monitorarla e predisporre swap se necessario.
-4. In fase di build impostare NODE_ENV=production e SEO_INDEXABLE=true; NON trasferire VERCEL_ENV, VERCEL_URL o RAIA_AUDIT dal computer locale. Le variabili SEO sono incorporate durante la build: cambiarle e poi riavviare non basta, occorre ricompilare. Token GOOGLE_SITE_VERIFICATION solo se serve alla proprietà esistente.
-5. Adattare raia.service e installarlo in systemd. Il template Nginx è SOLO HTTP iniziale: predisporre certificato valido per www.raiaweb.it e raiaweb.it e redirect HTTP -> HTTPS prima del lancio. Validare Nginx prima del reload. Il proxy deve conservare Host: serve ai redirect e alla canonicalizzazione.
-6. Verificare il VPS prima del cambio DNS con un override hosts locale o curl --resolve e certificato valido; conservare URL e query. Non inviare utenti al solo indirizzo IP.
+Vercel resta un'anteprima indipendente, esclusa dall'indice con metadati e header noindex. Il dominio ufficiale e i canonical rimangono www.raiaweb.it. L'hosting Aruba precedente va conservato per posta e rollback della migrazione.
 
-## Passaggio senza cambiare la posta
+## Configurazione automatica
 
-Modificare esclusivamente i record web necessari (A/AAAA e/o CNAME per dominio e www), dopo aver verificato la zona esistente. Non cambiare nameserver, MX, SPF, DKIM, DMARC, autodiscover o record di verifica. Se mail o MX puntano allo stesso dominio principale, verificare e separare la destinazione mail prima di cambiarne A/AAAA. Non pubblicare AAAA se il nuovo server non gestisce correttamente IPv6. Il vecchio hosting resta disponibile durante propagazione e rollback. Conservare una copia dei valori precedenti.
+- Secret GitHub `ARUBA_DEPLOY_KEY`: chiave dedicata all'utente `raia-deploy`, limitata a un comando di deploy. Mai mettere chiavi private nel repository.
+- Variabili GitHub `WEB3FORMS_ACCESS_KEY` e `UMAMI_WEBSITE_ID`: identificativi pubblici incorporati nella build. Nessuna password di casella email necessaria.
+- Script VPS `/usr/local/sbin/raia-deploy`, root-owned. Aggiornarlo esplicitamente se cambia il file `deploy.sh`: il normale deploy dell'app non modifica gli strumenti amministrativi.
+- Stato corrente: `/srv/raia/active-container`, `active-port`, `active-commit`, `previous-image`.
+- Backend Nginx: `/etc/nginx/raia-backend.conf`. Container applicativi sulle sole porte locali 3000/3001. JS/CSS con hash delle versioni precedenti conservati in `/srv/raia/static` per le schede già aperte.
+- `compose.yml` documenta il bootstrap; non usarlo per riavviare alla cieca il vecchio container dopo l'attivazione del deploy automatico.
 
-## Verifiche finali
+## Preventivi e allegati
 
-Eseguire `node scripts/check-launch.mjs https://www.raiaweb.it` e Lighthouse sul dominio definitivo, verificando assenza di noindex sulle pagine pubbliche, canonical, sitemap, vecchi indirizzi, immagini storiche, HTTPS e 404 reali. Il preventivo è intenzionalmente escluso dall'indice finché dimostrativo. Inviare sitemap in Search Console e monitorare errori e query. Nessun cambio indirizzo Search Console se resta lo stesso dominio. Dopo il passaggio il dominio Vercel può essere disattivato o reindirizzato permanentemente al definitivo.
+Web3Forms gratuito gestisce fino a 250 invii/mese. Gli allegati email richiederebbero il piano Pro: qui il file viene invece salvato nel volume privato `raia_quote-uploads` e nella richiesta arriva un link riservato valido 7 giorni. Massimo 8 MB, PDF/JPG/PNG/WebP/ZIP, fino a 512 MB di spazio complessivo. Download sempre come allegato, mai inline; nessun elenco pubblico dei file. La cancellazione giornaliera elimina gli scaduti. Il campo link esterno resta disponibile. Il popup di conferma dipende da `success:true` di Web3Forms e torna alla home dopo 2 secondi.
 
-## Documentazione
+## Statistiche
 
-- https://nextjs.org/docs/15/app/guides/self-hosting
-- https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
-- https://www.arubacloud.com/vps/
+Umami gratuito sul medesimo VPS, dashboard https://stats.raiaweb.it con accesso privato. PostgreSQL non esposto a Internet. Risorse limitate, nessuna pubblicità o registrazione delle sessioni; identificativi pseudonimi giornalieri. Nel sito le statistiche sono facoltative: nessuno script viene caricato prima dell'accettazione. Rifiuto e revoca dal footer; preferenza locale per 180 giorni. Do Not Track e Global Privacy Control rispettati. Query string, frammenti e campi dei moduli non inviati. Conservazione dettagli 13 mesi, backup locale giornaliero con rotazione: un backup sullo stesso VPS non sostituisce un backup esterno.
+
+## HTTPS e verifiche
+
+Certificati Let's Encrypt per dominio principale e stats con rinnovo webroot `/var/www/letsencrypt`, timer Certbot e hook di reload Nginx. Per verificare: `certbot renew --dry-run`.
+
+Conservare HTTPS e redirect permanenti dei vecchi URL. I percorsi inesistenti devono restituire 404 reali. La suite `npm run check:launch -- https://www.raiaweb.it` controlla pagine, canonical, robots, sitemap, migrazione e immagini storiche. `node scripts/check-uploads.mjs` va eseguito sul container di test, non per generare file inutili in produzione.
+
+Per Google: usare la proprietà Search Console esistente del dominio e inviare https://www.raiaweb.it/sitemap.xml. Non serve un cambio indirizzo perché il dominio resta identico. Verificare che l'eventuale file/tag di proprietà storico sia conservato o adottare una verifica DNS. Monitorare indicizzazione e vecchi URL nelle settimane successive; nessuna configurazione tecnica garantisce la prima posizione.

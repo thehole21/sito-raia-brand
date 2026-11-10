@@ -13,6 +13,8 @@ const makeInitial = (selectedService) => ({
 export default function QuoteForm({ defaultService = '' }) {
   const [values, setValues] = useState(() => makeInitial(defaultService));
   const [summary, setSummary] = useState(false);
+  const [attachment, setAttachment] = useState(null);
+  const uploadedFile = useRef(null);
   const router = useRouter();
   const successButton = useRef(null);
   const [status, setStatus] = useState('idle');
@@ -35,6 +37,14 @@ export default function QuoteForm({ defaultService = '' }) {
     setStatus('sending'); setError('');
     const service = SERVICES.find(item => item.id === values.service)?.title || values.service;
     try {
+      let attachmentUrl = uploadedFile.current?.url || '';
+      if (attachment && !attachmentUrl) {
+        const form = new FormData(); form.append('attachment', attachment);
+        const upload = await fetch('/api/preventivo/allegati', {method:'POST',body:form,signal:AbortSignal.timeout(60000)});
+        const result = await upload.json();
+        if (!upload.ok || !result.url) throw new Error(result.error || 'Caricamento allegato non riuscito.');
+        uploadedFile.current = result; attachmentUrl = result.url;
+      }
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         signal: AbortSignal.timeout(20000),
@@ -42,7 +52,9 @@ export default function QuoteForm({ defaultService = '' }) {
           from_name: 'Sito RAIA', name: values.name.trim(), email: values.email.trim(),
           Telefono: values.phone.trim(), Azienda: values.company.trim(), Servizio: service,
           Progetto: values.details.trim(), Tempistiche: values.timing || 'Da definire',
-          'Link ai file': values.referenceLink.trim() || 'Non indicato', botcheck: '',
+          'Link ai file': values.referenceLink.trim() || 'Non indicato',
+          'Allegato (link riservato, valido 7 giorni)': attachmentUrl || 'Nessun allegato',
+          'Nome allegato': attachment?.name || '', botcheck: '',
         }),
       });
       const result = await response.json();
@@ -67,10 +79,15 @@ export default function QuoteForm({ defaultService = '' }) {
             </div>
             <label className="quote-details-label">Raccontaci il progetto <sup>*</sup><textarea required maxLength={8000} name="details" rows={5} value={values.details} onChange={e => update('details', e.target.value)} placeholder="Che cosa dobbiamo realizzare? QuantitÃ , misure, materiali, destinazione d'uso..."/></label>
             <div className="form-row quote-extra"><label>Tempistiche indicative<select value={values.timing} onChange={e => update('timing', e.target.value)} name="timing"><option value="">Da definire</option><option value="Il prima possibile">Il prima possibile</option><option value="Entro 2 settimane">Entro 2 settimane</option><option value="Entro un mese">Entro un mese</option><option value="Nessuna scadenza precisa">Nessuna scadenza precisa</option></select></label><label>Link ai file <small>(facoltativo)</small><input type="url" name="referenceLink" maxLength={2048} placeholder="https://â€¦ (Drive, Dropbox, WeTransfer)" value={values.referenceLink} onChange={e => update('referenceLink', e.target.value)}/></label></div>
+            <label className="quote-attachment">Allega un file <small>(facoltativo · massimo 8 MB)</small><input type="file" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.webp,.zip" onChange={event => {
+              const file=event.target.files?.[0] || null; uploadedFile.current=null;
+              if(file && (file.size>8*1024*1024 || !/\.(pdf|jpe?g|png|webp|zip)$/i.test(file.name))){setAttachment(null);event.target.value='';setError('Scegli un PDF, JPG, PNG, WebP o ZIP fino a 8 MB, oppure inserisci un link.');setStatus('error');return;}
+              setAttachment(file);setStatus('idle');setError('');
+            }}/><small>Il file sarà accessibile a RAIA tramite un link riservato valido 7 giorni. Per file più grandi puoi usare il campo link.</small></label>
           </fieldset>
           <label className="quote-privacy"><input type="checkbox" required disabled={status === 'sending' || status === 'sent'}/> <span>Ho letto lâ€™<Link href="/privacy" target="_blank">informativa privacy</Link> sul trattamento dei dati per rispondere alla richiesta.</span></label>
           <div className="quote-antispam" aria-hidden="true"><label>Non compilare questo campo<input type="text" name="botcheck" tabIndex={-1} autoComplete="off"/></label></div>
-          <div className="quote-form__submit"><div><p>La tua richiesta arriva direttamente a RAIA.</p><small>Per file voluminosi inserisci un link condiviso accessibile.</small></div><button type="submit" disabled={status === 'sending' || status === 'sent'} className="quote-submit"><span>{status === 'sending' ? 'Invio in corsoâ€¦' : status === 'sent' ? 'Richiesta inviata' : 'Invia la richiesta'}</span><span className="quote-submit__arrow"><ArrowUpRight size={19} strokeWidth={1.8} aria-hidden="true" /></span></button></div>
+          <div className="quote-form__submit"><div><p>La tua richiesta arriva direttamente a RAIA.</p><small>Puoi allegare un file e aggiungere un link ai materiali.</small></div><button type="submit" disabled={status === 'sending' || status === 'sent'} className="quote-submit"><span>{status === 'sending' ? 'Invio in corsoâ€¦' : status === 'sent' ? 'Richiesta inviata' : 'Invia la richiesta'}</span><span className="quote-submit__arrow"><ArrowUpRight size={19} strokeWidth={1.8} aria-hidden="true" /></span></button></div>
           {status === 'error' && <p className="quote-status quote-status--error" role="alert">{error}</p>}
           {status === 'sent' && <p className="quote-status" role="status">Richiesta inviata correttamente. Ti ricontatteremo ai recapiti indicati.</p>}
 

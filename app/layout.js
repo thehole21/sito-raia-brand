@@ -7,6 +7,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import ScrollReveal from '@/components/scroll-reveal';
 import BrandIntro from '@/components/brand-intro';
+import CookieConsent from '@/components/cookie-consent';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <ScrollReveal />
         <main id="main-content">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
