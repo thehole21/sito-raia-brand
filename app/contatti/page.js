@@ -1,3 +1,4 @@
+import SeoBreadcrumbs from '@/components/seo-breadcrumbs';
 import LocationMap from '@/components/location-map';
 import { pageMetadata } from '@/lib/seo';
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
@@ -13,7 +14,7 @@ const EMBED_URL = "https://www.google.com/maps?q=Via%20Bruno%20Pontecorvo%2046%2
 export default function ContattiPage() {
   return (
     <div className="contact-page">
-      <section className="page-opening shell" aria-labelledby="contacts-title">
+      <SeoBreadcrumbs route="/contatti"/><section className="page-opening shell" aria-labelledby="contacts-title">
         <div className="page-opening__eyebrow">
           <span className="little-dot" aria-hidden="true" /> CONTATTI
         </div>

@@ -4,7 +4,8 @@ import http from 'node:http';
 
 const base = new URL(process.argv[2] || 'http://127.0.0.1:3121');
 const canonical = 'https://www.raiaweb.it';
-const routes = ['/', '/servizi', '/progetti', '/chi-siamo', '/contatti', '/preventivo', '/privacy', '/cookie-policy'];
+import { SERVICE_ROUTES } from '../lib/service-routes.js';
+const routes = ['/', '/servizi', '/progetti', '/chi-siamo', '/contatti', '/preventivo', '/privacy', '/cookie-policy', ...SERVICE_ROUTES.map(s => '/servizi/'+s.slug)];
 const failures = [];
 const checkedAssets = new Set();
 
@@ -43,7 +44,7 @@ for (const route of routes) {
     assert.equal(new URL(canonicalHref).href, new URL(route, canonical).href, 'Canonical errato');
     assert.match(html, /<meta name="description" content="[^"]+"/);
     const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1] || '';
-    assert.equal(robots.includes('noindex'), route === '/preventivo', 'Indicizzazione inattesa');
+    assert.equal(robots.includes('noindex'), false, 'Indicizzazione inattesa');
     for (const json of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
       JSON.parse(json[1]);
     }
@@ -92,8 +93,10 @@ await check('robots e sitemap', async () => {
   const robots = await (await request('/robots.txt')).text();
   assert.ok(robots.includes(canonical + '/sitemap.xml'));
   const sitemap = await (await request('/sitemap.xml')).text();
-  for (const route of routes.filter(route => route !== '/preventivo')) assert.ok(sitemap.includes(canonical + route));
-  assert.ok(!sitemap.includes(canonical + '/preventivo'));
+  for (const route of routes) assert.ok(sitemap.includes(canonical + route));
+  const imageUrls = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map(match => new URL(match[1]).pathname);
+  assert.ok(imageUrls.length > 0, 'Sitemap immagini assente');
+  for (const image of imageUrls) checkedAssets.add(image);
 });
 if (base.hostname === '127.0.0.1' || base.hostname === 'localhost') {
   await check('dominio senza www', async () => {

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Expand, X } from 'lucide-react';
+import { SERVICE_ROUTES } from '@/lib/service-routes';
 import { SERVICES } from '@/lib/content';
 
 const PHOTOS = [
@@ -100,6 +101,7 @@ export default function Servizi() {
               {item.facts.map(fact => <div key={fact.title}><dt>{fact.title}</dt><dd>{fact.text}</dd></div>)}
             </dl>
             <div className="service-desk__bottom">
+              <Link href={`/servizi/${SERVICE_ROUTES[index].slug}`}>Approfondisci il servizio <ArrowUpRight size={17} aria-hidden="true" /></Link>
               {item.note && <p>{item.note}</p>}
               <Link href={`/preventivo?servizio=${item.id}`}>Parliamo del tuo progetto <ArrowUpRight size={17} aria-hidden="true" /></Link>
             </div>

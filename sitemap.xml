@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.raiaweb.it/</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.raiaweb.it/images/home-poster-v2.webp</image:loc>
     </image:image>
@@ -15,8 +13,6 @@
   <url>
     <loc>https://www.raiaweb.it/servizi</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.raiaweb.it/images/servizi/stampa-sede-v4.webp</image:loc>
     </image:image>
@@ -36,8 +32,6 @@
   <url>
     <loc>https://www.raiaweb.it/progetti</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://www.raiaweb.it/projects/archivio/05.webp</image:loc>
     </image:image>
@@ -282,8 +276,6 @@
   <url>
     <loc>https://www.raiaweb.it/chi-siamo</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <image:image>
       <image:loc>https://www.raiaweb.it/wp-content/uploads/2026/04/IMG_20210514_123806-768x576.jpg</image:loc>
     </image:image>
@@ -291,19 +283,52 @@
   <url>
     <loc>https://www.raiaweb.it/contatti</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.raiaweb.it/privacy</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.raiaweb.it/cookie-policy</loc>
     <lastmod>2026-11-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.raiaweb.it/preventivo</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://www.raiaweb.it/servizi/tipografia-stampa-editoriale</loc>
+    <lastmod>2026-11-10</lastmod>
+    <image:image>
+      <image:loc>https://www.raiaweb.it/images/servizi/stampa-sede-v4.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.raiaweb.it/servizi/stampa-grande-formato</loc>
+    <lastmod>2026-11-10</lastmod>
+    <image:image>
+      <image:loc>https://www.raiaweb.it/images/servizi/grande-formato-sede-v4.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.raiaweb.it/servizi/insegne-allestimenti</loc>
+    <lastmod>2026-11-10</lastmod>
+    <image:image>
+      <image:loc>https://www.raiaweb.it/images/servizi/allestimenti-sede-v4.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.raiaweb.it/servizi/wrapping-interior-design-vetrofanie</loc>
+    <lastmod>2026-11-10</lastmod>
+    <image:image>
+      <image:loc>https://www.raiaweb.it/images/servizi/wrapping-sede-v4.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.raiaweb.it/servizi/gadget-abbigliamento-personalizzato</loc>
+    <lastmod>2026-11-10</lastmod>
+    <image:image>
+      <image:loc>https://www.raiaweb.it/images/servizi/gadget-sede-v4.webp</image:loc>
+    </image:image>
   </url>
 </urlset>

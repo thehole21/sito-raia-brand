@@ -153,7 +153,7 @@ export default function ProjectsGrid() {
               <div className="case-showcase__identity">
                 <span className="case-showcase__eyebrow">{featured.category} <span aria-hidden="true">/</span> {featured.client}</span>
                 <h2>{featured.title}</h2>
-                <p>Un progetto RAIA, raccontato attraverso le fotografie della sua realizzazione.</p>
+                <p>{featured.title} per {featured.client}: {featured.category.toLowerCase()}. Le fotografie documentano il lavoro realizzato.</p>
               </div>
 
               <div className="case-showcase__path">

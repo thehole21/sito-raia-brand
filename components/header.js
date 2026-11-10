@@ -12,7 +12,7 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const sectionPath = pathname === '/preventivo' ? '/contatti' : pathname;
+  const sectionPath = pathname === '/preventivo' ? '/contatti' : pathname.startsWith('/servizi/') ? '/servizi' : pathname;
   const sectionIndex = NAV.findIndex(({ href }) => href === sectionPath);
 
   useEffect(() => { setOpen(false); }, [pathname]);

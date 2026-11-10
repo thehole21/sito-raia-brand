@@ -1,3 +1,4 @@
+import SeoBreadcrumbs from '@/components/seo-breadcrumbs';
 import { pageMetadata } from '@/lib/seo';
 import ProjectsGrid from '@/components/projects-grid';
 import './project-stories.css';
@@ -8,7 +9,7 @@ export const metadata = pageMetadata('/progetti');
 export default function ProgettiPage() {
   return (
     <>
-      <section className="page-opening shell">
+      <SeoBreadcrumbs route="/progetti"/><section className="page-opening shell">
         <div className="page-opening__eyebrow">
           <span className="little-dot" aria-hidden="true" /> LAVORI REALIZZATI
         </div>

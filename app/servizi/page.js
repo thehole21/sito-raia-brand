@@ -1,3 +1,4 @@
+import SeoBreadcrumbs from '@/components/seo-breadcrumbs';
 import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -9,7 +10,7 @@ export const metadata = pageMetadata('/servizi');
 export default function ServiziPage() {
   return (
     <>
-      <section className="page-opening shell">
+      <SeoBreadcrumbs route="/servizi"/><section className="page-opening shell">
         <div className="page-opening__eyebrow"><span className="little-dot" /> COSA FACCIAMO</div>
         <div className="page-opening__grid"><h1>Ogni idea ha<br /><em>la sua forma.</em></h1><p>Cinque aree, tutte da esplorare. Scegli un servizio e scopri subito cosa possiamo realizzare.</p></div>
       </section>
