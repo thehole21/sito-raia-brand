@@ -7,11 +7,11 @@ import { ArrowUpRight, Expand, X } from 'lucide-react';
 import { SERVICES } from '@/lib/content';
 
 const PHOTOS = [
-  ['stampa-v2', 'Cataloghi stampati, campioni di carta e cartellina RAIA a rilievo su un banco di legatoria'],
-  ['grande-formato-v3', 'Plotter industriale durante la stampa di una grafica botanica su vinile'],
-  ['allestimenti-v3', 'Insegna RAIA luminosa, stand modulare, lettere tridimensionali e pannelli sagomati'],
-  ['wrapping-v3', 'Applicazione di pellicola privacy su vetrate di un ufficio e rivestimento effetto legno per interni'],
-  ['gadget-v2', 'Shopper in cotone, polo ricamata e borraccia personalizzate RAIA'],
+  ['stampa-sede-v4', 'Cataloghi, campioni di carta e cartellina RAIA davanti alle stampanti del laboratorio'],
+  ['grande-formato-sede-v4', 'Plotter Mimaki del laboratorio RAIA con una stampa botanica su grande formato'],
+  ['allestimenti-sede-v4', 'Banco di allestimento con laminatrice, campioni di insegne, pannelli sagomati e stand dimostrativo'],
+  ['wrapping-sede-v4', 'Esempio di applicazione di pellicola privacy sulle vetrate della sede e rivestimento effetto legno'],
+  ['gadget-sede-v4', 'Polo, shopper e borraccia personalizzate davanti alle presse del laboratorio RAIA'],
 ];
 
 function indexFromHash() {

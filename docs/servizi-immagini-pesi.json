@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-10",
+  "previousBytes": 430364,
+  "newBytes": 429378,
+  "savingPercent": 0.2,
+  "assets": [
+    {
+      "name": "stampa",
+      "previous": "public/images/servizi/stampa-v2.webp",
+      "output": "public/images/servizi/stampa-sede-v4.webp",
+      "quality": 80,
+      "previousBytes": 101860,
+      "bytes": 77890,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "name": "grande-formato",
+      "previous": "public/images/servizi/grande-formato-v3.webp",
+      "output": "public/images/servizi/grande-formato-sede-v4.webp",
+      "quality": 80,
+      "previousBytes": 76206,
+      "bytes": 116018,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "name": "gadget",
+      "previous": "public/images/servizi/gadget-v2.webp",
+      "output": "public/images/servizi/gadget-sede-v4.webp",
+      "quality": 80,
+      "previousBytes": 70552,
+      "bytes": 73180,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "name": "allestimenti",
+      "previous": "public/images/servizi/allestimenti-v3.webp",
+      "output": "public/images/servizi/allestimenti-sede-v4.webp",
+      "quality": 80,
+      "previousBytes": 111116,
+      "bytes": 86288,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "name": "wrapping",
+      "previous": "public/images/servizi/wrapping-v3.webp",
+      "output": "public/images/servizi/wrapping-sede-v4.webp",
+      "quality": 80,
+      "previousBytes": 70630,
+      "bytes": 76002,
+      "width": 1280,
+      "height": 720
+    }
+  ]
+}
