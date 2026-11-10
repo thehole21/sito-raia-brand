@@ -1,1 +1,50 @@
-.service-detail{padding-bottom:40px}.service-detail__grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.service-detail img{width:100%;height:auto;object-fit:cover}.service-detail h2{font-size:24px;margin:0 0 16px}.service-detail h3{font-size:17px;margin:16px 0 6px}.service-detail p{font-size:15px;line-height:1.65;margin:0 0 16px}.service-detail>section{padding:24px 0;border-bottom:1px solid #ddd4cf}.service-detail details{padding:12px 0}.service-detail summary{cursor:pointer;font-weight:600}.service-detail__cta{color:#742439;display:inline-block;padding:10px 0}.service-detail__related{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.service-detail__related strong,.service-detail__related span{display:block;margin-top:7px}.service-detail nav{display:flex;flex-wrap:wrap;gap:20px;padding:24px 0}@media(max-width:760px){.service-detail__grid{grid-template-columns:1fr;gap:20px}.service-detail__related{grid-template-columns:1fr}.service-detail h2{font-size:22px}}
+
+.service-detail{padding-bottom:34px;color:var(--brand-graphite)}
+.service-detail__back{display:inline-flex;align-items:center;gap:8px;color:var(--brand-wine-deep)}
+.service-detail__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,54px);align-items:start}
+.service-detail__visual{margin:0;background:var(--brand-paper-alt)}
+.service-detail__visual img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
+.service-detail__visual figcaption{display:flex;justify-content:space-between;gap:14px;padding:13px 16px;color:var(--brand-wine-deep);font-size:12px;font-weight:600}
+.service-detail__visual figcaption span{color:#736661;font-size:10px;font-weight:400}
+.service-detail h2{font-size:clamp(23px,2.3vw,31px);line-height:1.16;letter-spacing:-.035em;margin:0 0 12px;font-weight:550}
+.service-detail h2>span{color:var(--brand-wine)}
+.service-detail p{font-size:14px;line-height:1.7;color:#655b58;margin:0}
+.service-detail__overview>p{margin-bottom:18px}
+.service-detail__facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px}
+.service-detail__facts section{border-top:1px solid var(--brand-rose-line);padding-top:12px}
+.service-detail h3{font-size:14px;line-height:1.4;margin:0 0 7px;font-weight:650}
+.service-detail__facts p{font-size:13px;line-height:1.65}
+.service-detail__label{display:block;font-size:10px;letter-spacing:.12em;font-weight:650;color:var(--brand-wine-deep);margin-bottom:11px}
+.service-detail__brief{display:flex;align-items:center;justify-content:space-between;gap:30px;background:var(--brand-paper-alt);border-left:2px solid var(--brand-wine);padding:25px 28px;margin:30px 0}
+.service-detail__brief>div{max-width:690px}
+.service-detail__brief .service-action{flex-shrink:0}
+.service-detail__faq{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:40px;padding:6px 0 28px}
+.service-detail__faq header p{max-width:270px}
+.service-detail details{border-bottom:1px solid var(--brand-line)}
+.service-detail details:first-child{border-top:1px solid var(--brand-line)}
+.service-detail summary{display:flex;align-items:center;justify-content:space-between;gap:22px;cursor:pointer;font-size:14px;font-weight:600;line-height:1.5;list-style:none;padding:17px 0}
+.service-detail summary::-webkit-details-marker{display:none}
+.service-detail summary svg{flex-shrink:0;color:var(--brand-wine);transition:transform .2s}
+.service-detail details[open] summary svg{transform:rotate(45deg)}
+.service-detail details[open] summary{color:var(--brand-wine-deep);padding-bottom:0}
+.service-detail details>p{margin-top:16px;padding:0 34px 20px 0;max-width:690px}
+.service-detail__projects{border-top:1px solid var(--brand-line);padding:26px 0}
+.service-detail__section-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}
+.service-detail__section-head h2{margin:0}
+.service-detail__section-head>a{display:inline-flex;align-items:center;gap:8px;color:var(--brand-wine-deep);font-size:12px;font-weight:600}
+.service-detail__related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.service-detail__related>a{min-width:0;padding-bottom:12px;border-bottom:1px solid var(--brand-line)}
+.service-detail__related img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;background:var(--brand-paper-alt)}
+.service-detail__project-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 5px;font-size:14px}
+.service-detail__project-title svg{color:var(--brand-wine-deep);flex-shrink:0}
+.service-detail__related>a>span{font-size:12px;color:#655b58}
+.service-detail__related>a:hover strong{color:var(--brand-wine-deep)}
+.service-detail__others{padding-top:14px}
+.service-detail__others>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.service-detail__others a{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--brand-line);padding:13px 15px;font-size:12px;line-height:1.5;font-weight:600;transition:background .2s,border-color .2s}
+.service-detail__others a svg{flex-shrink:0;color:var(--brand-wine-deep)}
+.service-detail__others a:hover{background:var(--brand-paper-alt);border-color:var(--brand-wine)}
+@media(max-width:1000px){.service-detail__brief{align-items:flex-start;flex-direction:column;gap:18px}.service-detail__others>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.service-detail__grid{grid-template-columns:1fr;gap:22px}.service-detail__facts{gap:16px}.service-detail__brief{padding:21px 20px;margin:24px 0}.service-detail__faq{grid-template-columns:1fr;gap:18px}.service-detail__faq header p{max-width:none}.service-detail__section-head{align-items:flex-start;flex-direction:column;gap:10px}.service-detail__related{grid-template-columns:1fr;gap:18px}.service-detail__visual figcaption{flex-wrap:wrap;gap:6px}.service-detail__others>div{grid-template-columns:1fr}.service-detail details>p{padding-right:12px}}
+@media(prefers-reduced-motion:reduce){.service-detail summary svg,.service-detail__others a{transition:none}}
+#main-content .service-detail-opening h1{white-space:normal;overflow-wrap:break-word;text-wrap:balance;min-height:0}

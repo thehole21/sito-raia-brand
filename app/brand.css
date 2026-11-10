@@ -281,3 +281,8 @@ section.case-showcase .case-showcase__tile{opacity:1}
 
 .quote-side .quote-side__content>p,.quote-side .quote-side__footer>span{color:#56534e}
 .quote-side .quote-side__hint{color:#56534e}
+
+/* Shared service links, used both in the overview and detail pages. */
+.service-action { display:inline-flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:11px 16px;background:var(--brand-wine-deep);color:#fff;font-size:13px;font-weight:650;line-height:1.4;text-decoration:none;transition:background .2s; }
+.service-action:hover { background:var(--brand-wine);color:#fff; }
+.service-action svg { flex-shrink:0; }
