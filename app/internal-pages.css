@@ -126,8 +126,8 @@
 #main-content .legal-page__section h2 { font-size: 25px; margin-bottom: 12px; }
 #main-content .legal-page__copy { font-size: 14px; line-height: 1.65; }
 
-body:has(:is(.page-opening, .legal-page)) .footer { padding-top: 30px; }
-body:has(:is(.page-opening, .legal-page)) .footer__top { padding-bottom: 24px; gap: 20px; }
+
+
 .footer { border-top: 1px solid var(--brand-line); }
 .footer::before { display: none; }
 #main-content .page-endline { border-top: 0; }
