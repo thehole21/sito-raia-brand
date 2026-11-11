@@ -1,3 +1,4 @@
+import { makitoDemoEnabled } from '@/lib/makito-demo';
 import './globals.css';
 import { INDEXABLE, SITE_URL } from '@/lib/seo';
 import { businessStructuredData } from '@/lib/structured-data';
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
       <body>
         <a href="#main-content" className="skip-link">Vai al contenuto</a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessStructuredData).replace(/</g, '\\u003c') }} />
-        <Header />
+        <Header showCatalog={makitoDemoEnabled()} />
         <BrandIntro />
         <ScrollReveal />
         <main id="main-content">{children}</main>

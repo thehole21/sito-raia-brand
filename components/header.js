@@ -8,12 +8,13 @@ import SocialLinks from '@/components/social-links';
 import BrandLogo from '@/components/brand-logo';
 import { NAV } from '@/lib/content';
 
-export default function Header() {
+export default function Header({ showCatalog = false }) {
+  const navigation = showCatalog ? [...NAV.slice(0, -1), { label: "Catalogo demo", href: "/catalogo" }, NAV[NAV.length - 1]] : NAV;
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const sectionPath = pathname === '/preventivo' ? '/contatti' : pathname.startsWith('/servizi/') ? '/servizi' : pathname;
-  const sectionIndex = NAV.findIndex(({ href }) => href === sectionPath);
+  const sectionIndex = navigation.findIndex(({ href }) => href === sectionPath);
 
   useEffect(() => { setOpen(false); }, [pathname]);
   useEffect(() => {
@@ -38,13 +39,13 @@ export default function Header() {
   return (
     <>
       <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''} ${open ? 'site-header--open' : ''}`}
-        style={{ '--section-step': Math.max(0, sectionIndex), '--section-count': NAV.length }}
+        style={{ '--section-step': Math.max(0, sectionIndex), '--section-count': navigation.length }}
         data-section-active={sectionIndex >= 0}>
         <div className="shell site-header__inner">
           <BrandLogo onClick={() => setOpen(false)} />
 
           <nav className="header-links" aria-label="Navigazione principale">
-            {NAV.map(({ label, href }) => (
+            {navigation.map(({ label, href }) => (
               <Link key={href} href={href} aria-current={pathname === href ? 'page' : undefined} className={pathname === href ? 'is-active' : ''}>
                 {label}
               </Link>
@@ -78,7 +79,7 @@ export default function Header() {
       >
         <div className="mobile-nav-panel__heading"><strong>Navigazione</strong><span>RAIA / MENU</span></div>
         <div className="mobile-nav-panel__links">
-          {NAV.map(({ href, label }) => (
+          {navigation.map(({ href, label }) => (
             <Link key={href} href={href} aria-current={pathname === href ? 'page' : undefined} onClick={() => setOpen(false)}>
               <span>{label}</span><ArrowUpRight size={17} strokeWidth={1.6} aria-hidden="true" />
             </Link>
