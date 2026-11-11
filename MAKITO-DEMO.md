@@ -11,3 +11,6 @@ Aruba: workflow esclusivamente su main. Il ramo demo non lo attiva. Vercel crea 
 
 ## Servizi web
 La route /servizi-web e la voce di menu sono disponibili nello stesso ramo preview, con la medesima guardia server della demo catalogo. Concept di siti e app realizzati in HTML/CSS: non sono clienti o casi studio reali. Nessuna nuova immagine raster, libreria o chiamata esterna. Non aggiunta alla sitemap.
+
+## Dominio Vercel principale
+Su richiesta esplicita, anche VERCEL_ENV=production abilita le sezioni demo: questo indica Vercel, non Aruba. Impostare la Production Branch del progetto Vercel a demo/makito-catalogo. Il workflow Aruba resta esclusivamente su main, che non viene modificato. Senza VERCEL_ENV, in produzione e senza override locale, le sezioni restano 404. Tutto Vercel resta noindex.
