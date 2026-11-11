@@ -286,3 +286,5 @@ section.case-showcase .case-showcase__tile{opacity:1}
 .service-action { display:inline-flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:11px 16px;background:var(--brand-wine-deep);color:#fff;font-size:13px;font-weight:650;line-height:1.4;text-decoration:none;transition:background .2s; }
 .service-action:hover { background:var(--brand-wine);color:#fff; }
 .service-action svg { flex-shrink:0; }
+
+@media(min-width:960px) and (max-width:1250px){.site-header.site-header--preview .header-links{gap:12px}.site-header.site-header--preview .header-links a{font-size:12px}.site-header.site-header--preview .brand-logo__image{width:110px}.site-header.site-header--preview .header-quote{font-size:11px}.site-header.site-header--preview .site-header__inner{gap:14px}}

@@ -9,7 +9,7 @@ import BrandLogo from '@/components/brand-logo';
 import { NAV } from '@/lib/content';
 
 export default function Header({ showCatalog = false }) {
-  const navigation = showCatalog ? [...NAV.slice(0, -1), { label: "Catalogo demo", href: "/catalogo" }, NAV[NAV.length - 1]] : NAV;
+  const navigation = showCatalog ? [...NAV.slice(0, -1), { label: "Servizi web", href: "/servizi-web" }, { label: "Catalogo demo", href: "/catalogo" }, NAV[NAV.length - 1]] : NAV;
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -38,7 +38,7 @@ export default function Header({ showCatalog = false }) {
 
   return (
     <>
-      <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''} ${open ? 'site-header--open' : ''}`}
+      <header className={`site-header ${showCatalog ? 'site-header--preview' : ''} ${scrolled ? 'site-header--scrolled' : ''} ${open ? 'site-header--open' : ''}`}
         style={{ '--section-step': Math.max(0, sectionIndex), '--section-count': navigation.length }}
         data-section-active={sectionIndex >= 0}>
         <div className="shell site-header__inner">

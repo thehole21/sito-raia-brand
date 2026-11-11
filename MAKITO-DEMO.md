@@ -8,3 +8,6 @@ Prodotti, SKU DEMO, prezzi e varianti sono fittizi ed etichettati. Illustrazioni
 La documentazione ufficiale https://data.makito.es/documentacion.pdf descrive token Bearer lato server ed endpoint per catalogo, immagini, prezzi, stock e varianti, non per inoltrare ordini. Prima del collegamento reale servono autorizzazioni Makito, risposta API di esempio e regole commerciali RAIA (listino, ricarichi, IVA, personalizzazione, trasporto). Un eventuale token andrà in una variabile Vercel server-only, mai NEXT_PUBLIC, codice o repository. Verificare separatamente un canale di invio ordini approvato da Makito.
 
 Aruba: workflow esclusivamente su main. Il ramo demo non lo attiva. Vercel crea una Preview Deployment per il push del ramo, non modifica l'alias di produzione.
+
+## Servizi web
+La route /servizi-web e la voce di menu sono disponibili nello stesso ramo preview, con la medesima guardia server della demo catalogo. Concept di siti e app realizzati in HTML/CSS: non sono clienti o casi studio reali. Nessuna nuova immagine raster, libreria o chiamata esterna. Non aggiunta alla sitemap.
