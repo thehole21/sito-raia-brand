@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 6px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 .service-desk__tabs button {
   display: grid;
@@ -55,7 +55,7 @@ html:has(.service-photo[open]) { overflow: hidden; }
   .service-desk__tabs strong { font-size: 12px; }
 }
 @media (max-width: 699px) {
-  .service-desk__tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; margin-bottom: 16px; }
+  .service-desk__tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; margin-bottom: 22px; }
   .service-desk__tabs button { min-height: 44px; }
   .service-desk__tabs button:last-child { grid-column: span 2; }
   .service-desk__tabs strong { font-size: 13px; }
@@ -69,4 +69,15 @@ html:has(.service-photo[open]) { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   .service-desk__panel { animation: none; }
+}
+
+@media (min-width: 700px) {
+  .service-desk__panel { align-items: stretch; row-gap: 0; }
+  .service-desk__visual { display: grid; grid-template-rows: subgrid; grid-row: span 2; }
+  .service-desk__enlarge { min-height: 0; aspect-ratio: 16 / 9; align-self: stretch; }
+  .service-desk__enlarge img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+  .service-desk__information { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; }
+  .service-desk__facts { flex: 1; align-content: space-evenly; }
+  .service-desk__facts > div { padding-block: 7px; }
+  .service-desk__bottom { margin-top: 8px; align-items: stretch; }
 }
