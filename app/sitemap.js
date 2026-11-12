@@ -46,7 +46,14 @@ const ROUTE_CONFIG = {
 
 SERVICE_ROUTES.forEach((service,index) => { ROUTE_CONFIG['/servizi/'+service.slug] = { images: [SERVICE_IMAGES[index]] }; });
 
-const LAST_MODIFIED = '2026-11-10';
+const revisedDates = {
+  '/': '2026-11-12',
+  '/servizi': '2026-11-12',
+  '/servizi/tipografia-stampa-editoriale': '2026-11-12',
+  '/servizi/stampa-grande-formato': '2026-11-12',
+  '/servizi/insegne-allestimenti': '2026-11-12',
+  '/servizi/wrapping-interior-design-vetrofanie': '2026-11-12',
+};
 
 export default function sitemap() {
   if (!INDEXABLE) return [];
@@ -56,7 +63,7 @@ export default function sitemap() {
       const config = ROUTE_CONFIG[route] || {};
       return {
         url: SITE_URL + route,
-        lastModified: LAST_MODIFIED,
+        lastModified: revisedDates[route] ?? '2026-11-10',
         ...(config.images ? { images: config.images } : {}),
       };
     });
