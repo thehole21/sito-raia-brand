@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Expand, X } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Printer, Signpost, Layers, Shirt, MessageCircle, Expand, X } from 'lucide-react';
 import { SERVICE_ROUTES } from '@/lib/service-routes';
 import { SERVICES } from '@/lib/content';
 
@@ -14,6 +14,8 @@ const PHOTOS = [
   ['wrapping-sede-v4', 'Esempio di applicazione di pellicola privacy sulle vetrate della sede e rivestimento effetto legno'],
   ['gadget-sede-v4', 'Polo, shopper e borraccia personalizzate davanti alle presse del laboratorio RAIA'],
 ];
+
+const serviceIcons = { tipografia: BookOpen, "grande-formato": Printer, allestimenti: Signpost, wrapping: Layers, gadget: Shirt };
 
 function indexFromHash() {
   const hash = window.location.hash.slice(1);
@@ -65,16 +67,19 @@ export default function Servizi() {
   return (
     <section className="service-desk" aria-label="Esplora le cinque aree di servizio RAIA">
       <nav className="service-desk__tabs" role="tablist" aria-label="Scegli un servizio">
-        {SERVICES.map((item, index) => (
+        {SERVICES.map((item, index) => {
+          const Icon = serviceIcons[item.id];
+          return (
           <button key={item.id} ref={element => { tabButtons.current[index] = element; }}
             type="button" role="tab" id={`service-tab-${item.id}`}
             aria-selected={current === index} aria-controls={`service-panel-${item.id}`}
             tabIndex={current === index ? 0 : -1}
             onClick={() => chooseService(index)} onKeyDown={event => onTabKeyDown(event, index)}>
             <strong>{item.title}</strong>
-            <ArrowUpRight size={16} aria-hidden="true" />
+            <Icon size={16} aria-hidden="true" />
           </button>
-        ))}
+          );
+        })}
       </nav>
 
       {SERVICES.map((item, index) => (
@@ -103,7 +108,7 @@ export default function Servizi() {
             <div className="service-desk__bottom">
               <Link className="service-action" href={`/servizi/${SERVICE_ROUTES[index].slug}`}>Approfondisci il servizio <ArrowUpRight size={17} aria-hidden="true" /></Link>
               {item.note && <p>{item.note}</p>}
-              <Link className="service-action" href={`/preventivo?servizio=${item.id}`}>Parliamo del tuo progetto <ArrowUpRight size={17} aria-hidden="true" /></Link>
+              <Link className="service-action" href={`/preventivo?servizio=${item.id}`}>Parliamo del tuo progetto <MessageCircle size={17} aria-hidden="true" /></Link>
             </div>
           </div>
         </div>
