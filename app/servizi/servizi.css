@@ -78,7 +78,7 @@ html:has(.service-photo[open]) { overflow: hidden; }
   .service-desk__enlarge img { position: absolute; inset: 0; height: 100%; object-fit: cover; }
   .service-desk__information { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; }
   .service-desk__heading p { margin-bottom: 6px; }
-  .service-desk__facts { flex: 1; align-content: start; }
+  .service-desk__facts { flex: 1; align-content: center; }
   .service-desk__facts > div { padding-block: 7px; }
   .service-desk__bottom { margin-top: 8px; align-items: stretch; }
 }
