@@ -1,17 +1,53 @@
- 'use client';
+'use client';
+
 import { useState } from 'react';
-import { ArrowUpRight, Check, CalendarDays, Layers, MousePointer2, Smartphone } from 'lucide-react';
-const concepts={
- Hotel:{name:'AURA',label:'HOSPITALITY',headline:<>Il tuo prossimo<br/><em>posto del cuore.</em></>,intro:'Luoghi da vivere, storie da ricordare.',action:'Esplora le camere',color:'hotel'},
- Ristorazione:{name:'TERRA',label:'CUCINA CONTEMPORANEA',headline:<>Il gusto delle<br/><em>cose fatte bene.</em></>,intro:'Una storia di ingredienti, incontri e stagioni.',action:'Scopri il menu',color:'food'},
- Aziende:{name:'FORMA',label:'SPAZI & IDEE',headline:<>Nuove idee.<br/><em>Spazi da vivere.</em></>,intro:'Progettiamo il prossimo passo della tua impresa.',action:'Scopri i progetti',color:'business'},
+import { Bookmark, Check, RotateCcw } from 'lucide-react';
+
+const editions = {
+  Hotel: { brand: 'Aura', subtitle: 'Residenze sul lago', title: 'Scegli la tua camera', choices: ['La terrazza', 'Il giardino', 'La mansarda'], action: 'Salva la camera', receipt: 'Il tuo soggiorno', ink: '#254c46' },
+  Ristorazione: { brand: 'Terra', subtitle: 'Cucina di stagione', title: 'Componi il tuo percorso', choices: ['Orto', 'Mare', 'Bosco'], action: 'Salva il percorso', receipt: 'Il tuo menu', ink: '#833b27' },
+  Aziende: { brand: 'Forma', subtitle: 'Studio di materiali', title: 'Scegli una finitura', choices: ['Travertino', 'Rovere', 'Ottone'], action: 'Salva il campione', receipt: 'Il tuo campionario', ink: '#354465' },
 };
-export default function WebShowcase(){
- const [selected,setSelected]=useState('Hotel');const item=concepts[selected];
- return <section className="web-showcase" aria-labelledby="web-showcase-title"><div className="web-showcase__head"><div><span className="web-services__label">UN’IDEA DI COME POTREBBE ESSERE</span><h2 id="web-showcase-title">Il digitale, con carattere<span>.</span></h2></div><div className="web-showcase__tabs" role="group" aria-label="Scegli un concept">{Object.keys(concepts).map(name=><button key={name} aria-pressed={selected===name} onClick={()=>setSelected(name)}>{name}</button>)}</div></div>
- <div className={'web-showcase__stage '+item.color}>
-  <div className="web-showcase__desktop" role="img" aria-label={'Concept dimostrativo di sito web per '+selected.toLowerCase()}><div className="web-showcase__chrome" aria-hidden="true"><span><i/><i/><i/></span><small>{item.name.toLowerCase()}.example</small><ArrowUpRight size={12}/></div><div className="web-showcase__website" aria-hidden="true"><div className="web-showcase__site-nav"><strong>{item.name}<small>{item.label}</small></strong><span>La nostra storia &nbsp; · &nbsp; Esperienze</span><span>Contatti ↗</span></div><div className="web-showcase__site-hero"><div><small>UN’IDENTITÀ CHE SI RICONOSCE</small><h3>{item.headline}</h3><p>{item.intro}</p><span className="web-showcase__fake-cta">{item.action}<ArrowUpRight size={12}/></span></div><div className="web-showcase__architecture"><div/><i/><span/></div></div><div className="web-showcase__site-bottom"><span>Design che accoglie.</span><span>Ogni dettaglio fa la differenza.</span><MousePointer2 size={16}/></div></div></div>
-  <div className="web-showcase__phone" role="img" aria-label="Concept dimostrativo di app aziendale RAIA con progetti e attività"><div aria-hidden="true"><span className="web-showcase__notch"/><div className="web-showcase__app-top"><strong>raia<span>workspace</span></strong><span className="web-showcase__avatar">R</span></div><small>IL TUO SPAZIO, SEMPRE CON TE</small><h3>Tutto sotto<br/>controllo<span>.</span></h3><div className="web-showcase__app-card"><span><Layers size={17}/> Progetto in corso</span><strong>Nuova apertura</strong><small>Materiali e identità coordinata</small><div className="web-showcase__progress"><i/></div><span>Il progetto prende forma <Check size={12}/></span></div><div className="web-showcase__app-task"><CalendarDays size={17}/><div><strong>Il prossimo passo</strong><span>Rivediamo il tuo progetto</span></div><ArrowUpRight size={15}/></div><div className="web-showcase__app-dots"><i/><i/><i/></div></div></div>
-  <span className="web-showcase__floating"><Smartphone size={14}/> Un’esperienza. Ogni schermo.</span>
- </div><div className="web-showcase__caption"><span>Concept visivi dimostrativi · non sono progetti commissionati dai clienti.</span><a href="#soluzioni">Scopri le possibilità <ArrowUpRight size={14}/></a></div></section>;
+
+function Prototype({ edition }) {
+  const [choice, setChoice] = useState(0);
+  const [saved, setSaved] = useState(null);
+  return <div className="proof-stage" style={{ '--ink': edition.ink }}>
+    <div className="proof-site">
+      <small>Sito web</small>
+      <div className="proof-mast"><strong>{edition.brand}</strong><span>{edition.subtitle}</span></div>
+      <div className="proof-art" aria-hidden="true" style={{ '--angle': (choice * 22 - 24) + 'deg' }}><i/><i/><i/></div>
+      <h3>{edition.title}</h3>
+      <div className="proof-options" role="group" aria-label={edition.title}>{edition.choices.map((label, index) =>
+        <button key={label} aria-pressed={index === choice} onClick={() => setChoice(index)}>{label}</button>
+      )}</div>
+      <button className="proof-save" onClick={() => setSaved(choice)} disabled={saved === choice}>
+        {saved === choice ? <Check size={16}/> : <Bookmark size={16}/>}
+        {saved === choice ? 'Salvato nell’app' : edition.action}
+      </button>
+    </div>
+    <div className="proof-app">
+      <small>App personale</small>
+      <h3>{edition.receipt}</h3>
+      <div className="proof-ticket" key={saved ?? 'empty'} aria-live="polite">
+        <span>{edition.brand}</span>
+        <strong>{saved === null ? 'Nessuna selezione' : edition.choices[saved]}</strong>
+        <p>{saved === null ? 'Salva una scelta dal sito per ritrovarla qui.' : 'Aggiunto alla tua raccolta.'}</p>
+      </div>
+      {saved !== null && <button className="proof-reset" onClick={() => setSaved(null)}><RotateCcw size={14}/> Svuota raccolta</button>}
+    </div>
+  </div>;
+}
+
+export default function WebShowcase() {
+  const [sector, setSector] = useState('Hotel');
+  return <section className="web-proof" aria-labelledby="proof-title">
+    <header><div><span className="web-services__label">PROTOTIPO INTERATTIVO</span><h2 id="proof-title">Dal sito alla tua app<span>.</span></h2></div>
+      <div className="proof-options" role="group" aria-label="Scegli il settore">{Object.keys(editions).map(name =>
+        <button key={name} aria-pressed={sector === name} onClick={() => setSector(name)}>{name}</button>
+      )}</div>
+    </header>
+    <Prototype key={sector} edition={editions[sector]}/>
+    <p className="proof-caption">Simulazione dimostrativa. Le scelte durano solo per questa prova.</p>
+  </section>;
 }
