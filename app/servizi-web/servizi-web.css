@@ -30,3 +30,25 @@
   .web-showcase__site-hero { grid-template-columns: 1.3fr .7fr; }
 }
 @media(prefers-reduced-motion:reduce) { .studio-reveal { animation: none; } .web-showcase__architecture > * { transition: none; } }
+
+.studio-palette { padding: 0; margin: 0 0 14px; border: 0; min-width: 0; }
+.studio-palette legend { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.studio-palette > div { display: flex; justify-content: space-between; gap: 2px; }
+.studio-palette button { display: grid; justify-items: center; gap: 6px; padding: 5px 1px; background: transparent; border: none; font: inherit; font-size: 9px; color: #423733; cursor: pointer; }
+.studio-palette i { width: 20px; height: 20px; background: var(--sample); border-radius: 50%; outline: 1px solid transparent; outline-offset: 3px; }
+.studio-palette [aria-pressed=true] i { outline-color: var(--concept); }
+.web-showcase__stage .web-showcase__architecture { isolation: isolate; background: var(--surface); transition: background .45s ease; }
+.web-showcase__architecture .studio-orb { position: absolute; z-index: -1; top: 12%; left: 10%; width: 22%; aspect-ratio: 1; border-radius: 50%; background: #fff2cc; transition: transform .5s ease, background .45s ease; }
+.web-showcase__stage[data-finish="1"] .studio-orb { transform: translate(235%,65%); background: #ffd4a3; }
+.web-showcase__stage[data-finish="2"] .studio-orb { transform: translate(245%,-20%) scale(.68); background: #eff3fe; }
+.food .web-showcase__architecture > div { border-radius: 50%; height: auto; aspect-ratio: 1; width: 82%; bottom: -14%; left: 9%; background: repeating-radial-gradient(circle,#efe4ca 0 8px,#ded3bb 9px 10px); }
+.food .web-showcase__architecture > i { width: 28%; height: 34%; left: 31%; bottom: 15%; border-radius: 75% 12%; background: #58634b; transform: rotate(-21deg); }
+.food .web-showcase__architecture > span { width: 22%; height: 24%; right: 23%; bottom: 14%; border-radius: 80% 14%; background: #ab6844; }
+.business .web-showcase__architecture > i { background: repeating-linear-gradient(92deg,var(--surface) 0 9px,#ece9df 10px 11px); }
+@media(hover:hover) and (min-width:761px) and (prefers-reduced-motion:no-preference) {
+  .web-showcase__phone { transition: transform .3s ease; }
+  .web-showcase__phone:is(:hover,:focus-within) { transform: rotate(1deg) translateY(-3px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .web-showcase__stage .web-showcase__architecture, .web-showcase__architecture .studio-orb { transition: none; }
+}

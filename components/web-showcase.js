@@ -12,16 +12,25 @@ const collections = {
   Aziende: [['Studio Luce', 'Un sistema modulare per gli spazi di lavoro.'], ['Linea Materia', 'Una collezione di superfici per interni.']],
 };
 
+const directions = {
+  Hotel: { label: 'Luce della suite', options: ['Alba', 'Tramonto', 'Notte'], colors: ['#dfcfb2', '#d89672', '#58627c'] },
+  Ristorazione: { label: 'Atmosfera in sala', options: ['Pranzo', 'Aperitivo', 'Cena'], colors: ['#c9c49b', '#cc895b', '#74645b'] },
+  Aziende: { label: 'Finitura del progetto', options: ['Calce', 'Argilla', 'Grafite'], colors: ['#d8d3be', '#bd876b', '#69737a'] },
+};
+
 export default function WebShowcase() {
   const [selected, setSelected] = useState('Hotel');
   const [exploring, setExploring] = useState(false);
   const [index, setIndex] = useState(0);
   const [saved, setSaved] = useState(null);
+  const [finish, setFinish] = useState(0);
+  const direction = directions[selected];
   const item = concepts[selected];
   const entries = collections[selected];
   const [title, detail] = entries[index];
 
   function chooseSector(name) {
+    setFinish(0);
     setSelected(name);
     setExploring(false);
     setIndex(0);
@@ -35,7 +44,7 @@ export default function WebShowcase() {
         {Object.keys(concepts).map(name => <button key={name} aria-pressed={selected === name} onClick={() => chooseSector(name)}>{name}</button>)}
       </div>
     </div>
-    <div className={'web-showcase__stage ' + item.color}>
+    <div className={'web-showcase__stage ' + item.color} data-finish={finish} style={{ '--surface': direction.colors[finish] }}>
       <div className="web-showcase__desktop">
         <div className="web-showcase__chrome" aria-hidden="true"><span><i/><i/><i/></span><small>{item.name.toLowerCase()}.example</small><MousePointer2 size={12}/></div>
         <div className="web-showcase__website">
@@ -50,9 +59,9 @@ export default function WebShowcase() {
               {exploring ? <button className="web-showcase__fake-cta" onClick={() => setSaved(index)} disabled={saved === index}>{saved === index ? 'Salvato in app' : 'Conserva in app'}<Smartphone size={13}/></button>
                 : <button className="web-showcase__fake-cta" onClick={() => setExploring(true)}>{item.action}<ArrowUpRight size={13}/></button>}
             </div>
-            <div className={'web-showcase__architecture' + (exploring && index ? ' studio-alternate' : '')} aria-hidden="true"><div/><i/><span/></div>
+            <div className={'web-showcase__architecture' + (exploring && index ? ' studio-alternate' : '')} aria-hidden="true"><div/><i/><span/><b className="studio-orb"/></div>
           </div>
-          <div className="web-showcase__site-bottom"><span>{item.name} · {item.label}</span>
+          <div className="web-showcase__site-bottom"><span aria-live="polite">{direction.label} · {direction.options[finish]}</span>
             {exploring && <button onClick={() => setIndex((index + 1) % entries.length)}>Sfoglia {index + 1} / {entries.length} →</button>}
           </div>
         </div>
@@ -60,7 +69,10 @@ export default function WebShowcase() {
       <div className="web-showcase__phone"><div>
         <span className="web-showcase__notch"/>
         <div className="web-showcase__app-top"><strong>{item.name.toLowerCase()}<span>app personale</span></strong><span className="web-showcase__avatar">{item.name[0]}</span></div>
-        <small>LA TUA RACCOLTA</small><h3>Da tenere<br/>con te<span>.</span></h3>
+        <fieldset className="studio-palette">
+          <legend>{direction.label}</legend>
+          <div>{direction.options.map((option, i) => <button key={option} aria-label={option} aria-pressed={finish === i} style={{ "--sample": direction.colors[i] }} onClick={() => setFinish(i)}><i aria-hidden="true"/>{option}</button>)}</div>
+        </fieldset>
         <div className="web-showcase__app-card" aria-live="polite"><span><Layers size={16}/> Preferiti</span>
           <strong key={selected + saved} className="studio-reveal">{saved === null ? 'La tua selezione' : entries[saved][0]}</strong>
           <small>{saved === null ? 'Esplora il sito e conserva qui ciò che ti piace.' : entries[saved][1]}</small>
