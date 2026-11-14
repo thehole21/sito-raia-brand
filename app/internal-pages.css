@@ -104,8 +104,8 @@
 #main-content .quote-fieldset { margin-bottom: 18px; }
 #main-content .quote-fieldset legend { font-size: 19px; padding: 6px 0 10px; margin-bottom: 14px; }
 #main-content .form-row { gap: 14px; margin-bottom: 14px; }
-#main-content .quote-form label:not(.quote-service-option) { gap: 6px; }
-#main-content .quote-form input:not([type='radio']), #main-content .quote-form select { height: 44px; padding: 10px 12px; }
+#main-content .quote-form label:not(.quote-service-option, .quote-privacy) { gap: 6px; }
+#main-content .quote-form input:not([type='radio'], [type='checkbox']), #main-content .quote-form select { height: 44px; padding: 10px 12px; }
 #main-content .quote-form textarea { min-height: 100px; padding: 10px 12px; }
 #main-content .quote-service-options { gap: 6px; margin-bottom: 14px; }
 #main-content .quote-service-option { min-height: 44px; padding: 9px 10px; }
@@ -184,7 +184,7 @@
   #main-content .location-section__heading a { font-size: 11px; }
   #main-content .location-section__map { height: 210px; }
   #main-content .quote-form { padding: 14px; }
-  #main-content .quote-form input:not([type='radio']), #main-content .quote-form select, #main-content .quote-form textarea { font-size: 16px; }
+  #main-content .quote-form input:not([type='radio'], [type='checkbox']), #main-content .quote-form select, #main-content .quote-form textarea { font-size: 16px; }
   #main-content .quote-service-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {

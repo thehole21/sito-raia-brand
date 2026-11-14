@@ -209,10 +209,10 @@ main{min-height:38vh}
 .quote-fieldset legend{font-size:23px;letter-spacing:-.035em;font-weight:600;width:100%;border-bottom:1px solid #deded8;padding:12px 0 24px;margin-bottom:27px}
 .quote-fieldset legend span{font-size:10px;letter-spacing:.12em;color:#9b9b94;margin-right:21px}
 .form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:24px}
-.quote-form label:not(.quote-service-option){font-size:11px;font-weight:700;letter-spacing:.03em;display:flex;flex-direction:column;gap:11px;min-width:0}
+.quote-form label:not(.quote-service-option, .quote-privacy){font-size:11px;font-weight:700;letter-spacing:.03em;display:flex;flex-direction:column;gap:11px;min-width:0}
 .quote-form label sup{color:#b59065;vertical-align:baseline}
 .quote-form label small{font-size:10px;font-weight:400;color:#999}
-.quote-form input:not([type='radio']),.quote-form textarea,.quote-form select{background:#f7f6f2;border:1px solid #e9e8e2;border-radius:0;width:100%;height:53px;padding:15px;color:#161714;font-size:13px;font-weight:400;letter-spacing:normal;transition:border .25s,background .25s}
+.quote-form input:not([type='radio'], [type='checkbox']),.quote-form textarea,.quote-form select{background:#f7f6f2;border:1px solid #e9e8e2;border-radius:0;width:100%;height:53px;padding:15px;color:#161714;font-size:13px;font-weight:400;letter-spacing:normal;transition:border .25s,background .25s}
 .quote-form textarea{min-height:140px;height:auto;resize:vertical;line-height:1.65}
 .quote-form input::placeholder,.quote-form textarea::placeholder{color:#a2a29d}
 .quote-form input:focus,.quote-form textarea:focus,.quote-form select:focus{border-color:#aaa08c;background:#fff;outline:2px solid #e4d8c6;outline-offset:1px}
@@ -650,8 +650,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .quote-fieldset { margin-bottom: 27px; }
 .quote-fieldset legend { font-size: 20px; padding: 7px 0 15px; margin-bottom: 17px; }
 .form-row { gap: 16px; margin-bottom: 17px; }
-.quote-form label:not(.quote-service-option) { gap: 8px; }
-.quote-form input:not([type='radio']), .quote-form textarea, .quote-form select { background: #fbfaf7; border-color: #dcdad2; height: 49px; padding: 12px 13px; transition: border-color .2s, background .2s, box-shadow .2s; }
+.quote-form label:not(.quote-service-option, .quote-privacy) { gap: 8px; }
+.quote-form input:not([type='radio'], [type='checkbox']), .quote-form textarea, .quote-form select { background: #fbfaf7; border-color: #dcdad2; height: 49px; padding: 12px 13px; transition: border-color .2s, background .2s, box-shadow .2s; }
 .quote-form input:focus, .quote-form textarea:focus, .quote-form select:focus { outline: none; border-color: #928069; background: #fff; box-shadow: 0 0 0 3px rgba(181,159,127,.13); }
 .quote-form textarea { min-height: 121px; line-height: 1.55; }
 .quote-service-options { gap: 8px; margin-bottom: 19px; }
@@ -1540,6 +1540,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .raia-text-enter { animation: none !important; }
 }
 
-.quote-privacy{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6}.quote-privacy input{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:#742439}.quote-privacy a{text-decoration:underline}.quote-antispam{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.quote-status{font-size:14px;line-height:1.6;color:#245c39}.quote-status--error{color:#8a2639}.quote-submit:disabled{opacity:.7;cursor:default}.quote-fieldset:disabled{opacity:.85}
+.quote-form .form-row { align-items: end; }
+.quote-privacy{margin-bottom:14px;cursor:pointer;display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6}.quote-privacy input{width:18px;height:18px;flex-shrink:0;margin:2px 0 0;accent-color:#742439}.quote-privacy a{text-decoration:underline}.quote-antispam{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.quote-status{font-size:14px;line-height:1.6;color:#245c39}.quote-status--error{color:#8a2639}.quote-submit:disabled{opacity:.7;cursor:default}.quote-fieldset:disabled{opacity:.85}
 
 .quote-success-backdrop{position:fixed;inset:0;z-index:21000;background:#231b1bd9;display:grid;place-items:center;padding:20px}.quote-success{background:#faf7f2;padding:42px 36px;text-align:center;width:min(460px,100%);box-shadow:0 24px 80px #0003}.quote-success__icon{display:grid;place-items:center;width:64px;height:64px;border:1px solid #8b5261;border-radius:50%;color:#742439;margin:0 auto 22px}.quote-success h2{font-size:clamp(25px,5vw,34px);line-height:1.2;margin:0 0 14px;color:#241e1f}.quote-success h2 span{color:#742439}.quote-success p{font-size:15px;line-height:1.7;margin:0 0 22px;color:#675b5c}.quote-success button{display:inline-flex;align-items:center;gap:7px;border:0;background:none;color:#742439;font:inherit;font-size:12px;cursor:pointer;padding:8px}.quote-success button:focus-visible{outline:2px solid #742439;outline-offset:4px}
