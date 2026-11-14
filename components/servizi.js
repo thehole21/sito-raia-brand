@@ -12,7 +12,7 @@ const PHOTOS = [
   ['grande-formato-sede-v4', 'Plotter Mimaki del laboratorio RAIA con una stampa botanica su grande formato'],
   ['allestimenti-sede-v4', 'Banco di allestimento con laminatrice, campioni di insegne, pannelli sagomati e stand dimostrativo'],
   ['wrapping-sede-v4', 'Esempio di applicazione di pellicola privacy sulle vetrate della sede e rivestimento effetto legno'],
-  ['gadget-sede-v4', 'Polo, shopper e borraccia personalizzate davanti alle presse del laboratorio RAIA'],
+  ['gadget-sede-v5', 'Shopper con marchio RAIA, polo, maglietta e borraccia sul tavolo con espositore di penne sullo sfondo'],
 ];
 
 const serviceIcons = { tipografia: BookOpen, "grande-formato": Printer, allestimenti: Signpost, wrapping: Layers, gadget: Shirt };

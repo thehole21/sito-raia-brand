@@ -8,7 +8,7 @@ const SERVICE_IMAGES = [
   '/images/servizi/grande-formato-sede-v4.webp',
   '/images/servizi/allestimenti-sede-v4.webp',
   '/images/servizi/wrapping-sede-v4.webp',
-  '/images/servizi/gadget-sede-v4.webp',
+  '/images/servizi/gadget-sede-v5.webp',
 ].map(src => SITE_URL + src);
 
 const PROJECT_IMAGES = [
