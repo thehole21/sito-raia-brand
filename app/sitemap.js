@@ -47,12 +47,12 @@ const ROUTE_CONFIG = {
 SERVICE_ROUTES.forEach((service,index) => { ROUTE_CONFIG['/servizi/'+service.slug] = { images: [SERVICE_IMAGES[index]] }; });
 
 const revisedDates = {
-  '/': '2026-11-12',
-  '/servizi': '2026-11-12',
-  '/servizi/tipografia-stampa-editoriale': '2026-11-12',
-  '/servizi/stampa-grande-formato': '2026-11-12',
-  '/servizi/insegne-allestimenti': '2026-11-12',
-  '/servizi/wrapping-interior-design-vetrofanie': '2026-11-12',
+  '/': '2026-11-17',
+  '/servizi': '2026-11-17',
+  '/servizi/tipografia-stampa-editoriale': '2026-11-17',
+  '/servizi/stampa-grande-formato': '2026-11-17',
+  '/servizi/insegne-allestimenti': '2026-11-17',
+  '/servizi/wrapping-interior-design-vetrofanie': '2026-11-17',
 };
 
 export default function sitemap() {
