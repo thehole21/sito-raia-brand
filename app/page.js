@@ -27,7 +27,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="home-services-summary shell" aria-labelledby="home-services-title"><h2 id="home-services-title">Stampa e comunicazione</h2><p>Dai libri ai cataloghi, la nostra tipografia spedisce in tutta Italia. Dalla nostra sede nell’area metropolitana di Roma realizziamo insegne, vetrofanie e allestimenti per negozi, uffici e hotel, con montaggio e installazione in tutta Italia.</p><Link href="/servizi">Scopri tutti i servizi RAIA <ArrowUpRight size={18} aria-hidden="true" /></Link></section>
+      <section className="home-services-summary shell" aria-labelledby="home-services-title"><h2 id="home-services-title">Stampa e comunicazione</h2><p>Dai libri ai cataloghi, la nostra tipografia spedisce in tutta Italia. Dalla nostra sede a Roma realizziamo insegne, vetrofanie e allestimenti per negozi, uffici e hotel, con montaggio e installazione in tutta Italia.</p><Link href="/servizi">Scopri tutti i servizi RAIA <ArrowUpRight size={18} aria-hidden="true" /></Link></section>
       <ClientsMarquee />
       <ValuesStrip />
 

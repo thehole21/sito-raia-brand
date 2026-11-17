@@ -82,3 +82,5 @@ html:has(.service-photo[open]) { overflow: hidden; }
   .service-desk__facts > div { padding-block: 7px; }
   .service-desk__bottom { margin-top: 8px; align-items: stretch; }
 }
+.service-membership { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 11px; color: var(--brand-wine-deep); }
+.service-membership img { width: 66px; height: auto; }

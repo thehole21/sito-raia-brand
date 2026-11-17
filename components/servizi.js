@@ -100,6 +100,7 @@ export default function Servizi() {
           <div className="service-desk__information">
             <div className="service-desk__heading">
               <h2>{item.title}</h2>
+              {item.id === "allestimenti" && <a className="service-membership" href="https://aifil.it/socio/raia-srl/" target="_blank" rel="noopener noreferrer"><Image src="/images/aifil.png" alt="AIFIL" width={174} height={84}/><span>Soci AIFIL</span></a>}
               <p>{item.description}</p>
             </div>
             <dl className="service-desk__facts">
